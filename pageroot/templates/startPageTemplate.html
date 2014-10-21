@@ -1,6 +1,14 @@
 <div id="slidecontainer">
 	<div class="centerbox" id="slidecenter">
-		<h1>SLIDE PICTURE GOES HERE</h1>
+		<ul rn-carousel rn-carousel-auto-slide="10" rn-carousel-indicator='true' rn-carousel-transition='slideAndFade'>
+			<li ng-repeat="img in imglist">
+				<div ng-style="{'background-image': 'url(' + img + ')'}" class="slideframe">
+					<h1>A fun place to be</h1>
+					<p>Some good text here describing how awesome we are!!!!</p>
+					<p>{{img}}</p>
+				</div>
+			</li>
+		</ul>
 	</div>
 </div>
 

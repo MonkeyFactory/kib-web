@@ -23,6 +23,23 @@ body {
 	height:100%;
 }
 
+#slidecenter ul {
+	height:100%;
+}
+
+#slidecenter ul li {
+	height:100%;
+	background-color:#353B31;
+}
+
+.slideframe {
+	height:100%;
+	padding:30px;
+	color:white;
+	background-position:center top;
+	background-repeat:no-repeat;
+}
+
 #linkgrid {
 	margin-top:20px;
 }
