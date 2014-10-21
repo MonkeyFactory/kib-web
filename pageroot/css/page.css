@@ -1,3 +1,49 @@
-body{
-	padding-top:10px;
+body {
+	margin:0;
+	padding:0 10px 0 0;
+}
+
+.centerbox {
+	width:1024px;
+	margin:0 auto 0 auto;
+}
+
+#header {
+	
+}
+
+#slidecontainer{
+	margin-top:10px;
+	width:100%;
+	height:450px;
+	background-color: #707969;
+}
+
+#slidecenter {
+	height:100%;
+}
+
+#linkgrid {
+	margin-top:20px;
+}
+
+.linkbox {
+	width:450px;
+	border:1px dotted #707969;
+	height:250px;
+	margin-bottom:30px;
+}
+
+.linkboxleft {
+	float:left;
+}
+
+.linkboxright {
+	float:right;
+}
+
+.linkbox h1 {
+	text-align:center;
+	font-size:14pt;
+	color:green;
 }
