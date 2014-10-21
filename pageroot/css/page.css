@@ -21,6 +21,7 @@ body {
 
 #slidecenter {
 	height:100%;
+	border:5px solid #353B31;
 }
 
 #slidecenter ul {
@@ -49,6 +50,10 @@ body {
 	border:1px dotted #707969;
 	height:250px;
 	margin-bottom:30px;
+	
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:200px;
 }
 
 .linkboxleft {
@@ -59,8 +64,21 @@ body {
 	float:right;
 }
 
-.linkbox h1 {
+.linkbox .lowerbar {
+	width:100%;
+	height:50px;
+	position:relative;
+	margin-bottom:0px;
+	bottom:0;
+	padding:10px;
+	
+	opacity: 0.7;
+    filter: alpha(opacity=70); 
+	background-color: #707969;
+}
+
+.lowerbar p {
 	text-align:center;
 	font-size:14pt;
-	color:green;
+	color:white;
 }
