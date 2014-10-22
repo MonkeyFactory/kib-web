@@ -15,5 +15,4 @@ echo "Copying to $WEBROOT"
 cp -r "$DIR/page-root/*" "$WEBROOT"
 
 echo "Copying forum theme"
-[ ! -d "$WEBROOT/forum/styles/kib/" ] && mkdir "$WEBROOT/forum/styles/kib/"
-cp -r "$DIR/forum-theme/*" "$WEBROOT/forum/styles/kib/"
+cp -r "$DIR/forum-theme/*" "$WEBROOT/forum/styles/"
