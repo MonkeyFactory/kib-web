@@ -3,10 +3,10 @@
 Colours and backgrounds for common.css
 -------------------------------------------------------------- */
 
-html, body {
+/*html, body {
 	color: #797979;
 	background: url("{T_THEME_PATH}/images/background.gif") repeat left top #262930;
-}
+}*/
 
 h1 {
 	color: #FFFFFF;

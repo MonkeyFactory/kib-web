@@ -108,30 +108,19 @@
 <div id="wrap">
 	<a id="top" name="top" accesskey="t"></a>
     
-    <div id="banner">
+   <!-- <div id="banner">
     
         <div class="fl">
             <a href="{U_INDEX}" title="{L_INDEX}" id="logo">{SITE_LOGO_IMG}</a>
         </div>
         
         <div class="fr">
-            <ul class="userlinks">
-                <!-- IF S_USER_LOGGED_IN -->
-                    <li><a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a></li>
-                    <li><a href="{U_PROFILE}">{L_READ_PROFILE}</a></li>
-                    <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
-                <!-- ELSE -->
-                    <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
-                    <!-- IF S_REGISTER_ENABLED -->
-                        <li><a href="{U_REGISTER}">{L_REGISTER}</a></li>
-                    <!-- ENDIF -->       
-                <!-- ENDIF -->
-            </ul>
+           
         </div>
         
         <div class="cb"></div>
     
-    </div>
+    </div> -->
     
     <div class="navigation">
     	<ul>
@@ -172,6 +161,20 @@
             </li> -->
             
         </ul>
+		
+		 <ul style="float:right;">
+                <!-- IF S_USER_LOGGED_IN -->
+                    <li><a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a></li>
+                    <li><a href="{U_PROFILE}">{L_READ_PROFILE}</a></li>
+                    <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
+                <!-- ELSE -->
+                    <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
+                    <!-- IF S_REGISTER_ENABLED -->
+                        <li><a href="{U_REGISTER}">{L_REGISTER}</a></li>
+                    <!-- ENDIF -->       
+                <!-- ENDIF -->
+         </ul>
+		 
         <div class="cb"></div>	
     </div>
 
