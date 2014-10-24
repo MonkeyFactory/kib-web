@@ -5,6 +5,21 @@ var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carouse
 			controller: 'StartPageController'
 		})
 		
+		.when('/events', {
+			templateUrl: 'templates/eventPageTemplate.html',
+			controller: 'EventPageController'
+		})
+		
+		.when('/gallery', {
+			templateUrl: 'templates/eventPageTemplate.html',
+			controller: 'EventPageController'
+		})
+		
+		.when('/forum', {
+			templateUrl: 'templates/eventPageTemplate.html',
+			controller: 'EventPageController'
+		})
+		
 		.otherwise({
 			redirectTo: '/'
 		});
