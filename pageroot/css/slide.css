@@ -1,0 +1,28 @@
+#slidecontainer{
+	margin-top:10px;
+	width:100%;
+	height:450px;
+	background-color: #707969;
+}
+
+#slidecenter {
+	height:100%;
+	border:5px solid #353B31;
+}
+
+#slidecenter ul {
+	height:100%;
+}
+
+#slidecenter ul li {
+	height:100%;
+	background-color:#353B31;
+}
+
+.slideframe {
+	height:100%;
+	padding:30px;
+	color:white;
+	background-position:center top;
+	background-repeat:no-repeat;
+}

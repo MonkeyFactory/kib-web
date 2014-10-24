@@ -1,0 +1,31 @@
+#menubarcontainer {
+	background-color:#707969;	
+}
+
+#menubar {
+	height:40px;
+	background-color:#707969;
+	text-align:center;
+}
+
+#menubar ul {
+	list-style-type:none;	
+	padding:0;
+}
+
+#menubar ul li {
+	display:inline-block;
+	text-align:center;
+	padding:0 20px 0 20px;
+	border-right:1px solid #353B31;
+}
+
+#menubar ul li:last-child  {
+	border:none;
+}
+
+#menubar ul li a{
+	color:white;
+	vertical-align:center;
+	line-height:40px;
+}
