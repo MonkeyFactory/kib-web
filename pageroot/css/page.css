@@ -1,10 +1,17 @@
-body {
-	margin:0;
-	padding:10px 0 0 0;
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+  padding:10px 0 0 0;
 }
 
 img {
 	border:0;
+}
+
+.clear {
+	clear:both;
 }
 
 .centerbox {
@@ -28,9 +35,9 @@ img {
 }
 
 .imagebox {
-	width:450px;
-	border:1px dotted #707969;
-	height:250px;
+	width:480px;
+	border:1px solid #707969;
+	height:300px;
 	margin-bottom:30px;
 	
 	background-position:center;
@@ -43,31 +50,5 @@ img {
 }
 
 .imageboxright {
-	float:right;
-}
-
-#footercontainer {
-	position:absolute;
-	bottom:0;
-	height:30px;
-	background-color:#707969;
-	z-index:100;
-}
-
-#footercontent{
-	line-height:30px;
-}
-
-#footercontent p {
-	color:white;
-	padding:0;
-	margin:0;
-	vertical-align:center;
-	float:left;
-}
-
-.socialmediaimage {
-	height:25px;
-	margin-top:2.5px;
 	float:right;
 }
