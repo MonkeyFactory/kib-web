@@ -104,66 +104,42 @@
 </head>
 
 <body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}">
-
-<div id="wrap">
+<div class="page-wrap">
+<div>
 	<a id="top" name="top" accesskey="t"></a>
     
-   <!-- <div id="banner">
-    
-        <div class="fl">
-            <a href="{U_INDEX}" title="{L_INDEX}" id="logo">{SITE_LOGO_IMG}</a>
-        </div>
-        
-        <div class="fr">
-           
-        </div>
-        
-        <div class="cb"></div>
-    
-    </div> -->
-    
-    <div class="navigation">
-    	<ul>
-        	<li<!-- IF SCRIPT_NAME neq 'faq' and SCRIPT_NAME neq 'search' and SCRIPT_NAME neq 'memberlist' --> class="active"<!-- ENDIF -->><a href="{U_INDEX}">{L_FORUM}</a></li>
-            <li<!-- IF SCRIPT_NAME eq 'faq' --> class="active"<!-- ENDIF -->><a href="{U_FAQ}">{L_FAQ}</a></li>
-            <!-- IF S_DISPLAY_SEARCH -->
-            	<li<!-- IF SCRIPT_NAME eq 'search' --> class="active"<!-- ENDIF -->>
-                	<a href="{U_SEARCH}">{L_SEARCH}</a>
-                	<!-- IF S_USER_LOGGED_IN -->
-                        <ul>
-                            <li><a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a></li>
-							<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a></li>
-                            <!-- IF S_LOAD_UNREADS -->
-                            	<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
-                            <!-- ENDIF -->
-                            <li><a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a></li>
-                            <li><a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
-                        </ul>
-                    <!-- ENDIF -->
-                </li>
-            <!-- ENDIF -->
+	<div class="centerbox" id="header">
+		<img src="/kib-web/pageroot/media/logo.png" style="height:150px; float:left;"></img>
+				
+		<a href="#/">
+			<img src="/kib-web/pageroot/media/logo-text.png" style="vertical-align:center;"></img>
+		</a>
+		
+		<img src="/kib-web/pageroot/media/logo.png" style="height:150px; float:right;"></img>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="widebox" id="menubarcontainer">
+		<div class="centerbox" id="menubar" style="text-align:left;">
+			<ul style="float:left;">
+				<li>
+					<a href="/kib-web/pageroot/#/gallery">Bildgalleri</a>
+				</li>
+				<li>
+					<a href="/kib-web/pageroot/#/events">Eventkalender</a>
+				</li>
+			</ul>
+			
+			<ul style="float:right;">   
             <!-- IF S_DISPLAY_MEMBERLIST -->
-            	<li<!-- IF SCRIPT_NAME eq 'memberlist' --> class="active"<!-- ENDIF -->><a href="{U_MEMBERLIST}">{L_MEMBERLIST}</a></li>
+            	<li<!-- IF SCRIPT_NAME eq 'memberlist' --> <!-- ENDIF -->><a href="{U_MEMBERLIST}">{L_MEMBERLIST}</a></li>
             <!-- ENDIF -->
             <!-- IF U_RESTORE_PERMISSIONS -->
             	<li><a href="{U_RESTORE_PERMISSIONS}"><span>{L_RESTORE_PERMISSIONS}</span></a></li>
             <!-- ENDIF -->
-
-            <!-- <li><a href="#">Custom menu item 1</a></li>
-            <li>
-            	<a href="#">Custom menu item 2</a>
-                <ul>
-                	<li><a href="#">drop item 1</a></li>
-                    <li><a href="#">drop item 2</a></li>
-                    <li><a href="#">a really long drop item 3</a></li>
-                    <li><a href="#">drop item 4</a></li>
-                </ul>
-            </li> -->
-            
-        </ul>
-		
-		 <ul style="float:right;">
-                <!-- IF S_USER_LOGGED_IN -->
+			<!-- IF S_USER_LOGGED_IN -->
+					<!-- IF U_MCP --><li><a href="{U_MCP}">{L_MCP}</a></li><!-- ENDIF -->
+					<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
                     <li><a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a></li>
                     <li><a href="{U_PROFILE}">{L_READ_PROFILE}</a></li>
                     <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
@@ -173,13 +149,17 @@
                         <li><a href="{U_REGISTER}">{L_REGISTER}</a></li>
                     <!-- ENDIF -->       
                 <!-- ENDIF -->
-         </ul>
-		 
-        <div class="cb"></div>	
-    </div>
-
+			</ul>
+			
+			<div class="clear"></div>
+		</div>
+	</div>
+    
+	<!-- div class="navigation"></!-->
+	
 	<a name="start_here"></a>
-	<div id="page-body">
+	<div class="centerbox" style="margin-top:5px;">
+	
 		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
 		<div id="information" class="rules">
 			<div class="inner"><span class="corners-top"><span></span></span>
@@ -218,3 +198,4 @@
                 <!-- ENDIF -->
             </div>
 		<!-- ENDIF -->
+		
