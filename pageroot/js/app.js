@@ -20,6 +20,11 @@ var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carouse
 			controller: 'EventPageController'
 		})
 		
+		.when('/page/:pageId', {
+			templateUrl: 'templates/pagePageTemplate.html',
+			controller: 'PagePageController'
+		})
+		
 		.otherwise({
 			redirectTo: '/'
 		});
