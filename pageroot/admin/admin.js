@@ -4,6 +4,11 @@ var kibAdmin = angular.module('kibAdmin', ['ngRoute'])
 			templateUrl: 'admin/templates/adminPagePageTemplate.html',
 			controller: 'AdminPageController'
 		})
+		
+		.when('/admin/listpages',  {
+			templateUrl: 'admin/templates/listPageTemplate.html',
+			controller: 'ListPageController'
+		})
 	});
 	
 kibAdmin.directive('ckEditor', [function () {

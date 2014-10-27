@@ -6,6 +6,10 @@ kibApp.factory('kibservice', function($resource){
 	return {
 		GetPage: function(pageName){
 			return Page.get({pageName: pageName});
+		},
+		
+		GetPages: function(){
+			return Page.query();
 		}
 	};
 });

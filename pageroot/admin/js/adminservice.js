@@ -11,6 +11,10 @@ kibAdmin.factory('adminservice', function($resource){
 		
 		SavePage: function(pageName, page){
 			return page.$save({pageName: pageName});
+		},
+		
+		DeletePage: function(pageName){
+			return Page.delete({pageName: pageName});
 		}
 	};
 });

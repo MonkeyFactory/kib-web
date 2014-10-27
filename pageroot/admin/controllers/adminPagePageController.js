@@ -1,4 +1,4 @@
-kibAdmin.controller('AdminPageController', function($scope, $routeParams, kibservice, adminservice){		
+kibAdmin.controller('AdminPageController', function($scope, $routeParams, $location, kibservice, adminservice){		
 	if($routeParams.pageName){
 		$scope.page = kibservice.GetPage($routeParams.pageName);
 		var newPage = false;
@@ -15,5 +15,7 @@ kibAdmin.controller('AdminPageController', function($scope, $routeParams, kibser
 		}else{
 			adminservice.SavePage($routeParams.pageName, $scope.page);
 		}
+		
+		$location.path("/admin/listpages");
 	}
 });
