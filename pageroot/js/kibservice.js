@@ -1,11 +1,11 @@
 var BaseURL = "http://localhost/modend/api";
 
 kibApp.factory('kibservice', function($resource){
-	var Page = $resource(BaseURL + "/page/:pageId");
+	var Page = $resource(BaseURL + "/page/:pageName");
 	
 	return {
-		GetPage: function(pageId){
-			return Page.get({pageId: pageId});
+		GetPage: function(pageName){
+			return Page.get({pageName: pageName});
 		}
 	};
 });

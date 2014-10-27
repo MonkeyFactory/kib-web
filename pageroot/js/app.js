@@ -20,7 +20,7 @@ var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carouse
 			controller: 'EventPageController'
 		})
 		
-		.when('/page/:pageId', {
+		.when('/page/:pageName', {
 			templateUrl: 'templates/pagePageTemplate.html',
 			controller: 'PagePageController'
 		})
