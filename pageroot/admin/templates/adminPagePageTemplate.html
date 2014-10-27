@@ -1,0 +1,14 @@
+<div class="centerbox textbox">
+	<form role="form" ng-submit="savePage()">
+		<div class="form-group">
+			<label>Page name and url path (no spaces!)</label>
+			<input class="form-control" type="text" ng-model="page.pageName" />
+		</div>
+		
+		<div class="form-group">
+			<textarea class="form-control" ng-model="page.pageContent" data-ck-editor></textarea>
+		</div>
+		
+		<button type="submit" class="btn btn-default">{{buttonText}}</button>
+	</form>
+</div>
