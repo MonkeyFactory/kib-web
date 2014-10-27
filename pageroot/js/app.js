@@ -1,5 +1,5 @@
 var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carousel', 'kibAdmin']).
-	config(function($routeProvider){
+	config(function($routeProvider, $resourceProvider){
 		$routeProvider.when('/', {
 			templateUrl: 'templates/startPageTemplate.html',
 			controller: 'StartPageController'
@@ -28,4 +28,10 @@ var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carouse
 		.otherwise({
 			redirectTo: '/'
 		});
-	});
+		
+		//$resourceProvider.defaults.stripTrailingSlashes = false;
+	}).filter('unsafe', function($sce) {
+		return function(val) {
+			return $sce.trustAsHtml(val);
+		};
+	});;
