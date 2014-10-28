@@ -14,6 +14,7 @@ kibAdmin.controller('ListPageController', function($scope, $location, kibservice
 			}
 			
 			$scope.pages = kibservice.GetPages();
+			$scope.$apply();
 		}
 	}
 });
