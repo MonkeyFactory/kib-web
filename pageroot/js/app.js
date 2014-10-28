@@ -11,13 +11,8 @@ var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carouse
 		})
 		
 		.when('/gallery', {
-			templateUrl: 'templates/eventPageTemplate.html',
-			controller: 'EventPageController'
-		})
-		
-		.when('/forum', {
-			templateUrl: 'templates/eventPageTemplate.html',
-			controller: 'EventPageController'
+			templateUrl: 'templates/galleryPageTemplate.html',
+			controller: 'GalleryPageController'
 		})
 		
 		.when('/page/:pageName', {
