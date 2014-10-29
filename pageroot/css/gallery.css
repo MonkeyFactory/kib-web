@@ -15,6 +15,11 @@
 	margin:5px;
 }
 
-.galleryrow img{
+.unselectedImage{
 	height:200px;
+}
+
+.selectedImage {
+	height: 400px;
+	border:10px solid black;
 }
