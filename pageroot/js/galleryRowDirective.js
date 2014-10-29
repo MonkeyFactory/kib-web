@@ -1,5 +1,5 @@
 angular.module('kibGalleryModule', [])
-	.directive('galleryRow', function($timeout, $document){
+	.directive('galleryRow', function($timeout, $document, $window){
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/galleryRowTemplate.html',
@@ -12,9 +12,27 @@ angular.module('kibGalleryModule', [])
 				
 						img.removeClass("unselectedImage").addClass("selectedImage");
 						resizeContainer();
-						
+						alignContainer();
 					}
 				
+					var alignContainer = function(){
+						var container = element.find(".galleryrowinner");
+						var selectedImage = element.find(".selectedImage");
+						if(!selectedImage.prop("tagName")){
+							container.css("left", "0");
+							return;
+						}
+							
+							
+						var imagePos = selectedImage.position();
+						imagePos.left += container.position().left;
+
+						if(imagePos.left  > $window.innerWidth - selectedImage.width()){
+							container.css("left", (container.position().left - selectedImage.width()) + "px");
+						}else if(imagePos.left < 0){
+							container.css("left", (container.position().left + selectedImage.width()) + "px");
+						}
+					}
 
 					var resizeContainer = function(){
 						var totWidth = 0;
@@ -40,7 +58,7 @@ angular.module('kibGalleryModule', [])
 
 					$document.on("keydown", function(event){
 						var selectedImage = element.find(".selectedImage");
-						if(!selectedImage)
+						if(!selectedImage.prop("tagName"))
 							return;
 							
 						var currentLI = selectedImage.parent();
