@@ -1,6 +1,10 @@
 angular.module('kibGalleryModule', [])
 	.directive('galleryRow', function($timeout, $document, $window){
 		return {
+			scope: {
+				images: '=',
+				name: '@'
+			},
 			restrict: 'E',
 			templateUrl: 'templates/galleryRowTemplate.html',
 			link : function(scope, element, attr) {
