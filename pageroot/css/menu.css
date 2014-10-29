@@ -1,5 +1,6 @@
 #menubarcontainer {
 	background-color:#707969;	
+	margin:0;
 }
 
 #menubar {
@@ -20,8 +21,13 @@
 	border-right:1px solid #353B31;
 }
 
+#menubar ul li:first-child  {
+	padding-left:0;
+}
+
 #menubar ul li:last-child  {
 	border:none;
+	padding-right:0;
 }
 
 #menubar ul li a{
