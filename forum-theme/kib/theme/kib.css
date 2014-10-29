@@ -52,7 +52,7 @@ ul.userlinks li a strong {
 }
 
 .navigation {
-	background: #1e2025;
+	background: #353B31;
 	font-family: "beb", Arial, Helvetica, sans-serif;
 	word-spacing: 5px;
 	margin-bottom: 20px;
@@ -96,7 +96,7 @@ ul.userlinks li a strong {
 
 .navigation ul li ul { /* main menu drop down */
 	position: absolute;
-	background: #1E2025;
+	background: #707969;
 	display: none;
 	z-index: 9999;
 }
@@ -114,8 +114,9 @@ ul.userlinks li a strong {
 }
 
 li.header {
-	background: #1e2025;
+	background: #707969;
 	padding: 10px;
+	border-top:2px solid #353B31;
 }
 
 li.header dl.icon dt {
@@ -134,6 +135,6 @@ li.header dl.icon dt a:hover {
 }
 
 table#memberlist th {
-     background: #1E2025;
+     background: #707969;
      padding: 10px;
 }

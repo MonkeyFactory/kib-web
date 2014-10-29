@@ -58,7 +58,7 @@ hr.dashed {
 }
 
 .forabg, .forumbg {
-	background: none;
+	background-color:none;
 }
 
 .panel {
@@ -113,6 +113,11 @@ ul.navlinks {
 ----------------------------------------*/
 table.table1 thead th {
 	color: #FFFFFF;
+	background-color:#707969;
+}
+
+table.table1 thead tr {
+	background-color:#707969;
 }
 
 table.table1 tbody tr {
@@ -235,7 +240,7 @@ Colours and backgrounds for links.css
 
 a:link	{ color: #585858; }
 a:visited	{ color: #585858; }
-a:hover	{ color: #50ec18; }
+a:hover	{ color: #2E8011; }
 a:active	{ color: #939393; }
 
 /* Links on gradient backgrounds */
@@ -314,7 +319,7 @@ a.topictitle:active {
 }
 
 .postprofile a:hover, .postprofile dt.author a:hover {
-	color: #50ec18;
+	color: #2E8011;
 }
 
 .postprofile a:active {
@@ -327,7 +332,7 @@ a.topictitle:active {
 }
 
 .search .postprofile a:hover {
-	color: #50ec18;
+	color: #2E8011;
 }
 
 /* Back to top of page */
@@ -363,12 +368,12 @@ a.right:hover {
 Colours and backgrounds for content.css
 -------------------------------------------------------------- */
 
-ul.forums {
-	background: none;
-}
-
 ul.topiclist li {
 	color: #6f6f6f;
+}
+
+ul.forums {
+	background: none;
 }
 
 ul.topiclist dd {
@@ -413,6 +418,7 @@ li.row:hover dd {
 
 li.header dt, li.header dd {
 	color: #FFFFFF;
+	background-color:#707969;
 }
 
 /* Forum list column styles */
@@ -806,13 +812,13 @@ ul.cplist {
 }
 
 #navigation #active-subsection a {
-	color: #50ec18;
+	color: #2A7A0D;
 	background-color: #F9F9F9;
 	background-image: none;
 }
 
 #navigation #active-subsection a:hover {
-	color: #50ec18;
+	color: #3AA813;
 }
 
 /* Preferences pane layout
