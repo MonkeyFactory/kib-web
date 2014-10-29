@@ -1,8 +1,14 @@
 .galleryrowholder {
 	overflow: hidden;
-	margin-top:30px;
+	margin-top:20px;
 	min-height:200px;
-	width:100%
+	width:100%;
+	background-color:#353B31;
+}
+
+.galleryrowholder h3 {
+	color:#ffffff;
+	padding:0 0 0 10px;
 }
 
 .galleryrowinner {
