@@ -16,10 +16,14 @@ angular.module('kibGalleryModule', [])
 					}
 				
 					//Set all images as unselected
-					element.find("li > img").each(function(index){
+					var totWidth = 0;
+					element.find("li > img").each(function(index){			
 						angular.element(this).addClass("unselectedImage");
-					});
-				
+						totWidth += angular.element(this).outerWidth();
+					});			
+								
+					angular.element(".galleryrowinner").width(totWidth + 400);		
+
 					//Setup click handler
 					element.find("li > img").on("click", function(){
 						img = angular.element(this);
