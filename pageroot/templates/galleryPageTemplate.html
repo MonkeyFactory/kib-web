@@ -1,12 +1,7 @@
 <div class="galleryrowholder widebox">
-	<ul>
-		<li><img src="http://i766.photobucket.com/albums/xx301/Joppreck/P1011095_zps880bb822.jpg" /></li>
-		<li><img src="http://i232.photobucket.com/albums/ee195/CommanderSven/Warhammer%20Fantasy/Undead/VampireDeathKnight1.jpg"/></li>
-		<li><img src="http://i232.photobucket.com/albums/ee195/CommanderSven/Warhammer%20Fantasy/Undead/MeatWagonpaint.jpg" style="height:400px;"/></li>
-		<li><img src="http://i35.photobucket.com/albums/d183/kin29rob/nvalhallans_wip_1_zpseea8e897.jpg"/></li>
-		<li><img src="http://i35.photobucket.com/albums/d183/kin29rob/Raptors%20Space%20Marines/raptor_test_1_zpsbc9bb88b.jpg"/></li>
-		<li><img src="http://i35.photobucket.com/albums/d183/kin29rob/Raptors%20Space%20Marines/motor_pool_1_zps844af263.jpg"/></li>
+	<ul class="galleryrow">
+		<li ng-repeat="image in images">
+			<img ng-src="{{image}}" ng-click="focusImage(this)"/>
+		</li>
 	</ul>
-</div>
-
 </div>
