@@ -1,35 +1,41 @@
 angular.module('kibGalleryModule', [])
-	.controller('galleryController', function(){
-		alert("Hello");
-	})
-	.directive('galleryrow', function($timeout, $document){
+	.directive('galleryRow', function($timeout, $document){
 		return {
-			restrict: 'C',
+			restrict: 'E',
+			templateUrl: 'templates/galleryRowTemplate.html',
 			link : function(scope, element, attr) {
 				$timeout(function(){
 					var selectImage = function(img){
-						element.find("li > img").each(function(index){
+						element.find("img").each(function(index){
 							angular.element(this).removeClass("selectedImage").addClass("unselectedImage");
 						});
 				
 						img.removeClass("unselectedImage").addClass("selectedImage");
+						resizeContainer();
+						
+					}
+				
+
+					var resizeContainer = function(){
+						var totWidth = 0;
+						element.find("img").each(function(index){			
+							totWidth += angular.element(this).outerWidth(true) + 10;
+						});	
+						
+						element.find(".galleryrowinner").width(totWidth);	
 					}
 				
 					//Set all images as unselected
-					var totWidth = 0;
-					element.find("li > img").each(function(index){			
+					element.find("img").each(function(index){			
 						angular.element(this).addClass("unselectedImage");
-						totWidth += angular.element(this).outerWidth();
-					});			
+					});					
 								
-					angular.element(".galleryrowinner").width(totWidth + 400);		
+					resizeContainer();
 
 					//Setup click handler
-					element.find("li > img").on("click", function(){
+					element.find("img").on("click", function(){
 						img = angular.element(this);
-						//alert(img.prop("tagName"));
 						selectImage(img);
-						
 					});
 
 					$document.on("keydown", function(event){
