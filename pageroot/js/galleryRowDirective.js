@@ -10,7 +10,7 @@ angular.module('kibGalleryModule', [])
 			link : function(scope, element, attr) {
 				$timeout(function(){
 					var selectImage = function(img){
-						element.find("img").each(function(index){
+						angular.element(".galleryImage").each(function(index){
 							angular.element(this).removeClass("selectedImage").addClass("unselectedImage");
 						});
 				
