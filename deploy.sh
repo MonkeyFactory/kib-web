@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 #Include configuration if present
 [ -f "config.sh" ] && source "config.sh"
