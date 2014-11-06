@@ -1,0 +1,24 @@
+#calendercontainer{
+	margin-top:20px;
+	padding:10px 0 10px 0;
+	background-color:#707969;
+}
+
+.calendar {
+	width:900px;
+	height:500px;
+}
+
+.fc-widget-header{
+	background-color:#353B31;
+	color:white;
+}
+
+.fc-view-container {
+	background-color:white;
+}
+
+.fc-event {
+	background-color:#707969;
+	border-color:#353B31;
+}

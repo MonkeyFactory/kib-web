@@ -1,7 +1,10 @@
-<div class="centerbox textbox">
-	<h1>Lorem ipsum</h1>
+<div class="widebox" id="calendercontainer">
+	<div class="centerbox">
+		<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> 
+	</div>
+</div>
 
-
-<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> 
-
+<div class="centerbox textbox" ng-show="selectedEvent">
+	<h2>{{selectedEvent.Title}}</h2>
+	<p>{{selectedEvent.Description}}</p>
 </div>

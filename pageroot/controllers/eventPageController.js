@@ -11,8 +11,8 @@ kibApp.controller('EventPageController', function($scope, kibservice){
 	 
 	$scope.uiConfig = {
       calendar:{
-        height: 450,
         editable: false,
+		height:500,
         header:{
           left: 'title',
           center: '',
