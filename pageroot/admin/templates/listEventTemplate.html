@@ -1,0 +1,43 @@
+<div class="centerbox">
+	<div class="header">
+		<h1>Events in database</h1>
+	</div>
+
+	<a href="#/admin/adminevent" class="btn btn-default" style="float:right;">Add New Event</a>
+	<div class="clear"></div>
+	
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th style="width:30px"></th>
+				<th style="width:30px"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="event in events">
+				<td>
+					{{event.Title}}
+				</td>
+				<td>
+					{{event.StartDate}}	
+				</td>
+				<td>
+					{{event.EndDate}}	
+				</td>
+				<td>
+					<div class="btn btn-default btn-xs">
+						<span class="glyphicon glyphicon-edit" ng-click="doEdit(event)"></span>	
+					</div>
+				</td>
+				<td>
+					<div class="btn btn-danger btn-xs">
+						<span class="glyphicon glyphicon-trash" ng-click="doDelete(event)"></span>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
