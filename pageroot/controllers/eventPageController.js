@@ -11,6 +11,7 @@ kibApp.controller('EventPageController', function($scope, kibservice){
 	 
 	$scope.uiConfig = {
       calendar:{
+		lang: "sv",
         editable: false,
 		height:500,
         header:{
