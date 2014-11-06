@@ -5,6 +5,10 @@
 	overflow:hidden;
 }
 
+.fc-toolbar {
+	color:white;
+}
+
 .fc-widget-header{
 	background-color:#353B31;
 	color:white;
