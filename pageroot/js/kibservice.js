@@ -17,8 +17,11 @@ kibApp.factory('kibservice', function($resource){
 			var events = Event.query(function(){
 				events.forEach(function(e, i){
 					events[i].title = e.Title;
-					events[i].start = e.Date;
+					events[i].start = e.StartDate;
+					events[i].end = e.EndDate;
 					events[i].allDay = false;
+					
+					events[i].Duration = moment(e.EndDate).diff(e.StartDate, 'hours');
 				});
 				
 				callback(events);
