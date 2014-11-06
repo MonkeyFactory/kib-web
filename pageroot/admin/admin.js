@@ -19,6 +19,10 @@ var kibAdmin = angular.module('kibAdmin', ['ngRoute'])
 			templateUrl: 'admin/templates/listEventTemplate.html',
 			controller: 'ListEventController'
 		})
+		
+		.when('/admin', {
+			templateUrl: 'admin/templates/adminIndex.html'
+		})
 	});
 	
 kibAdmin.directive('ckEditor', [function () {
