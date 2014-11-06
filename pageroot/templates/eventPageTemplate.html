@@ -1,10 +1,15 @@
-<div class="widebox" id="calendercontainer">
+<div class="widebox" id="calendarcontainer">
 	<div class="centerbox">
-		<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> 
+		<div ui-calendar="uiConfig.calendar" class="calendar" ng-model="eventSources" calendar="eventCalendar"></div> 
 	</div>
 </div>
 
-<div class="centerbox textbox" ng-show="selectedEvent">
+<div class="centerbox textbox" ng-show="selectedEvent" style="margin-top:10px;">
+	<button type="button" ng-click="closeEvent()" class="btn btn-default" style="float:right">
+		Stäng <span class="glyphicon glyphicon-remove"></span> 
+	</button>
+	<div class="clear"></div>
+	
 	<h2>{{selectedEvent.Title}}</h2>
 	<p>{{selectedEvent.Description}}</p>
 </div>
