@@ -6,7 +6,7 @@ kibApp.controller('EventPageController', function($scope, kibservice){
 	});
 	 
 	$scope.alertOnEventClick = function(event, allDay, jsEvent, view){
-		alert(event.Title + " - " + event.Description);
+		$scope.selectedEvent = event;
 	};
 	 
 	$scope.uiConfig = {
