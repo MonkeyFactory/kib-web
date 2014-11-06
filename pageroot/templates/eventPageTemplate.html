@@ -11,5 +11,18 @@
 	<div class="clear"></div>
 	
 	<h2>{{selectedEvent.Title}}</h2>
-	<p>{{selectedEvent.Description}}</p>
+	<div class="row">
+		<div class="col-md-3">
+			<dl>
+				<dt>Datum och tid</dt>
+				<dd>{{selectedEvent.Date}}</dd>
+				
+				<dt>Plats</dt>
+				<dd>{{selectedEvent.Location}}</dd>
+			</dl>
+		</div>
+		<div class="col-md-9">
+			<p>{{selectedEvent.Description}}</p>
+		</div>
+	</div>
 </div>
