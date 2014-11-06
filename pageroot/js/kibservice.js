@@ -10,6 +10,10 @@ kibApp.factory('kibservice', function($resource){
 		
 		GetPages: function(){
 			return Page.query();
+		},
+		
+		GetEvents: function() {
+			
 		}
 	};
 });
