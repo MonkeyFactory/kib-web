@@ -15,7 +15,10 @@ kibAdmin.controller('ListEventController', function($scope, $location, kibservic
 				adminservice.DeleteEvent($scope.events[i].eventId);
 			}
 			
-			$scope.$apply();
+			kibservice.GetEvents(function(events){
+				$scope.events = events;
+				$scope.$apply();
+			});			
 		}
 	}
 });

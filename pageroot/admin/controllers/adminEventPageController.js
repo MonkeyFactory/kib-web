@@ -1,19 +1,19 @@
 kibAdmin.controller('AdminEventController', function($scope, $routeParams, $location, kibservice, adminservice){		
-	if($routeParams.pageName){
-		//$scope.page = kibservice.GetPage($routeParams.pageName);
+	if($routeParams.eventId){
+		$scope.event = kibservice.GetEvent($routeParams.eventId);
 		var newEvent = false;
 		$scope.buttonText = "Save Changes";
 	}else{
-		//$scope.page = {};
+		$scope.event = {};
 		var newEvent = true;
 		$scope.buttonText = "Add Event";
 	}
 	
 	$scope.saveEvent = function(){
 		if(newEvent){
-			//adminservice.NewPage($scope.page);
+			adminservice.NewEvent($scope.event);
 		}else{
-			//adminservice.SavePage($routeParams.pageName, $scope.page);
+			adminservice.SaveEvent($routeParams.eventId, $scope.event);
 		}
 		
 		$location.path("/admin/listevents");

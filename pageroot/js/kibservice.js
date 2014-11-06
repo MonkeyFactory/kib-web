@@ -26,6 +26,10 @@ kibApp.factory('kibservice', function($resource){
 				
 				callback(events);
 			});
+		},
+		
+		GetEvent: function(eventId){
+			return Event.get({eventId: eventId});
 		}
 	};
 });
