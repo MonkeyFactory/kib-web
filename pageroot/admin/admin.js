@@ -46,6 +46,22 @@ kibAdmin.directive('ckEditor', [function () {
     };
 }]);
 
+kibAdmin.directive('datetimepicker', function($timeout){
+	return {
+		restrict: 'A',
+		link: function ($scope, elm, attr) {
+			$timeout(function(){
+				elm.datetimepicker({
+					format: 'YYYY-MM-DD HH:mm',
+					pickSeconds: false,
+					language: "sv",
+					sideBySide: true
+				});
+			},0);
+		}
+	}
+});
+
 kibAdmin.filter("authlevelname", function(){
 	return function(level){
 		switch(level){
