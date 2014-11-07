@@ -25,6 +25,11 @@
 	margin:5px;
 }
 
+.galleryimage {
+	min-height:200px;
+	min-width:200px;
+}
+
 .unselectedImage{
 	height:200px;
 }
