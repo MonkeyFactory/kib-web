@@ -33,6 +33,14 @@ kibAdmin.factory('adminservice', function($resource){
 		
 		DeleteEvent: function(eventId) {
 			return Event.delete({eventId: eventId});
+		},
+		
+		//AUTH
+		
+		GetAuthInfo: function(callback) {
+			$resource(BaseURL + "/authinfo/").get({}, function(value, headers){
+				callback(value);
+			});
 		}
 	};
 });

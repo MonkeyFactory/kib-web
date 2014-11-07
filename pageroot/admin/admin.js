@@ -21,7 +21,8 @@ var kibAdmin = angular.module('kibAdmin', ['ngRoute'])
 		})
 		
 		.when('/admin', {
-			templateUrl: 'admin/templates/adminIndex.html'
+			templateUrl: 'admin/templates/adminIndex.html',
+			controller: 'AdminIndexController'
 		})
 	});
 	
@@ -43,4 +44,21 @@ kibAdmin.directive('ckEditor', [function () {
             };
         }
     };
-}])
+}]);
+
+kibAdmin.filter("authlevelname", function(){
+	return function(level){
+		switch(level){
+			case 0:
+				return "NOT_LOGGED_IN";
+			case 1:
+				return "AUTHENTICATED_USER";
+			case 2:
+				return "MODERATOR";
+			case 3:
+				return "ADMINISTRATOR";
+			default:
+				return "UNKNOWN";
+		}
+	}
+});

@@ -1,8 +1,8 @@
-<div class="centerbox">
+<div class="centerbox" ng-show="auth">
 	<h1>Admin Index</h1>
 
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row" ng-hide="auth.authlevel == 1">
 			<div class="col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -38,5 +38,16 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="panel panel-default">
+			<div class="panel-body">
+				Logged in as {{auth.user}} at authentication level {{auth.authlevel | authlevelname}}
+				<span ng-show="auth.authlevel == 1"><br />You do not have right to change any content!</span>
+			</div>
+		</div>
 	</div>
+</div>
+
+<div class="centerbox" ng-hide="auth">
+	<h1>Loading! please wait...</h1>
 </div>
