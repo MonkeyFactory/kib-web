@@ -13,12 +13,22 @@
 		
 		<div class="form-group">
 			<label>Start datetime</label>
-			<input class="form-control" type="text" ng-model="event.StartDate" />
+			<div datetimepicker class="input-group date">
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+				<input type="text" class="form-control"  ng-model="event.StartDate">
+			</div>
 		</div>
-		
+	
 		<div class="form-group">
 			<label>End datetime</label>
-			<input class="form-control" type="text" ng-model="event.EndDate" />
+			<div datetimepicker class="input-group date">
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+				<input type="text" class="form-control"  ng-model="event.EndDate">
+			</div>
 		</div>
 		
 		<div class="form-group">
