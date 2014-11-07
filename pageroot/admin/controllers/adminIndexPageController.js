@@ -2,7 +2,7 @@ kibAdmin.controller('AdminIndexController', function($scope, $location, kibservi
 	adminservice.GetAuthInfo(function(auth){
 		if(auth.authlevel == 0){
 			//not logged in
-			$location("/forum/ucp.php?mode=login&redirect=/#/admin/");
+			$location.url("/forum/ucp.php?mode=login&redirect=%2F%23%2Fadmin%2F");
 		}else{
 			$scope.auth = auth;
 		}
