@@ -1,0 +1,74 @@
+	<!--<div class="navigation">
+    	<ul>
+        	<li<!-- IF SCRIPT_NAME neq 'faq' and SCRIPT_NAME neq 'search' and SCRIPT_NAME neq 'memberlist' --> class="active"<!-- ENDIF -->><a href="{U_INDEX}">{L_FORUM}</a></li>
+            <li<!-- IF SCRIPT_NAME eq 'faq' --> class="active"<!-- ENDIF -->><a href="{U_FAQ}">{L_FAQ}</a></li>
+            <!-- IF S_DISPLAY_SEARCH -->
+            	<li<!-- IF SCRIPT_NAME eq 'search' --> class="active"<!-- ENDIF -->>
+                	<a href="{U_SEARCH}">{L_SEARCH}</a>
+                	<!-- IF S_USER_LOGGED_IN -->
+                        <ul>
+                            <li><a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a></li>
+							<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a></li>
+                            <!-- IF S_LOAD_UNREADS -->
+                            	<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
+                            <!-- ENDIF -->
+                            <li><a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a></li>
+                            <li><a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
+                        </ul>
+                    <!-- ENDIF -->
+                </li>
+            <!-- ENDIF -->
+            <!-- IF S_DISPLAY_MEMBERLIST -->
+            	<li<!-- IF SCRIPT_NAME eq 'memberlist' --> class="active"<!-- ENDIF -->><a href="{U_MEMBERLIST}">{L_MEMBERLIST}</a></li>
+            <!-- ENDIF -->
+            <!-- IF U_RESTORE_PERMISSIONS -->
+            	<li><a href="{U_RESTORE_PERMISSIONS}"><span>{L_RESTORE_PERMISSIONS}</span></a></li>
+            <!-- ENDIF -->
+
+            <!-- <li><a href="#">Custom menu item 1</a></li>
+            <li>
+            	<a href="#">Custom menu item 2</a>
+                <ul>
+                	<li><a href="#">drop item 1</a></li>
+                    <li><a href="#">drop item 2</a></li>
+                    <li><a href="#">a really long drop item 3</a></li>
+                    <li><a href="#">drop item 4</a></li>
+                </ul>
+            </li> -->
+            
+        </ul>
+		
+		 <ul style="float:right;">
+                <!-- IF S_USER_LOGGED_IN -->
+                    <li><a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a></li>
+                    <li><a href="{U_PROFILE}">{L_READ_PROFILE}</a></li>
+                    <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
+                <!-- ELSE -->
+                    <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
+                    <!-- IF S_REGISTER_ENABLED -->
+                        <li><a href="{U_REGISTER}">{L_REGISTER}</a></li>
+                    <!-- ENDIF -->       
+                <!-- ENDIF -->
+         </ul> 
+		 
+        <div class="cb"></div>	
+    </div> -->
+
+
+
+ <!-- IF S_DISPLAY_SEARCH -->
+            	<li<!-- IF SCRIPT_NAME eq 'search' --> <!-- ENDIF -->>
+                	<a href="{U_SEARCH}">{L_SEARCH}</a>
+                	<!-- IF S_USER_LOGGED_IN -->
+                        <ul>
+                            <li><a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a></li>
+							<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a></li>
+                            <!-- IF S_LOAD_UNREADS -->
+                            	<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
+                            <!-- ENDIF -->
+                            <li><a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a></li>
+                            <li><a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
+                        </ul>
+                    <!-- ENDIF -->
+                </li>
+            <!-- ENDIF -->

@@ -1,4 +1,4 @@
-var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carousel', 'ui.calendar', 'kibAdmin']).
+var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carousel', 'ui.calendar', 'kibAdmin', 'kibGalleryModule']).
 	config(function($routeProvider, $resourceProvider){
 		$routeProvider.when('/', {
 			templateUrl: 'templates/startPageTemplate.html',
