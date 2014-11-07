@@ -1,5 +1,15 @@
 var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carousel', 'ui.calendar', 'kibAdmin', 'kibGalleryModule']).
-	config(function($routeProvider, $resourceProvider){
+	config(function($routeProvider, $resourceProvider, $httpProvider){
+		$httpProvider.interceptors.push(function($q, $location) {
+			return {
+					'responseError': function(rejection) {
+										alert(rejection);
+	   
+										return $q.reject(rejection);
+									}
+					};
+		});
+	
 		$routeProvider.when('/', {
 			templateUrl: 'templates/startPageTemplate.html',
 			controller: 'StartPageController'
