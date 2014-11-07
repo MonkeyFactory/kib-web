@@ -37,7 +37,10 @@
 					</ul>
 				</div>
 			</div>
-		
+			
+			<div ng-show="unauthorized" class="centerbox ng-hide alert alert-danger" role="alert">
+				Du har inte tillåtelse att utföra begärd åtgärd!
+			</div>
 		
 			<ng-view></ng-view>
 		</div>

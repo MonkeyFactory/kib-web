@@ -1,10 +1,15 @@
 var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carousel', 'ui.calendar', 'kibAdmin', 'kibGalleryModule']).
 	config(function($routeProvider, $resourceProvider, $httpProvider){
-		$httpProvider.interceptors.push(function($q, $location) {
+		$httpProvider.interceptors.push(function($q, $location, $rootScope) {
 			return {
 					'responseError': function(rejection) {
-										alert(rejection);
-	   
+										if(rejection.status == 401){
+											$location.url("/forum/ucp.php?mode=login&redirect=%2F%23%2Fadmin%2F");
+										}
+										else if(rejection.status == 403){
+											$rootScope.unauthorized = true;
+										}
+				
 										return $q.reject(rejection);
 									}
 					};
