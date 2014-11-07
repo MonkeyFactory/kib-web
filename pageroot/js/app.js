@@ -2,16 +2,23 @@ var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carouse
 	config(function($routeProvider, $resourceProvider, $httpProvider){
 		$httpProvider.interceptors.push(function($q, $location, $rootScope) {
 			return {
+					'response': function(response){
+						//$rootScope.unauthorized = false;
+
+						return response;
+					},
+					
 					'responseError': function(rejection) {
-										if(rejection.status == 401){
-											$location.url("/forum/ucp.php?mode=login&redirect=%2F%23%2Fadmin%2F");
-										}
-										else if(rejection.status == 403){
-											$rootScope.unauthorized = true;
-										}
-				
-										return $q.reject(rejection);
-									}
+						if(rejection.status == 401){
+							$location.url("/forum/ucp.php?mode=login&redirect=%2F%23%2Fadmin%2F");
+						}
+						else if(rejection.status == 403){
+							$rootScope.unauthorized = true;
+						}
+
+						return $q.reject(rejection);
+					}
+					
 					};
 		});
 	
