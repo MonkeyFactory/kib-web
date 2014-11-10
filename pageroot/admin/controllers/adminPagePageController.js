@@ -1,6 +1,6 @@
 kibAdmin.controller('AdminPageController', function($scope, $routeParams, $location, kibservice, adminservice){		
 	if($routeParams.pageName){
-		$scope.page = kibservice.GetPage($routeParams.pageName);
+		$scope.page = kibservice.GetPage($routeParams.pageName, true);
 		var newPage = false;
 		$scope.buttonText = "Save Changes";
 	}else{

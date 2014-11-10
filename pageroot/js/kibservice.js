@@ -1,12 +1,16 @@
 var BaseURL = "http://localhost/modend/api";
 
 kibApp.factory('kibservice', function($resource){
-	var Page = $resource(BaseURL + "/page/:pageName");
+	var Page = $resource(BaseURL + "/page/:pageName?:query", {query: ""});
 	var Event = $resource(BaseURL + "/events/:eventId");
 	
 	return {
-		GetPage: function(pageName){
-			return Page.get({pageName: pageName});
+		GetPage: function(pageName, noLinking){
+			if(noLinking){	
+				return Page.get({pageName: pageName, query: "noLinking"})
+			}else{
+				return Page.get({pageName: pageName});
+			}
 		},
 		
 		GetPages: function(){
