@@ -1,4 +1,4 @@
-var kibAdmin = angular.module('kibAdmin', ['ngRoute'])
+var kibAdmin = angular.module('kibAdmin', ['ngRoute', 'angularFileUpload'])
 	.config(function($routeProvider){
 		$routeProvider.when('/admin/adminpage/:pageName?', {
 			templateUrl: 'admin/templates/adminPagePageTemplate.html',
@@ -18,6 +18,11 @@ var kibAdmin = angular.module('kibAdmin', ['ngRoute'])
 		.when('/admin/listevents',  {
 			templateUrl: 'admin/templates/listEventTemplate.html',
 			controller: 'ListEventController'
+		})
+		
+		.when('/admin/uploadpage', {
+			templateUrl: 'admin/templates/imageUploadPageTemplate.html',
+			controller: 'ImageUploadPageController'
 		})
 		
 		.when('/admin', {
