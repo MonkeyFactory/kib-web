@@ -1,11 +1,11 @@
 <div id="slidecontainer">
 	<div class="centerbox" id="slidecenter">
-		<ul rn-carousel rn-carousel-auto-slide="10" rn-carousel-indicator='true' rn-carousel-transition='slideAndFade'>
-			<li ng-repeat="img in imglist">
-				<div ng-style="{'background-image': 'url(' + img + ')'}" class="slideframe">
-					<h1>A fun place to be</h1>
-					<p>Some good text here describing how awesome we are!!!!</p>
-					<p>{{img}}</p>
+		<bg-video videos="['Example', 'RollingDice', 'AnotherVideo']"></bg-video>
+		<ul rn-carousel rn-carousel-auto-slide="4" rn-carousel-indicator='true' rn-carousel-transition='fade'>
+			<li ng-repeat="msg in messages">
+				<div>
+					<h1>{{msg.Title}}</h1>
+					<p>{{msg.Text}}</p>
 				</div>
 			</li>
 		</ul>

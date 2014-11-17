@@ -7,16 +7,18 @@
 
 #slidecenter {
 	height:100%;
-	border:5px solid #353B31;
 }
 
 #slidecenter ul {
 	height:100%;
+	z-index:2;
+	position:relative;
+	top:-450px;
 }
 
 #slidecenter ul li {
 	height:100%;
-	background-color:#353B31;
+	color:white;
 }
 
 .slideframe {
@@ -25,4 +27,19 @@
 	color:white;
 	background-position:center top;
 	background-repeat:no-repeat;
+}
+
+bg-video {
+	margin:0;
+	padding:0;
+	width:1024px;
+	height:450px;
+	z-index:1;
+}
+
+bg-video video {
+	width:1024px;
+	height:450px;
+	margin:0;
+	padding:0;
 }
