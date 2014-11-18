@@ -31,6 +31,7 @@
 }
 
 #menubar ul li a{
+	font:none;
 	color:white;
 	vertical-align:center;
 	line-height:40px;
