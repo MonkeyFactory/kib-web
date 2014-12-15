@@ -23,7 +23,7 @@ kibApp.factory('kibservice', function($resource){
 					events[i].title = e.Title;
 					events[i].start = e.StartDate;
 					events[i].end = e.EndDate;
-					events[i].allDay = false;
+					events[i].allDay = e.AllDayEvent;
 					
 					events[i].Duration = moment(e.EndDate).diff(e.StartDate, 'hours');
 				});
