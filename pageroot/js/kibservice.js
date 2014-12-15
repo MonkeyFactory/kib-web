@@ -7,7 +7,7 @@ kibApp.factory('kibservice', function($resource){
 	return {
 		GetPage: function(pageName, noLinking){
 			if(noLinking){	
-				return Page.get({pageName: pageName, query: "noLinking"})
+				return Page.get({pageName: pageName, query: "nolinking"})
 			}else{
 				return Page.get({pageName: pageName});
 			}
