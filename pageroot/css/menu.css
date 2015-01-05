@@ -31,7 +31,8 @@
 }
 
 #menubar ul li a{
-	font:none;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  	font-size: 13px;
 	color:white;
 	vertical-align:center;
 	line-height:40px;
