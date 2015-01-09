@@ -33,13 +33,13 @@
 		<div class="form-group">
 			<div class="input-group">
 			  <span class="input-group-addon">
-				<input type="checkbox"  ng-model="event.AllDayEvent">
+				<input type="checkbox" ng-model="event.AllDayEvent">
 			  </span>
 			  <label class="form-control">Is an all day event</label>
 			</div>
 		</div>
 
-		<div class="form-group" ng-hide="event.WholeDayEvent">
+		<div class="form-group" ng-hide="event.AllDayEvent">
 			<label>End datetime</label>
 			<div datetimepicker class="input-group date">
 				<span class="input-group-addon">
