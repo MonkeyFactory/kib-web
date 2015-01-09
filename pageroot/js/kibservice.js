@@ -22,10 +22,14 @@ kibApp.factory('kibservice', function($resource){
 				events.forEach(function(e, i){
 					events[i].title = e.Title;
 					events[i].start = e.StartDate;
-					events[i].end = e.EndDate;
-					events[i].allDay = e.AllDayEvent;
 					
-					events[i].Duration = moment(e.EndDate).diff(e.StartDate, 'hours');
+					if(e.AllDayEvent){
+						events[i].allDay = e.AllDayEvent;
+						events[i].Duration = 12;
+					}else{
+						events[i].end = e.EndDate;
+						events[i].Duration = moment(e.EndDate).diff(e.StartDate, 'hours');
+					}
 				});
 				
 				callback(events);
