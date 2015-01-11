@@ -28,6 +28,6 @@
 @import url("tweaks.css");
 @import url("colours.css");
 @import url("kib.css");
-@import url("../../pageroot/css/page.css");
-@import url("../../pageroot/css/menu.css");
-@import url("../../pageroot/css/footer.css");
+@import url("../../../pageroot/css/page.css");
+@import url("../../../pageroot/css/menu.css");
+@import url("../../../pageroot/css/footer.css");
