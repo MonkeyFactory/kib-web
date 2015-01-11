@@ -23,8 +23,8 @@ kibApp.factory('kibservice', function($resource){
 					events[i].title = e.Title;
 					events[i].start = e.StartDate;
 					
-					if(e.AllDayEvent){
-						events[i].allDay = e.AllDayEvent;
+					if(e.AllDayEvent == "1"){
+						events[i].allDay = true;
 						events[i].Duration = 12;
 					}else{
 						events[i].end = e.EndDate;
