@@ -1,4 +1,4 @@
-var BaseURL = "http://localhost/modend/api";
+var BaseURL = "http://kibdev.crabdance.com/modend/api";
 
 kibAdmin.factory('adminservice', function($resource){
 	var Page = $resource(BaseURL + "/page/:pageName");

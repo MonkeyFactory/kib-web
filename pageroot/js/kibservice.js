@@ -1,4 +1,4 @@
-var BaseURL = "http://localhost/modend/api";
+var BaseURL = "http://kibdev.crabdance.com/modend/api";
 
 kibApp.factory('kibservice', function($resource){
 	var Page = $resource(BaseURL + "/page/:pageName?:query", {query: ""});
