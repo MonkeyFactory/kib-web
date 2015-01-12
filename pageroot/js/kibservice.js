@@ -25,7 +25,7 @@ kibApp.factory('kibservice', function($resource){
 					
 					if(e.AllDayEvent == "1"){
 						events[i].allDay = true;
-						events[i].Duration = 12;
+						events[i].Duration = -1;
 					}else{
 						events[i].end = e.EndDate;
 						events[i].Duration = moment(e.EndDate).diff(e.StartDate, 'hours');

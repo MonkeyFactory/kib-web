@@ -18,7 +18,8 @@
 				<dd>{{selectedEvent.StartDate}}</dd>
 				
 				<dt>Längd</dt>
-				<dd>{{selectedEvent.Duration}} timmar</dd>
+				<dd ng-hide="selectedEvent.Duration <= 0">{{selectedEvent.Duration}} timmar</dd>
+				<dd ng-show="selectedEvent.Duration <= 0">hela dagen</dd>
 				
 				<dt>Plats</dt>
 				<dd>{{selectedEvent.Location}}</dd>
