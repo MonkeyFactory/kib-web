@@ -3,6 +3,7 @@ var BaseURL = "http://kibdev.crabdance.com/modend/api";
 kibApp.factory('kibservice', function($resource){
 	var Page = $resource(BaseURL + "/page/:pageName?:query", {query: ""});
 	var Event = $resource(BaseURL + "/events/:eventId");
+	var League = $resource(BaseURL + "/leagues/:leagueId");
 	
 	return {
 		GetPage: function(pageName, noLinking){
@@ -38,6 +39,14 @@ kibApp.factory('kibservice', function($resource){
 		
 		GetEvent: function(eventId){
 			return Event.get({eventId: eventId});
+		},
+		
+		GetLeagues: function(){
+			return League.query();
+		},
+		
+		GetLeague: function(leagueId){
+			return League.get({leagueId: leagueId});
 		}
 	};
 });
