@@ -53,3 +53,5 @@ config.sh
 
 pageroot/forum
 pageroot/modend
+
+robots.txt
