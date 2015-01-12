@@ -1,8 +1,8 @@
-<div class="centerbox">
+<div class="centerbox" style="margin-top:20px;">
 	<div class="jumbotron">
 		<h1>Ligor!</h1>
-		<p>Nedan listas ligor som pågår i KiB's regi!</p>
-		<p>De markerade med grönt är pågående, så joina en och kötta vet jag :D</p>
+		<p>Nedan listas ligor som pÃ¥gÃ¥r i KiB's regi!</p>
+		<p>De markerade med grÃ¶nt Ã¤r pÃ¥gÃ¥ende, sÃ¥ joina en och kÃ¶tta vet jag :D</p>
 	</div>
 	
 	<div>
@@ -15,7 +15,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="league in leagues">
+			<tr ng-repeat="league in leagues" ng-click="onSelectedLeague(league);">
 				<td>
 					{{league.Name}}
 				</td>
