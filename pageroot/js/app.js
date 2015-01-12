@@ -42,6 +42,16 @@ var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'angular-carouse
 			controller: 'PagePageController'
 		})
 		
+		.when('/leagues', {
+			templateUrl: 'templates/leagueListPageTemplate.html',
+			controller: 'LeagueListPageController'
+		})
+		
+		.when('/leagues/:leagueId', {
+			templateUrl: 'templates/leagueDetailsPageTemplate.html',
+			controller: 'LeagueDetailsPageController'
+		})
+		
 		.otherwise({
 			redirectTo: '/'
 		});
