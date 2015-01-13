@@ -1,3 +1,3 @@
-kibApp.controller('LeagueListPageController', function($scope){
+kibApp.controller('LeagueDetailsPageController', function($scope){
 	
 });
