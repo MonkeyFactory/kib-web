@@ -3,7 +3,7 @@ var BaseURL = "http://kibdev.crabdance.com/modend/api";
 kibApp.factory('kibservice', function($resource){
 	var Page = $resource(BaseURL + "/page/:pageName?:query", {query: ""});
 	var Event = $resource(BaseURL + "/events/:eventId");
-	var League = $resource(BaseURL + "/leagues/:leagueId");
+	var League = $resource(BaseURL + "/league/:leagueId");
 	
 	return {
 		GetPage: function(pageName, noLinking){
