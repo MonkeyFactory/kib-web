@@ -5,20 +5,17 @@
 	
 }
 
-.infobox, .infobox-closed-remove {
+.infobox{
+	 -webkit-transition:all linear 0.5s;
+	transition:all linear 0.5s;
+
 	height:300px;
 	color:white;
 }
 
-.infobox-closed, .infobox-closed-add {
+.infobox.minimized {
 	height:10px;
 }
-
-.infobox-closed-add, .infobox-closed-remove{
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
-}
-
 
 .infobox a {
 	color:white;

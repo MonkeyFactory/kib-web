@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			
-			<div ng-show="unauthorized" class="centerbox ng-hide alert alert-danger" role="alert">
+			<div ng-if="unauthorized" class="centerbox alert alert-danger" role="alert" style="display:none;">
 				Du har inte tillåtelse att utföra begärd åtgärd!
 			</div>
 		
@@ -69,6 +69,7 @@
 		<script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 		<script type="text/javascript" src="lib/angular.js"></script>
 		<script type="text/javascript" src="lib/angular-route.js"></script>
+		<script type="text/javascript" src="lib/angular-animate.js"></script>
 		<script type="text/javascript" src="lib/angular-resource.js"></script>	
 		<script type="text/javascript" src="lib/angular-touch.min.js"></script>	
 		<script type="text/javascript" src="lib/angular-carousel.min.js"></script>

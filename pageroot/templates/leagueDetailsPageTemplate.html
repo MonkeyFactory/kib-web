@@ -1,0 +1,30 @@
+<div class="widebox" id="infobox-container">
+	<div class="centerbox">
+		<div class="container">
+			<div class="row infobox" ng-class="{minimized:minimized}">
+				<div class="col-md-8">
+					<h1>40k ligan v15</h1>
+					<p>2015-01-01 och framåt</p>
+					<p>En kul liga för våra medlemmar</p>
+				</div>
+				
+				<div class="col-md-4">
+					<a href="#/league/1/reportmatch">Raportera Match</a>
+				</div>
+			</div>
+		</div>
+		<div id="infobox-closer">
+			<a ng-click="minimized=!minimized">Öppna</a>
+		</div>
+	</div>
+</div>
+
+<div style="height:600px" ng-switch on="tab">
+	<div ng-switch-default>
+		<!-- Leaderboard -->
+	</div>
+	
+	<div ng-switch-when="chart">
+		<!-- Chart -->
+	</div>
+</div>
