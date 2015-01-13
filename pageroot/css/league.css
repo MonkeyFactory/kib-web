@@ -1,8 +1,7 @@
 #infobox-container{
 	margin-top:20px;
 	padding:10px 0 10px 0;
-	background-color:#707969;
-	
+	background-color:#707969;	
 }
 
 .infobox{
@@ -25,4 +24,15 @@
 #infobox-closer{
 	height:20px;
 	text-align:center;
+}
+
+.leaderboard thead {
+	background-color:#707969;
+	border:none;
+	border-top:2px solid #353B31;
+	color:white;
+}
+
+.leaderboard tbody tr:first-child {
+	border:none;
 }

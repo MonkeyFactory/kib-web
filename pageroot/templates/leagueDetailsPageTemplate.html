@@ -21,9 +21,44 @@
 	</div>
 </div>
 
-<div style="height:600px" ng-switch on="tab">
-	<div ng-switch-default>
+<div class="centerbox" ng-switch on="tab" style="margin-top:10px;">
+	<div ng-switch-default class="leaderboard">
 		<!-- Leaderboard -->
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						Namn
+					</th>
+					<th>
+						Vinster
+					</th>
+					<th>
+						Oavgjort
+					</th>
+					<th>
+						Poäng
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="player in leaderboard">
+					<td>
+						{{player.Name}}
+					</td>
+					<td>
+						{{player.Wins}}
+					</td>
+					<td>
+						{{player.Draws}}
+					</td>
+					<td>
+						{{player.Score}}
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 	
 	<div ng-switch-when="chart">
