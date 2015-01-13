@@ -36,3 +36,24 @@
 .leaderboard tbody tr:first-child {
 	border:none;
 }
+
+.tabbuttonholder {
+	background-color: #353B31;
+	margin:0;
+	float:right;
+	border-radius-top-left:10px;
+	height:25px;
+}
+
+.tabbuttonholder a {
+	color:white;
+	text-decoration:underline;
+	text-align:center;
+	display:block;
+	height:20px;
+	vertical-align:bottom;
+}
+
+.tabbuttonholder a.selected {
+	background-color:#707969;
+}

@@ -21,47 +21,59 @@
 	</div>
 </div>
 
-<div class="centerbox" ng-switch on="tab" style="margin-top:10px;">
-	<div ng-switch-default class="leaderboard">
-		<!-- Leaderboard -->
-		
-		<table class="table">
-			<thead>
-				<tr>
-					<th>
-						Namn
-					</th>
-					<th>
-						Vinster
-					</th>
-					<th>
-						Oavgjort
-					</th>
-					<th>
-						Poäng
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="player in leaderboard">
-					<td>
-						{{player.Name}}
-					</td>
-					<td>
-						{{player.Wins}}
-					</td>
-					<td>
-						{{player.Draws}}
-					</td>
-					<td>
-						{{player.Score}}
-					</td>
-				</tr>
-			</tbody>
-		</table>
+<div class="centerbox" style="margin-top:10px;">
+	<div class="tabbuttonholder">
+		<ul class="list-inline">
+			<li>
+				<a ng-click="tab='leaderboard'" ng-class="{tab=='leaderboard':selected}">Ledartavla</a>
+			</li>
+			<li>
+				<a ng-click="tab='chart'" ng-class="{tab=='chart':selected}">Poängkurva</a>
+			</li>
+		</ul>
 	</div>
-	
-	<div ng-switch-when="chart">
-		<!-- Chart -->
+	<div ng-switch on="tab">
+		<div ng-switch-default class="leaderboard">
+			<!-- Leaderboard -->
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Namn
+						</th>
+						<th>
+							Vinster
+						</th>
+						<th>
+							Oavgjort
+						</th>
+						<th>
+							Poäng
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="player in leaderboard">
+						<td>
+							{{player.Name}}
+						</td>
+						<td>
+							{{player.Wins}}
+						</td>
+						<td>
+							{{player.Draws}}
+						</td>
+						<td>
+							{{player.Score}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div ng-switch-when="chart">
+			<!-- Chart -->
+		</div>
 	</div>
 </div>
