@@ -1,4 +1,4 @@
-kibApp.controller('LeagueListPageController', function($scope, kibservice $location){
+kibApp.controller('LeagueListPageController', function($scope, kibservice, $location){
 	$scope.leagues = kibservice.GetLeagues();
 	
 	$scope.onSelectedLeague = function(league){
