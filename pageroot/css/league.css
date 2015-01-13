@@ -1,0 +1,31 @@
+#infobox-container{
+	margin-top:20px;
+	padding:10px 0 10px 0;
+	background-color:#707969;
+	
+}
+
+.infobox, .infobox-closed-remove {
+	height:300px;
+	color:white;
+}
+
+.infobox-closed, .infobox-closed-add {
+	height:10px;
+}
+
+.infobox-closed-add, .infobox-closed-remove{
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+
+.infobox a {
+	color:white;
+	text-decoration:underline;
+}
+
+#infobox-closer{
+	height:20px;
+	text-align:center;
+}
