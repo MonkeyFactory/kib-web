@@ -59,11 +59,11 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window){
 			  },
 			  "formatters": {},
 			  "view": {}
-		
+		};
 	
 	//Add players (columns)
 	for(i=1;i < $scope.scorehistory.length;i++){
-		$scope.chartObject.data.cols.append(
+		$scope.chartObject.data.cols.push(
 			{
 				"id": $scope.scorehistory[i][0] + "-id",
 				"label": $scope.scorehistory[i][0],
@@ -78,13 +78,13 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window){
 		row = []
 		
 		//Add month to row
-		row.append({"v": $scope.scorehistory[0][i]});
+		row.push({"v": $scope.scorehistory[0][i]});
 		
 		//Add player scores
 		for(x=1;i < $scope.scorehistory.length;x++){
-			row.append({"v": $scope.scorehistory[x][i]});
+		//	row.push({"v": $scope.scorehistory[x][i]});
 		}
 		
-		$scope.chartObject.data.rows.append({"c": row});
+		$scope.chartObject.data.rows.push({"c": row});
 	}
 });
