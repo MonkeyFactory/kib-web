@@ -22,16 +22,17 @@
 </div>
 
 <div class="centerbox" style="margin-top:10px;">
-	<div class="tabbuttonholder clearfix">
+	<div class="tabbuttonholder">
 		<ul class="list-inline">
-			<li>
-				<a ng-click="tab='leaderboard'" ng-class="{tab=='leaderboard':selected}">Ledartavla</a>
+			<li ng-class="{selected: tab=='leaderboard'}">
+				<a ng-click="tab='leaderboard'">Ledartavla</a>
 			</li>
-			<li>
-				<a ng-click="tab='chart'" ng-class="{tab=='chart':selected}">Poängkurva</a>
+			<li ng-class="{selected: tab=='chart'}">
+				<a ng-click="tab='chart'">Poängkurva</a>
 			</li>
 		</ul>
 	</div>
+	<div style="clear:both;"></div>
 	<div ng-switch on="tab">
 		<div ng-switch-default class="leaderboard">
 			<!-- Leaderboard -->
@@ -72,8 +73,12 @@
 			</table>
 		</div>
 		
-		<div ng-switch-when="chart">
+		<div ng-switch-when="chart" class="chart">
 			<!-- Chart -->
+			
+			<div class="chart-top">
+				<p>Poängkurva</p>
+			</div>
 		</div>
 	</div>
 </div>

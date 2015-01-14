@@ -31,6 +31,7 @@
 	border:none;
 	border-top:2px solid #353B31;
 	color:white;
+	height:35px;
 }
 
 .leaderboard tbody tr:first-child {
@@ -38,22 +39,49 @@
 }
 
 .tabbuttonholder {
+	z-index:5;
 	background-color: #353B31;
 	margin:0;
+	margin-bottom:-2px;
 	float:right;
-	border-radius-top-left:10px;
-	height:25px;
+	border-top-left-radius:5px;
+	height:30px;
+	line-height:30px;
+	padding:0 10px 0 10px;
 }
 
 .tabbuttonholder a {
+	font-size:14px;
 	color:white;
 	text-decoration:underline;
-	text-align:center;
-	display:block;
-	height:20px;
-	vertical-align:bottom;
 }
 
-.tabbuttonholder a.selected {
+.tabbuttonholder li {
+	text-align:center;
+	display:inline-block;
+	height:25px;
+	vertical-align:bottom;
+	margin-bottom:0;
+	padding:0,20px, 20px, 0;
+}
+
+.tabbuttonholder li.selected {
 	background-color:#707969;
+}
+
+/* GRAPH */
+
+.chart-top {
+	background-color:#707969;
+	border-top:2px solid #353B31;
+	height:35px;
+	line-height:35px;
+}
+
+.chart-top  p{
+	color:white;
+	padding-left:10px;
+	vertical-align:center;
+	font-size:13px;
+	text-decoration:bold;
 }
