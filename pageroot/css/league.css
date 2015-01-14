@@ -47,7 +47,7 @@
 	border-top-left-radius:5px;
 	height:30px;
 	line-height:30px;
-	padding:0 10px 0 10px;
+	padding:0 10px 0 15px;
 }
 
 .tabbuttonholder a {
@@ -62,7 +62,7 @@
 	height:25px;
 	vertical-align:bottom;
 	margin-bottom:0;
-	padding:0,20px, 20px, 0;
+	padding:0,10px, 10px, 0;
 }
 
 .tabbuttonholder li.selected {
@@ -70,6 +70,12 @@
 }
 
 /* GRAPH */
+
+.scorechart {
+    height:500px;
+    padding:0;
+    margin:0;
+}
 
 .chart-top {
 	background-color:#707969;
@@ -83,5 +89,5 @@
 	padding-left:10px;
 	vertical-align:center;
 	font-size:13px;
-	text-decoration:bold;
+	text-weight:bold;
 }

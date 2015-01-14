@@ -42,18 +42,22 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window){
 				  }],
 				"rows": [ ]
 			  },
-			  "options": {
-				"title": "",
+	    "options": {
+		"title": "Poängkurva",
+		"titlePosition": "none",
+		"chartArea": {"height": "85%"},
 				"isStacked": "true",
 				"fill": 20,
 				"displayExactValues": true,
-				"vAxis": {
+			      "vAxis": {
+				  "titleTextStyle": {"color": "#353B31"},
 				  "title": "Poäng",
 				  "gridlines": {
 					"count": 10
 				  }
 				},
-				"hAxis": {
+			      "hAxis": {
+				  "titleTextStyle": {"color": "#353B31"},
 				  "title": "Datum"
 				}
 			  },
