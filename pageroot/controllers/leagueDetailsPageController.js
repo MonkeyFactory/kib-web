@@ -60,7 +60,8 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window){
 			  "formatters": {},
 			  "view": {}
 		};
-	
+
+    
 	//Add players (columns)
 	for(i=1;i < $scope.scorehistory.length;i++){
 		$scope.chartObject.data.cols.push(
@@ -81,8 +82,8 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window){
 		row.push({"v": $scope.scorehistory[0][i]});
 		
 		//Add player scores
-		for(x=1;i < $scope.scorehistory.length;x++){
-		//	row.push({"v": $scope.scorehistory[x][i]});
+		for(x=1;x < $scope.scorehistory.length;x++){
+			row.push({"v": $scope.scorehistory[x][i]});
 		}
 		
 		$scope.chartObject.data.rows.push({"c": row});
