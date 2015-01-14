@@ -2,6 +2,6 @@ kibApp.controller('LeagueListPageController', function($scope, kibservice, $loca
 	$scope.leagues = kibservice.GetLeagues();
 	
 	$scope.onSelectedLeague = function(league){
-		$location.url("#/leagues/" + league.leagueId);
+		$location.path("/#/leagues/" + league.leagueId);
 	}
 });
