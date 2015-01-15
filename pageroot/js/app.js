@@ -52,6 +52,11 @@ var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'ngAnimate', 'an
 			controller: 'LeagueDetailsPageController'
 		})
 		
+		.when('leagues/:leagueId/reportmatch', {
+			templateUrl: 'templates/leagueReportMatchTemplate.html',
+			controller: 'LeagueReportMatchController'
+		})
+		
 		.otherwise({
 			redirectTo: '/'
 		});
