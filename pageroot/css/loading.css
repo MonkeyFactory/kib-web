@@ -76,3 +76,10 @@
     75% { transform: translateX(0px) translateY(47px) rotate(-270deg) scale(0.5); } 
     100% { transform: rotate(-360deg); }
 }
+
+.loadingbox {
+	position:absolute;
+	z-index:5;
+	margin-top:-400px;
+	background-color:#707969;
+}

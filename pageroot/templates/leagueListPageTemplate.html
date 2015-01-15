@@ -5,7 +5,7 @@
 		<p>De markerade med grönt är pågående, så joina en och kötta vet jag :D</p>
 	</div>
 	
-	<div>
+	<div ng-show="leagues">
 		<table class="table table-hover">
 		<thead>
 			<tr>
@@ -29,4 +29,8 @@
 		</tbody>
 	</table>
 	</div>
+</div>
+
+<div ng-hide="leagues">
+	<loading>Läser in ligor...</loading>
 </div>

@@ -1,5 +1,5 @@
 <div class="widebox" id="infobox-container">
-	<div class="centerbox">
+	<div class="centerbox" ng-show="league && leaderboard">
 		<div class="container">
 			<div class="row infobox" ng-class="{minimized:minimized}">
 				<div class="col-xs-8">
@@ -20,9 +20,13 @@
 			</a>
 		</div>
 	</div>
+	
+	<div class="centerbox" ng-hide="league && leaderboard">
+		<loading style="color:white">Läser in information och ledartavla...</loading>
+	</div>
 </div>
 
-<div class="centerbox" style="margin-top:10px;">
+<div class="centerbox" style="margin-top:10px;" ng-show="league && leaderboard">
 	<div class="tabbuttonholder">
 		<ul class="list-inline">
 			<li ng-class="{selected: tab=='leaderboard'}">

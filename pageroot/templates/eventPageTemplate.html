@@ -2,6 +2,12 @@
 	<div class="centerbox">
 		<div ui-calendar="uiConfig.calendar" class="calendar" ng-model="eventSources" calendar="eventCalendar"></div> 
 	</div>
+	
+	<div class="widebox loadingbox" ng-hide="eventSources">
+		<div class="centerbox">
+			<loading style="color:white">Läser in events...</loading>
+		</div>
+	</div>
 </div>
 
 <div class="centerbox textbox" ng-show="selectedEvent" style="margin-top:10px">
