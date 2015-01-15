@@ -1,6 +1,7 @@
 kibApp.controller('LeagueDetailsPageController', function($scope, $window, $routeParams, kibservice){
 	$scope.minimized = false;
 	$scope.tab = "leaderboard";
+	$scope.loading = true;
 	
 	angular.element($window).bind("scroll", function(e) {
        $scope.minimized = true;
@@ -10,9 +11,8 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 	$scope.league = kibservice.GetLeague($routeParams.leagueId);
 	$scope.leaderboard = kibservice.GetLeaderboard($routeParams.leagueId);
 	
-	kibservice.GetScoreHistory($routeParams.leagueId, function(scorehistory){
-		$scope.scorehistory = scorehistory;
-		
+	$scope.scorehistory = kibservice.GetScoreHistory($routeParams.leagueId);
+	$scope.scorehistory.$promise.then(function(){
 		if($scope.scorehistory.length == 0)
 			return;
 		
@@ -43,6 +43,9 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 			$scope.chartObject.data.rows.push({"c": row});
 		}
 	});
+	
+	$scope.league.$promise.then(isLoadCompleted());
+	$scope.leaderboard.$promise.then(isLoadCompleted());
 	
 	/*$scope.leaderboard = [{Name: "Johan", Wins: "5", Draws: "4", Score: "140"},
 						  {Name: "Johan", Wins: "5", Draws: "4", Score: "140"},
@@ -102,4 +105,7 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 			  "view": {}
 		};
  
+	function isLoadCompleted(){
+		$scope.loading = $scope.league.resolved && $scope.leaderboard.resolved && $scope.scorehistory.resolved;
+	}
 });
