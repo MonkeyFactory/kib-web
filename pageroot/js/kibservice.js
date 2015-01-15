@@ -47,6 +47,14 @@ kibApp.factory('kibservice', function($resource){
 		
 		GetLeague: function(leagueId){
 			return League.get({leagueId: leagueId});
+		},
+		
+		GetLeaderboard: function(leagueId) {
+			return $resource(BaseURL + "/league/:leagueId/leaderboard").get({leagueId: leagueId});
+		},
+		
+		GetScoreHistory: function(leagueId) {
+			return $resource(BaseURL + "/league/:leagueId/scorehistory").get({leagueId: leagueId});			
 		}
 	};
 });

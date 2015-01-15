@@ -26,7 +26,11 @@
 	</div>
 </div>
 
-<div class="centerbox" style="margin-top:10px;" ng-show="league && leaderboard">
+<div class="centerbox" ng-hide="leaderboard.length > 0">
+	<h1>Inga matcher har spelats än</h1>
+</div>
+
+<div class="centerbox" style="margin-top:10px;" ng-show="league && leaderboard.length > 0">
 	<div class="tabbuttonholder">
 		<ul class="list-inline">
 			<li ng-class="{selected: tab=='leaderboard'}">
