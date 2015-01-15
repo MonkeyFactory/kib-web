@@ -1,0 +1,43 @@
+<div class="centerbox" style="margin-top:20px;" ng-show="auth">
+	<div class="jumbotron">
+		<h2>Välkommen {{auth.Username}}, hur gick matchen?</h2>
+	</div>
+	
+	<form role="form" ng-submit="reportMatch()">
+		<div class="form-group">
+			<label>Vem mötte du</label>
+			<input type="text" class="form-control" ng-model="match.Player2" />
+		</div>
+		<div class="form-group">
+			<label>Vilket datum spelades matchen</label>
+			<div datetimepicker disable-time-pick="true" class="input-group date">
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+				<input type="text" class="form-control" ng-model="match.Date">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label>Hur gick det?</label>
+			
+			<div class="row">
+				<div class="col-xs-4">
+					<input type="radio" name="winner" ng-model="match.Winner" value="1">Jag vann</input>
+				</div>
+				<div class="col-xs-4">
+					<input type="radio" name="winner" ng-model="match.Winner" value="2">Jag förlorade</input>
+				</div>
+				<div class="col-xs-4">
+					<input type="radio" name="winner" ng-model="match.Winner" value="0">Det blev lika</input>
+				</div>
+			</div>
+		</div>
+		
+		<input type="submit" class="btn btn-primary" value="Rapportera match"/>
+	</form>
+</div>
+
+<div class="centerbox" ng-hide="auth">
+	Laddar...
+</div>
