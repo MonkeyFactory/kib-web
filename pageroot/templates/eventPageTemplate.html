@@ -3,7 +3,7 @@
 		<div ui-calendar="uiConfig.calendar" class="calendar" ng-model="eventSources" calendar="eventCalendar"></div> 
 	</div>
 	
-	<div class="widebox loadingbox" ng-hide="eventSources">
+	<div class="widebox loadingbox" ng-hide="eventSources.length > 0">
 		<div class="centerbox">
 			<loading style="color:white">Läser in events...</loading>
 		</div>
