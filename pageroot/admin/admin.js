@@ -54,14 +54,27 @@ kibAdmin.directive('ckEditor', [function () {
 kibAdmin.directive('datetimepicker', function($timeout){
 	return {
 		restrict: 'A',
+		scope: {
+			disableTimePick: "@"
+		},
 		link: function ($scope, elm, attr) {
 			$timeout(function(){
-				elm.datetimepicker({
-					format: 'YYYY-MM-DD HH:mm',
-					pickSeconds: false,
-					language: "sv",
-					sideBySide: true
-				});
+			console.log($scope.disableTimePick);
+				if($scope.disableTimePick){
+					options = { format: 'YYYY-MM-DD',
+								pickTime: false,
+								language: "sv",
+								sideBySide: true
+						};
+				}else{
+					options ={ format: 'YYYY-MM-DD HH:mm',
+							pickSeconds: false,
+							language: "sv",
+							sideBySide: true
+					};	
+				}
+			
+				elm.datetimepicker(options);
 			},0);
 		}
 	}
