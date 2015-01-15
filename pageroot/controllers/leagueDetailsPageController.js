@@ -50,7 +50,7 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window){
 	    "options": {
 		"title": "Poängkurva",
 		"titlePosition": "none",
-		"chartArea": {"height": "85%"},
+		"chartArea": {"height": "400"},
 				"isStacked": "true",
 				"fill": 20,
 				"displayExactValues": true,
