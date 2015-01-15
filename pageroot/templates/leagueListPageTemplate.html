@@ -5,7 +5,7 @@
 		<p>De markerade med grönt är pågående, så joina en och kötta vet jag :D</p>
 	</div>
 	
-	<div ng-show="leagues.length > 0">
+	<div ng-show="leagues.$resolved && leagues.length > 0">
 		<table class="table table-hover">
 		<thead>
 			<tr>
@@ -29,8 +29,12 @@
 		</tbody>
 	</table>
 	</div>
+	
+	<div ng-show="leagues.$resolved && leagues.length == 0">
+		<h1>Inga ligor för tillfället :(</h1>
+	</div>
 </div>
 
-<div ng-hide="leagues.length > 0">
+<div ng-hide="leagues.$resolved">
 	<loading>Läser in ligor...</loading>
 </div>

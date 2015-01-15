@@ -1,8 +1,7 @@
 kibApp.controller('LeagueDetailsPageController', function($scope, $window, $routeParams, kibservice){
 	$scope.minimized = false;
 	$scope.tab = "leaderboard";
-	$scope.loading = true;
-	
+
 	angular.element($window).bind("scroll", function(e) {
        $scope.minimized = true;
 	   $scope.$apply();
@@ -44,8 +43,6 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 		}
 	});
 	
-	$scope.league.$promise.then(isLoadCompleted());
-	$scope.leaderboard.$promise.then(isLoadCompleted());
 	
 	/*$scope.leaderboard = [{Name: "Johan", Wins: "5", Draws: "4", Score: "140"},
 						  {Name: "Johan", Wins: "5", Draws: "4", Score: "140"},
@@ -105,7 +102,4 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 			  "view": {}
 		};
  
-	function isLoadCompleted(){
-		$scope.loading = $scope.league.resolved && $scope.leaderboard.resolved && $scope.scorehistory.resolved;
-	}
 });
