@@ -4,6 +4,10 @@
 	background-color:#707969;	
 }
 
+#infobox-container .container {
+	width:1024px;
+}
+
 .infobox{
 	 -webkit-transition:all linear 0.5s;
 	transition:all linear 0.5s;

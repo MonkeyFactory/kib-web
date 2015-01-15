@@ -7,6 +7,11 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window){
 	   $scope.$apply();
 	});
 	
+	$scope.league = {Name: "40k ligan v15",
+					 StartDate: "2015-01-01",
+					 EndDate: "",
+					 Description: "En kul liga för våra medlemmar"};
+	
 	$scope.leaderboard = [{Name: "Johan", Wins: "5", Draws: "4", Score: "140"},
 						  {Name: "Johan", Wins: "5", Draws: "4", Score: "140"},
 						  {Name: "Johan", Wins: "5", Draws: "4", Score: "140"},
