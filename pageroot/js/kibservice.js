@@ -50,11 +50,11 @@ kibApp.factory('kibservice', function($resource){
 		},
 		
 		GetLeaderboard: function(leagueId) {
-			return $resource(BaseURL + "/league/:leagueId/leaderboard").get({leagueId: leagueId});
+			return $resource(BaseURL + "/league/:leagueId/leaderboard").query({leagueId: leagueId});
 		},
 		
 		GetScoreHistory: function(leagueId) {
-			return $resource(BaseURL + "/league/:leagueId/scorehistory").get({leagueId: leagueId});			
+			return $resource(BaseURL + "/league/:leagueId/scorehistory").query({leagueId: leagueId});			
 		}
 	};
 });
