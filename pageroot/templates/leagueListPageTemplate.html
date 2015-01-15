@@ -5,7 +5,7 @@
 		<p>De markerade med grönt är pågående, så joina en och kötta vet jag :D</p>
 	</div>
 	
-	<div ng-show="leagues">
+	<div ng-show="leagues.length > 0">
 		<table class="table table-hover">
 		<thead>
 			<tr>
@@ -23,7 +23,7 @@
 					{{league.StartDate}}	
 				</td>
 				<td>
-					{{league.EndDate}}	
+					{{league.EndDate || 'ej specifierat'}}	
 				</td>
 			</tr>
 		</tbody>
@@ -31,6 +31,6 @@
 	</div>
 </div>
 
-<div ng-hide="leagues">
+<div ng-hide="leagues.length > 0">
 	<loading>Läser in ligor...</loading>
 </div>
