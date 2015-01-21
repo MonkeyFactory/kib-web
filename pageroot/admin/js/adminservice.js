@@ -1,10 +1,9 @@
 var BaseURL = "http://kibdev.crabdance.com/modend/api";
 
-kibAdmin.factory('adminservice', function($resource){
+kibAdmin.factory('adminservice', function($resource, $http){
 	var Page = $resource(BaseURL + "/page/:pageName");
 	var Event = $resource(BaseURL + "/events/:eventId");
 	var League = $resource(BaseURL + "/league/:leagueId");
-	var Match = $resource(BaseURL + "/league/:leagueId/:matchId");
 	
 	return {
 		//PAGES
@@ -47,9 +46,8 @@ kibAdmin.factory('adminservice', function($resource){
 		
 		//LEAGUE
 		
-		ReportMatch: function(leagueId, matchObj){
-			var match = new Match(matchObj);
-			return match.$save({leagueId: leagueId});
+		ReportMatch: function(leagueId, matchObj, callback){
+			return $http.post(BaseURL + "/league/" + leagueId + "/reportMatch", matchObj);
 		}
 	};
 });

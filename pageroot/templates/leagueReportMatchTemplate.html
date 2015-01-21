@@ -49,10 +49,10 @@
 	<loading>Kontrollerar användarinfo...</loading>
 </div>
 
-<div class="centerbox" ng-show="saveProcess" style="margin-top:20px;">
-	<loading ng-hide="saveProcess.$resolved">Matchen sparas...</loading>
-	<div ng-show="saveProcess.$resolved">
+<div class="centerbox" ng-show="saving" style="margin-top:20px;">
+	<loading>Matchen sparas...</loading>
+	<!--<div ng-show="saveProcess.$resolved">
 		<h1>Matchen sparad!</h1>
 		<a href="#/league/{{leagueId}}">Återgå</a>
-	</div>
+	</div>-->
 </div>
