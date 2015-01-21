@@ -6,7 +6,12 @@
 	<form role="form" ng-submit="reportMatch()">
 		<div class="form-group">
 			<label>Vem mötte du</label>
-			<input type="text" class="form-control" ng-model="match.Player2" />
+			<angucomplete id="opponent"
+              pause="400"
+              selectedobject="match.Player2"
+			  inputclass="form-control"
+              url="http://kibdev.crabdance.com/modend/api/authinfo/completeusername/"
+              titlefield="username"/>
 		</div>
 		<div class="form-group">
 			<label>Vilket datum spelades matchen</label>
