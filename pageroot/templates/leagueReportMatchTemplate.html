@@ -3,7 +3,7 @@
 		<h2>Välkommen {{auth.user}}, hur gick matchen?</h2>
 	</div>
 	
-	<form name="matchform" novalidate role="form" ng-submit="reportMatch()" ng-hide="saveProcess">
+	<form name="matchform" novalidate role="form" ng-submit="reportMatch()" ng-hide="saving">
 		<div class="form-group">
 			<label>Vem mötte du</label>
 			<angucomplete id="opponent"
