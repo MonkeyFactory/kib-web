@@ -3,7 +3,7 @@
 		<h2>Välkommen {{auth.user}}, hur gick matchen?</h2>
 	</div>
 	
-	<form novalidate role="form" ng-submit="reportMatch()">
+	<form name="matchform" novalidate role="form" ng-submit="reportMatch()">
 		<div class="form-group">
 			<label>Vem mötte du</label>
 			<angucomplete id="opponent"
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 		
-		<input type="submit" class="btn btn-primary" value="Rapportera match" ng-disabled="form.$invalid"/>
+		<input type="submit" class="btn btn-primary" value="Rapportera match" ng-disabled="matchform.$invalid"/>
 	</form>
 </div>
 
