@@ -3,15 +3,17 @@
 		<h2>Välkommen {{auth.user}}, hur gick matchen?</h2>
 	</div>
 	
-	<form role="form" ng-submit="reportMatch()">
+	<form novalidate role="form" ng-submit="reportMatch()">
 		<div class="form-group">
 			<label>Vem mötte du</label>
 			<angucomplete id="opponent"
               pause="400"
-              selectedobject="match.Player2"
+              selectedobject="selectedOpponent"
+			  minlength = "2"
 			  inputclass="form-control"
               url="http://kibdev.crabdance.com/modend/api/authinfo/completeusername/"
-              titlefield="username"/>
+              titlefield="username"
+			  required/>
 		</div>
 		<div class="form-group">
 			<label>Vilket datum spelades matchen</label>
@@ -19,7 +21,7 @@
 				<span class="input-group-addon">
 					<span class="glyphicon glyphicon-calendar"></span>
 				</span>
-				<input type="text" class="form-control" ng-model="match.Date">
+				<input type="text" class="form-control" ng-model="match.Date" readonly required>
 			</div>
 		</div>
 		
@@ -28,18 +30,18 @@
 			
 			<div class="row">
 				<div class="col-xs-4">
-					<input type="radio" name="winner" ng-model="match.Winner" value="1">Jag vann</input>
+					<input type="radio" name="winner" ng-model="match.Winner" value="1" required="!winner">Jag vann</input>
 				</div>
 				<div class="col-xs-4">
-					<input type="radio" name="winner" ng-model="match.Winner" value="2">Jag förlorade</input>
+					<input type="radio" name="winner" ng-model="match.Winner" value="2" required="!winner">Jag förlorade</input>
 				</div>
 				<div class="col-xs-4">
-					<input type="radio" name="winner" ng-model="match.Winner" value="0">Det blev lika</input>
+					<input type="radio" name="winner" ng-model="match.Winner" value="0" required="!winner">Det blev lika</input>
 				</div>
 			</div>
 		</div>
 		
-		<input type="submit" class="btn btn-primary" value="Rapportera match"/>
+		<input type="submit" class="btn btn-primary" value="Rapportera match" ng-disabled="form.$invalid"/>
 	</form>
 </div>
 
