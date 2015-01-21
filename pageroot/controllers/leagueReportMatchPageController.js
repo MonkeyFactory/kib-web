@@ -17,9 +17,9 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 			return;
 		}
 		
-		$scope.match.Player1 = $scope.auth.user_id;
+		$scope.match.Player1 = $scope.auth.userId;
 		//Extract selected opponent user_id and add it to the match object
-		$scope.match.Player2 = $scope.selectedOpponent.originalObject.userId;
+		$scope.match.Player2 = $scope.selectedOpponent.originalObject.user_id;
 		
 		$scope.saveProcess = adminservice.ReportMatch($routeParams.leagueId, $scope.match);
 	}
