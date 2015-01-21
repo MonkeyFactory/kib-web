@@ -8,10 +8,11 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 		}
 	});
 	
+	$scope.leagueId = $routeParams.leagueId;
 	$scope.match = {};
 	
 	$scope.reportMatch = function(){
-		if(!angular.isDefined($scope.selectedOpponent.originalObject.user_id)){
+		if(!angular.isDefined($scope.selectedOpponent.originalObject)){
 			//form not filled in properly
 			return;
 		}
@@ -20,6 +21,6 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 		//Extract selected opponent user_id and add it to the match object
 		$scope.match.Player2 = $scope.selectedOpponent.originalObject.user_id;
 		
-		adminservice.ReportMatch($routeParams.leagueId, $scope.match);
+		$scope.saveProcess = adminservice.ReportMatch($routeParams.leagueId, $scope.match);
 	}
 });

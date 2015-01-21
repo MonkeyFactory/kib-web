@@ -3,7 +3,7 @@
 		<h2>Välkommen {{auth.user}}, hur gick matchen?</h2>
 	</div>
 	
-	<form name="matchform" novalidate role="form" ng-submit="reportMatch()">
+	<form name="matchform" novalidate role="form" ng-submit="reportMatch()" ng-hide="saveProcess">
 		<div class="form-group">
 			<label>Vem mötte du</label>
 			<angucomplete id="opponent"
@@ -47,4 +47,12 @@
 
 <div class="centerbox" ng-hide="auth" style="margin-top:20px;">
 	<loading>Kontrollerar användarinfo...</loading>
+</div>
+
+<div class="centerbox" ng-show="saveProcess" style="margin-top:20px;">
+	<loading ng-hide="saveProcess.$resolved">Matchen sparas...</loading>
+	<div ng-show="saveProcess.$resolved">
+		<h1>Matchen sparad!</h1>
+		<a href="#/league/{{leagueId}}">Återgå</a>
+	</div>
 </div>
