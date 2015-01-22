@@ -28,7 +28,7 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 		}
 	
 		//Add score (rows)
-		for(i=1;i < $scope.scorehistory[0].length;i++){
+		for(i=1;i < $scope.scorehistory[0][0];i++){
 			row = []
 			
 			//Add month to row
@@ -89,9 +89,13 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 			      "vAxis": {
 				  "titleTextStyle": {"color": "#353B31"},
 				  "title": "Poäng",
+				  "minValue": 0,
 				  "gridlines": {
 					"count": 10
-				  }
+				   },
+				    "viewWindow": {
+					 "min":0
+				   }
 				},
 			      "hAxis": {
 				  "titleTextStyle": {"color": "#353B31"},
