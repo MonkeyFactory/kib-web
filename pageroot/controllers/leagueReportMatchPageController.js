@@ -27,7 +27,7 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 			$scope.saving = 2;
 			
 			$timeout(function(){
-				$location.path("/league/" + $routeParams.leagueId);
+				$location.path("/leagues/" + $routeParams.leagueId);
 			}, 2000);
 		})
 		.error(function(){
