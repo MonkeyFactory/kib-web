@@ -1,4 +1,4 @@
-kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, $location, kibservice, adminservice){
+kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, $location, $timeout, kibservice, adminservice){
 	adminservice.GetAuthInfo(function(auth){
 		if(auth.authlevel == 0){
 			//not logged in
@@ -21,13 +21,18 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 		//Extract selected opponent user_id and add it to the match object
 		$scope.match.Player2 = $scope.selectedOpponent.originalObject.user_id;
 		
-		$scope.saving = true;
+		$scope.saving = 1;
 		adminservice.ReportMatch($routeParams.leagueId, $scope.match)
 		.success(function(){
-			alert("Save completed successfully!");
+			$scope.saving = 2;
+			
+			$timeout(function(){
+				$location.path("/league/" + $routeParams.leagueId);
+			}, 2000);
 		})
 		.error(function(){
-			alert("Save completed with errors :()!");
+			alert("Ett fel uppstod när matchen skulle sparas! Försök igen senare!");
+			delete $scope.saving;
 		});
 	}
 });

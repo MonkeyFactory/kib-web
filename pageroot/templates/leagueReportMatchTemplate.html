@@ -50,9 +50,11 @@
 </div>
 
 <div class="centerbox" ng-show="saving" style="margin-top:20px;">
-	<loading>Matchen sparas...</loading>
-	<!--<div ng-show="saveProcess.$resolved">
+	<loading ng-show="saving == '1'">Matchen sparas...</loading>
+	<div ng-show="saving == '2'">
 		<h1>Matchen sparad!</h1>
-		<a href="#/league/{{leagueId}}">Återgå</a>
-	</div>-->
+		<p>
+			<a href="#/league/{{leagueId}}">Återgår</a> om 2 sekunder
+		</p>
+	</div>
 </div>
