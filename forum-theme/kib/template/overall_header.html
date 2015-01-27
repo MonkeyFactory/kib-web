@@ -121,17 +121,16 @@
 				<li>
 					<a href="/#/events">Eventkalender</a>
 				</li>
+				<li>
+					<a href="#/leagues">Ligor</a>
+				</li>
 			</ul>
 			
 			<ul style="float:right;">   
             <!-- IF S_DISPLAY_MEMBERLIST -->
             	<li<!-- IF SCRIPT_NAME eq 'memberlist' --> <!-- ENDIF -->><a href="{U_MEMBERLIST}">{L_MEMBERLIST}</a></li>
             <!-- ENDIF -->
-            <!-- IF U_RESTORE_PERMISSIONS -->
-            	<li><a href="{U_RESTORE_PERMISSIONS}"><span>{L_RESTORE_PERMISSIONS}</span></a></li>
-            <!-- ENDIF -->
 			<!-- IF S_USER_LOGGED_IN -->
-					<!-- IF U_MCP --><li><a href="{U_MCP}">{L_MCP}</a></li><!-- ENDIF -->
 					<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
                     <li><a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a></li>
                     <li><a href="{U_PROFILE}">{L_READ_PROFILE}</a></li>
