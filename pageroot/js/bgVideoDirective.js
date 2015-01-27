@@ -4,7 +4,7 @@ kibApp.directive('bgVideo', function($document){
 				videos: '=',
 			},
 			restrict: 'E',
-			template: '<video muted width="100%"/>',
+			template: '<video id="bgvideo" muted/>',
 			link: function(scope, element, attr) {
 				var nextVideo = function(){
 					if(scope.currentVideo != undefined){

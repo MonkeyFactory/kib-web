@@ -1,7 +1,7 @@
 kibApp.controller('StartPageController', function($scope){
-	$scope.videos = ['example', 'RollingDice'];
+	$scope.videos = ['RollingDice'];
 
-	$scope.messages = [{Title: "Fun place to be 1", Text: "It is, isn't it?"},
-					   {Title: "Fun place to be 2", Text: "It is, isn't it?"},
-					   {Title: "Fun place to be 3", Text: "It is, isn't it?"}];
+	$scope.messages = [{Title: "Trevligt folk", Text: "Upplev en trevlig gemenskap bland likasinnade"},
+					   {Title: "God mat", Text: "Det bästa snabbmatsborlänge kan uppbringa"},
+					   {Title: "Mycket skratt", Text: "Tro mig! Vi gör inget annat ;)"}];
 });

@@ -1,45 +1,41 @@
 #slidecontainer{
 	margin-top:20px;
 	width:100%;
-	height:450px;
+	height:480px;
 	background-color: #707969;
 }
 
 #slidecenter {
 	height:100%;
+	width:1024px;
 }
 
 #slidecenter ul {
 	height:100%;
 	z-index:2;
 	position:relative;
-	top:-450px;
+	top:-480px;
 }
 
 #slidecenter ul li {
 	height:100%;
 	color:white;
-}
-
-.slideframe {
-	height:100%;
 	padding:30px;
-	color:white;
-	background-position:center top;
-	background-repeat:no-repeat;
 }
 
 bg-video {
-	margin:0;
+	margin:0 auto 0 auto;
 	padding:0;
-	width:1024px;
-	height:450px;
+	background-color:#707969;
 	z-index:1;
+	display:block;
+	height:480px;
+	width:720px;
 }
 
 bg-video video {
-	width:1024px;
-	height:450px;
-	margin:0;
+	object-fit:fill;
+	margin:0 auto 0 auto;
 	padding:0;
+	background-color:#707969;
 }
