@@ -1,4 +1,4 @@
-kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, $location, $timeout, kibservice, adminservice){
+kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, $window, $timeout, kibservice, adminservice){
 	adminservice.GetAuthInfo(function(auth){
 		if(auth.authlevel == 0){
 			//not logged in
@@ -31,7 +31,7 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 			}, 2000);
 		})
 		.error(function(){
-			alert("Ett fel uppstod när matchen skulle sparas! Försök igen senare!");
+			$window.alert("Ett fel uppstod när matchen skulle sparas! Försök igen senare!");
 			delete $scope.saving;
 		});
 	}
