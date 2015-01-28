@@ -2,7 +2,7 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 	adminservice.GetAuthInfo(function(auth){
 		if(auth.authlevel == 0){
 			//not logged in
-			$location.url("/forum/ucp.php?mode=login&redirect=%23%2Fleagues%2F" + $routeParams.leagueId + "%2Freportmatch");
+			$window.location.href = "/forum/ucp.php?mode=login&redirect=%23%2Fleagues%2F" + $routeParams.leagueId + "%2Freportmatch";
 		}else{
 			$scope.auth = auth;
 		}
