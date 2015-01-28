@@ -5,7 +5,7 @@
 	
 	<form name="matchform" novalidate role="form" ng-submit="reportMatch()" ng-hide="saving">
 		<div class="form-group">
-			<label>Vem mötte du</label>
+			<label>Vem mötte du (användarnamn)</label>
 			<angucomplete id="opponent"
               pause="400"
               selectedobject="selectedOpponent"
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 		
-		<input type="submit" class="btn btn-primary" value="Rapportera match" ng-disabled="matchform.$invalid"/>
+		<input type="submit" class="btn btn-primary" value="Rapportera match" ng-disabled="matchform.$invalid || !selectedOpponent"/>
 	</form>
 </div>
 
