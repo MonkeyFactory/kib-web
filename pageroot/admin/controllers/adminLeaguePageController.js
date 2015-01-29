@@ -13,7 +13,7 @@ kibAdmin.controller('AdminLeagueController', function($scope, $location, kibserv
 			if($scope.leagues[i].edit){
 				if($scope.leagues[i].isNew){
 					$scope.leagues[i].$save();
-					scope.leagues[i].isNew = false;
+					$scope.leagues[i].isNew = false;
 				}else{
 					$scope.leagues[i].$save({leagueId: $scope.leagues[i].leagueId});
 				}
