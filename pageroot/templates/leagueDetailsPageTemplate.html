@@ -59,6 +59,9 @@
 							Oavgjort
 						</th>
 						<th>
+							Förluster
+						</th>
+						<th>
 							Poäng
 						</th>
 					</tr>
@@ -69,10 +72,13 @@
 							{{player.Name}}
 						</td>
 						<td>
-							{{player.Wins}}
+							{{player.Wins}}({{player.SWins}})
 						</td>
 						<td>
-							{{player.Draws}}
+							{{player.Draws}}({{player.SDraw}})
+						</td>
+						<td>
+							{{player.Losses}}({{player.SLoss}})
 						</td>
 						<td>
 							{{player.Score}}
