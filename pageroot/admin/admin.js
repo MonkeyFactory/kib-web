@@ -25,6 +25,11 @@ var kibAdmin = angular.module('kibAdmin', ['ngRoute', 'angularFileUpload'])
 			controller: 'ImageUploadPageController'
 		})
 		
+		.when('/admin/leagues', {
+			templateUrl: 'admin/templates/adminLeaguePageTemplate.html',
+			controller: 'AdminLeagueController'
+		})
+		
 		.when('/admin', {
 			templateUrl: 'admin/templates/adminIndex.html',
 			controller: 'AdminIndexController'
