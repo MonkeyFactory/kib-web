@@ -4,8 +4,8 @@
 			<div class="row infobox" ng-class="{minimized:minimized}">
 				<div class="col-xs-8">
 					<h1>{{league.Name}}</h1>
-					<p ng-show="league.EndDate">{{league.StartDate}} till {{league.EndDate}}</p>
-					<p ng-hide="league.EndDate">{{league.StartDate}} och framåt</p>
+					<p ng-show="league.EndDate">{{league.StartDate | date:'mediumDate'}} till {{league.EndDate | date:'mediumDate'}}</p>
+					<p ng-hide="league.EndDate">{{league.StartDate | date:'mediumDate'}} och framåt</p>
 					<p>{{league.Description}}</p>
 				</div>
 				

@@ -20,10 +20,10 @@
 					{{league.Name}}
 				</td>
 				<td>
-					{{league.StartDate}}	
+					{{league.StartDate | date:'mediumDate'}}	
 				</td>
 				<td>
-					{{league.EndDate || 'ej specifierat'}}	
+					{{league.EndDate | date:'mediumDate' || 'ej specifierat'}}	
 				</td>
 			</tr>
 		</tbody>
