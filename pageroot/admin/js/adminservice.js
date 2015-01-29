@@ -48,6 +48,10 @@ kibAdmin.factory('adminservice', function($resource, $http){
 		
 		ReportMatch: function(leagueId, matchObj, callback){
 			return $http.post(BaseURL + "/league/" + leagueId + "/reportmatch", matchObj);
+		},
+		
+		GetNewLeague: function(){
+			return new League();
 		}
 	};
 });
