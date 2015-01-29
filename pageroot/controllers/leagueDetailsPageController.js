@@ -9,8 +9,9 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 	
 	$scope.league = kibservice.GetLeague($routeParams.leagueId);
 	$scope.league.$promise.then(function(){
-		//Determine if the legue has started yet
-		$scope.leagueStarted = (moment() >= moment($scope.league.StartDate));
+		//Determine if the legue is active
+		$scope.leagueActive = (moment() >= moment($scope.league.StartDate) 
+								&& (!$scope.league.EndDate || moment() < moment($scope.league.EndDate).add(1, 'd') ));
 	});
 	
 	$scope.leaderboard = kibservice.GetLeaderboard($routeParams.leagueId);
