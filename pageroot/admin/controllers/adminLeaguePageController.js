@@ -4,13 +4,20 @@ kibAdmin.controller('AdminLeagueController', function($scope, $location, kibserv
 	$scope.leagues.$promise.then(function(){
 		for(i=0;i < $scope.leagues.length;i++){
 			$scope.leagues[i].edit = false;
+			$scope.leagues[i].isNew = false;
 		}
 	});
 
 	var checkDataState = function(){
 		for(i=0;i < $scope.leagues.length;i++){
 			if($scope.leagues[i].edit){
-				$scope.leagues[i].$save();
+				if($scope.leagues[i].isNew){
+					$scope.leagues[i].$save();
+					scope.leagues[i].isNew = false;
+				}else{
+					$scope.leagues[i].$save({leagueId: $scope.leagues[i].leagueId});
+				}
+				
 				$scope.leagues[i].edit = false;
 			}
 		}
@@ -20,6 +27,9 @@ kibAdmin.controller('AdminLeagueController', function($scope, $location, kibserv
 		checkDataState();
 	
 		var newLeague = adminservice.GetNewLeague();
+		newLeague.isNew = true;
+		newLeague.edit = true;
+		
 		$scope.leagues.push(newLeague);
 	}
 	
