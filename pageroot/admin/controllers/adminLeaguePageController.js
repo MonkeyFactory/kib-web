@@ -9,7 +9,7 @@ kibAdmin.controller('AdminLeagueController', function($scope, $location, $timeou
 	});
 
 	var onError = function(errMsg){
-		alert("Error ocurred when communicating with server!\n" + errMsg;
+		alert("Error ocurred when communicating with server!\n" + errMsg);
 	}
 	
 	var checkDataState = function(){
