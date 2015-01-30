@@ -1,4 +1,4 @@
-kibAdmin.controller('AdminLeagueController', function($scope, $location, kibservice, adminservice){
+kibAdmin.controller('AdminLeagueController', function($scope, $location, $timeout, kibservice, adminservice){
 	//Get leagues and set state variables
 	$scope.leagues = kibservice.GetLeagues();
 	$scope.leagues.$promise.then(function(){
@@ -8,17 +8,26 @@ kibAdmin.controller('AdminLeagueController', function($scope, $location, kibserv
 		}
 	});
 
+	var onError = function(errMsg){
+		alert("Error ocurred when communicating with server!\n" + errMsg;
+	}
+	
 	var checkDataState = function(){
 		for(i=0;i < $scope.leagues.length;i++){
 			if($scope.leagues[i].edit){
 				if($scope.leagues[i].isNew){
 					$scope.leagues[i].$save();
-					$scope.leagues[i].isNew = false;
+					$scope.leagues[i].$promise.then(function(){
+						$scope.leagues[i].isNew = false;
+						$scope.leagues[i].edit = false;
+					}, onError);
+					
 				}else{
 					$scope.leagues[i].$save({leagueId: $scope.leagues[i].leagueId});
+					$scope.leagues[i].$promise.then(function(){
+						$scope.leagues[i].edit = false;
+					}, onError);
 				}
-				
-				$scope.leagues[i].edit = false;
 			}
 		}
 	}
@@ -47,11 +56,17 @@ kibAdmin.controller('AdminLeagueController', function($scope, $location, kibserv
 		checkDataState();
 		
 		if(confirm("Really delete league? :(")){
-			league.$delete();
-			var index = $scope.leagues.indexOf(league);
-			if (index > -1) {
-				$scope.leagues.splice(index, 1);
-			}
+			league.$delete({leagueId: league.leagueId});
+			league.$promise.then(function(){
+				var index = $scope.leagues.indexOf(league);
+				if (index > -1) {
+					$scope.leagues.splice(index, 1);
+				}
+				
+				$timeout(function(){
+					$scope.apply();
+				});
+			}, onError);
 		}
 	}
 });
