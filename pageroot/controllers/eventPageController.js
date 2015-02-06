@@ -20,7 +20,7 @@ kibApp.controller('EventPageController', function($scope, kibservice){
       calendar:{
 		lang: "sv",
         editable: false,
-		height:600,
+		height: (window.innerWidth > 768) ? 600 : 400,
         header:{
           left: 'title',
           center: '',
@@ -29,4 +29,19 @@ kibApp.controller('EventPageController', function($scope, kibservice){
         eventClick: $scope.alertOnEventClick,
       }
     };
+	
+	//Todo: Change to something more angular like...
+	$(window).on("resize.doResize", function (){
+        $scope.$apply(function(){
+           if(window.innerWidth < 768){
+				$scope.uiConfig.calendar.height = 400;
+		   }else{
+				$scope.uiConfig.calendar.height = 600;
+		   }
+        });
+    });
+
+    $scope.$on("$destroy",function (){
+         $(window).off("resize.doResize"); //remove the handler added earlier
+    });
 });

@@ -1,15 +1,15 @@
 <div class="widebox" id="infobox-container">
 	<div class="centerbox" ng-show="league.$resolved">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row infobox" ng-class="{minimized:minimized}">
-				<div class="col-xs-8">
+				<div class="col-xs-10">
 					<h1>{{league.Name}}</h1>
 					<p ng-show="league.EndDate">{{league.StartDate | date:'mediumDate'}} till {{league.EndDate | date:'mediumDate'}}</p>
 					<p ng-hide="league.EndDate">{{league.StartDate | date:'mediumDate'}} och framåt</p>
 					<p>{{league.Description}}</p>
 				</div>
 				
-				<div class="col-xs-4">
+				<div class="col-xs-2">
 					<a href="#/leagues/{{league.leagueId}}/reportmatch" ng-show="leagueActive">Raportera Match</a>
 				</div>
 			</div>

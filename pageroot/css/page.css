@@ -50,26 +50,16 @@ img {
 
 #imagegrid {
 	margin-top:20px;
+	margin-bottom:20px;
 }
 
 .imagebox {
-	width:480px;
-	border:1px solid #707969;
-	height:300px;
-	margin-bottom:30px;
 	padding:5px;
-	
-	background-position:center;
-	background-repeat:no-repeat;
-	background-size:200px;
+	text-align:center;
 }
 
-.imageboxleft {
-	float:left;
-}
-
-.imageboxright {
-	float:right;
+.imagebox > img {
+	width:90%;
 }
 
 .jumbotron {
