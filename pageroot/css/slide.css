@@ -22,6 +22,12 @@
 	height:100%;
 	color:white;
 	padding:30px;
+
+	font-size:18pt;
+}
+
+#slidecenter ul li div h1 {
+    font-size:35pt;
 }
 
 bg-video {
