@@ -1,4 +1,4 @@
-var kibAdmin = angular.module('kibAdmin', ['ngRoute', 'angularFileUpload'])
+var kibAdmin = angular.module('kibAdmin', ['ngRoute', 'angularFileUpload', 'ckeditor'])
 	.config(function($routeProvider){
 		$routeProvider.when('/admin/adminpage/:pageName?', {
 			templateUrl: 'admin/templates/adminPagePageTemplate.html',
@@ -35,26 +35,6 @@ var kibAdmin = angular.module('kibAdmin', ['ngRoute', 'angularFileUpload'])
 			controller: 'AdminIndexController'
 		})
 	});
-	
-kibAdmin.directive('ckEditor', [function () {
-    return {
-        require: '?ngModel',
-        link: function ($scope, elm, attr, ngModel) {
-
-            var ck = CKEDITOR.replace(elm[0]);
-
-            ck.on('pasteState', function () {
-                $scope.$apply(function () {
-                    ngModel.$setViewValue(ck.getData());
-                });
-            });
-
-            ngModel.$render = function (value) {
-                ck.setData(ngModel.$modelValue);
-            };
-        }
-    };
-}]);
 
 kibAdmin.directive('datetimepicker', function($timeout){
 	return {
@@ -68,13 +48,12 @@ kibAdmin.directive('datetimepicker', function($timeout){
 				if($scope.disableTimePick){
 					options = { format: 'YYYY-MM-DD',
 								pickTime: false,
-								language: "sv",
+								locale: "sv",
 								sideBySide: true
 						};
 				}else{
 					options ={ format: 'YYYY-MM-DD HH:mm',
-							pickSeconds: false,
-							language: "sv",
+							locale: "sv",
 							sideBySide: true
 					};	
 				}

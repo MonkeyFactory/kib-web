@@ -1,4 +1,12 @@
-kibAdmin.controller('AdminPageController', function($scope, $routeParams, $location, kibservice, adminservice){		
+kibAdmin.controller('AdminPageController', function($scope, $routeParams, $location, kibservice, adminservice){	
+	// Editor options.
+	  $scope.options = {
+		language: 'en',
+		allowedContent: true,
+		entities: false
+	  };
+
+	
 	if($routeParams.pageName){
 		$scope.page = kibservice.GetPage($routeParams.pageName, true);
 		var newPage = false;
