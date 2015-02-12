@@ -130,8 +130,9 @@
             <!-- IF S_DISPLAY_MEMBERLIST -->
             	<li<!-- IF SCRIPT_NAME eq 'memberlist' --> <!-- ENDIF -->><a href="{U_MEMBERLIST}">{L_MEMBERLIST}</a></li>
             <!-- ENDIF -->
-			<!-- IF S_USER_LOGGED_IN -->
-					<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
+	    <!-- IF S_USER_LOGGED_IN -->
+	    <li><a href="{U_SEARCH_ACTIVE_TOPICS}">Active Topics</a></li>
+					<li><a href="{U_SEARCH_UNREAD}">Unread Posts</a></li>
                     <li><a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a></li>
                     <li><a href="{U_PROFILE}">{L_READ_PROFILE}</a></li>
                     <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
