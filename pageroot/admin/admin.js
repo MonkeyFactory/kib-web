@@ -47,7 +47,6 @@ kibAdmin.directive('datetimepicker', function($timeout){
 			console.log($scope.disableTimePick);
 				if($scope.disableTimePick){
 					options = { format: 'YYYY-MM-DD',
-								pickTime: false,
 								locale: "sv",
 								sideBySide: true
 						};
