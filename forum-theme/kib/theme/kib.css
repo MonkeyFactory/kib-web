@@ -138,3 +138,7 @@ table#memberlist th {
      background: #707969;
      padding: 10px;
 }
+
+.content img {
+    max-width:760px;
+}
