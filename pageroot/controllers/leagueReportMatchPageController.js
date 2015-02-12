@@ -1,4 +1,4 @@
-kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, $window, $timeout, kibservice, adminservice){
+kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, $window, $timeout, $location, kibservice, adminservice){
 	adminservice.GetAuthInfo(function(auth){
 		if(auth.authlevel == 0){
 			//not logged in
