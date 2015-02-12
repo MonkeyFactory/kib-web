@@ -1,7 +1,4 @@
-KIB WEB PAGE (Under Development)
+KIB WEB PAGE
 ================================
-Built using AngularJS and Bootstrap
-
-Using this carousel: https://github.com/revolunet/angular-carousel  
-Datetimepicker: https://github.com/Eonasdan/bootstrap-datetimepicker  
-Calendar: http://fullcalendar.io/  
+Built using AngularJS for the client side, with REST requests for data retrieval.   
+Using Bower for dependency handling.
