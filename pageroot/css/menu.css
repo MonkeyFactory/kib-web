@@ -36,3 +36,30 @@
 	vertical-align:center;
 	line-height:40px;
 }
+
+#menubar-narrow {
+	display:none;
+	height:40px;
+	background-color:#707969;
+	text-align:center;
+}
+
+#menubar-narrow img {
+	height:30px;
+}
+
+#menubar-narrow ul {
+	list-style-type:none;	
+	padding:0;
+}
+
+#menubar-narrow ul li {
+	display:inline-block;
+	text-align:center;
+	margin-top:5px;
+	padding-right:10px;
+}
+
+#menubar-narrow ul li:last-child  {
+	padding-right:0;
+}
