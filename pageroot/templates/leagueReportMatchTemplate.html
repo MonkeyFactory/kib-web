@@ -6,22 +6,36 @@
 	<form name="matchform" novalidate role="form" ng-submit="reportMatch()" ng-hide="saving">
 		<div class="form-group">
 			<label>Vem mötte du (användarnamn)</label>
-			<angucomplete id="opponent"
+			<angucomplete-alt id="opponent"
               pause="400"
-              selectedobject="selectedOpponent"
+              selected-object="selectedOpponent"
 			  minlength = "2"
-			  inputclass="form-control"
-              url="http://kibdev.crabdance.com/modend/api/authinfo/completeusername/"
-              titlefield="username"
+			  input-class="form-control"
+              remote-url="http://kibdev.crabdance.com/modend/api/authinfo/completeusername/"
+              title-field="username"
+			  field-required="true"
 			  required/>
 		</div>
 		<div class="form-group">
 			<label>Vilket datum spelades matchen</label>
-			<div datetimepicker disable-time-pick="true" class="input-group date">
+			<!--<div datetimepicker disable-time-pick="true" class="input-group date">
 				<span class="input-group-addon">
 					<span class="glyphicon glyphicon-calendar"></span>
 				</span>
 				<input type="text" class="form-control" ng-model="match.MatchDate" required>
+			</div>-->
+
+			<div class="input-group">
+				<span class="input-group-addon">
+						<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+				<input type="text"
+					   class="form-control"
+					   ng-model="match.MatchDate"
+					   data-date-time-picker
+					   data-format="YYYY-MM-DD"
+					   data-locale="{{sv}}"
+					   data-pick12HourFormat="false" />
 			</div>
 		</div>
 		

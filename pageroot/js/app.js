@@ -1,4 +1,4 @@
-var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'ngAnimate', 'angular-carousel', 'ui.calendar', 'googlechart', 'angucomplete', 'kibAdmin', 'kibGalleryModule']).
+var kibApp = angular.module('kibApp', ['ngRoute', 'ngResource', 'ngAnimate', 'angular-carousel', 'ui.calendar', 'googlechart', 'angucomplete-alt', 'kibAdmin', 'kibGalleryModule']).
 	config(function($routeProvider, $resourceProvider, $httpProvider){
 		$httpProvider.interceptors.push(function($q, $location, $rootScope, $window) {
 			return {
