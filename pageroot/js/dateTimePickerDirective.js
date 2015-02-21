@@ -1,6 +1,6 @@
 kibApp.directive("dateTimePicker", function ($rootScope) {
 	return {
-		require: '?ngModel',
+		require: 'ngModel',
 		restrict: 'AE',
 		scope: {
 			pick12HourFormat: '@',
@@ -8,7 +8,7 @@ kibApp.directive("dateTimePicker", function ($rootScope) {
 			location: '@',
 			format: '@'
 		},
-		link: function (scope, elem, attrs) {
+	    link: function (scope, elem, attrs, ngModel) {
 			elem.datetimepicker({
 				pick12HourFormat: scope.pick12HourFormat,
 				locale: scope.locale,
@@ -16,6 +16,8 @@ kibApp.directive("dateTimePicker", function ($rootScope) {
 				sideBySide: true
 			})
 
+		scope.instance = elem.data("DateTimePicker");;
+		
 			//Local event change
 			elem.on('blur', function () {
 
@@ -26,13 +28,16 @@ kibApp.directive("dateTimePicker", function ($rootScope) {
 
 				/*// returns moments.js format object
 				scope.dateTime = new Date(elem.data("DateTimePicker").getDate().format());
-				// Global change propagation */
+				// Global change propagation 
 
 				$rootScope.$broadcast("emit:dateTimePicker", {
 					action: 'changed',
 					dateTime: scope.dateTime
-				});
-				scope.$apply();
+					}); */
+			    
+			    scope.$apply(function(){
+				ngModel.$setViewValue(scope.instance.date().format('YYYY-MM-DD HH:mm:ss'));
+			    });
 			})
 		}
 	};
