@@ -30,8 +30,13 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 				$location.path("/leagues/" + $routeParams.leagueId);
 			}, 2000);
 		})
-		.error(function(){
-			$window.alert("Ett fel uppstod när matchen skulle sparas! Försök igen senare!");
+		.error(function(data, status){
+			var errorMsg = "Ett fel uppstod när matchen skulle sparas! Försök igen senare!";
+			if(angular.isDefined(data.message)){
+				errorMsg += "\n" + data.message;
+			}
+		
+			$window.alert(errorMsg);
 			delete $scope.saving;
 		});
 	}
