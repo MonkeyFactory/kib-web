@@ -7,6 +7,11 @@
 					<p ng-show="league.EndDate">{{league.StartDate | date:'mediumDate'}} till {{league.EndDate | date:'mediumDate'}}</p>
 					<p ng-hide="league.EndDate">{{league.StartDate | date:'mediumDate'}} och framåt</p>
 					<p>{{league.Description}}</p>
+					
+					<div ng-show="league.challenge.Description">
+						<h3>Challenge of the week</h3>
+						<b>{{league.challenge.Description}}</b>
+					</div>
 				</div>
 				
 				<div class="col-xs-2">

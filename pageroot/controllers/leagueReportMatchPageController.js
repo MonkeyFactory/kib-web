@@ -11,6 +11,8 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 	$scope.leagueId = $routeParams.leagueId;
 	$scope.match = {};
 	
+	$scope.challenge = kibservice.GetCurrentChallenge($scope.leagueId);
+	
 	$scope.reportMatch = function(){
 		if(!angular.isDefined($scope.selectedOpponent)){
 			//form not filled in properly

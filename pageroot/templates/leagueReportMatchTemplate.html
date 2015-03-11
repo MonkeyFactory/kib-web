@@ -1,4 +1,4 @@
-<div class="centerbox" style="margin-top:20px;" ng-show="auth">
+<div class="centerbox" style="margin-top:20px;margin-bottom:20px;" ng-show="auth">
 	<div class="jumbotron">
 		<h2>Välkommen {{auth.user}}, hur gick matchen?</h2>
 	</div>
@@ -53,6 +53,23 @@
 					<input type="radio" name="winner" ng-model="match.Winner" value="0" required="!winner">Det blev lika</input>
 				</div>
 			</div>
+		</div>
+		
+		<div class="well" ng-show="challenge.Description">
+			<h4>Challenge</h4>
+			<b>{{challenge.Description}}</b>
+		
+			<div class="checkbox">
+				<label>
+				  <input type="checkbox" ng-model="match.Player1PassedChallenge" /> Jag klarade veckans challenge
+				</label>
+			</div>
+			
+			<div class="checkbox">
+				<label>
+				  <input type="checkbox" ng-model="match.Player2PassedChallenge" /> Min motståndare klarade veckans challenge
+				</label>
+			</div>		
 		</div>
 		
 		<input type="submit" class="btn btn-primary" value="Rapportera match" ng-disabled="matchform.$invalid || !selectedOpponent"/>
