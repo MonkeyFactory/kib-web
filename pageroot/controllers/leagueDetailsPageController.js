@@ -34,7 +34,7 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 		}
 	
 		//Add score (rows)
-		for(i=1;i < $scope.scorehistory[0][0];i++){
+		for(i=1;i < $scope.scorehistory[0][0] + 1;i++){
 			row = []
 			
 			//Add month to row
