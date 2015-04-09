@@ -1,7 +1,7 @@
 <div class="centerbox" style="margin-top:20px;margin-bottom:20px;" ng-show="auth">
 	<div class="jumbotron">
 		<h2 ng-if="auth.authlevel == 1">Välkommen {{auth.user}}, hur gick matchen?</h2>
-		<h2 ng-if="auth.authlevel > 1">Välkommen {{auth.user}}, du har uber rights. Du kan välja bägge spelare/h2>
+		<h2 ng-if="auth.authlevel > 1">Välkommen {{auth.user}}, du har uber rights. Du kan välja bägge spelarna i matchen</h2>
 	</div>
 	
 	<form name="matchform" novalidate role="form" ng-submit="reportMatch()" ng-hide="saving">
@@ -51,10 +51,10 @@
 			
 			<div class="row">
 				<div class="col-xs-4">
-					<input type="radio" name="winner" ng-model="match.Winner" value="1" required="!winner">Jag vann</input>
+					<input type="radio" name="winner" ng-model="match.Winner" value="1" required="!winner">{{auth.authlevel > 1 ? 'Spelare 1 vann' : 'Jag vann'}}</input>
 				</div>
 				<div class="col-xs-4">
-					<input type="radio" name="winner" ng-model="match.Winner" value="2" required="!winner">Jag förlorade</input>
+					<input type="radio" name="winner" ng-model="match.Winner" value="2" required="!winner">{{auth.authlevel > 1 ? 'Spelare 2 vann' : 'Jag förlorade'}}</input>
 				</div>
 				<div class="col-xs-4">
 					<input type="radio" name="winner" ng-model="match.Winner" value="0" required="!winner">Det blev lika</input>
@@ -68,18 +68,18 @@
 		
 			<div class="checkbox">
 				<label>
-				  <input type="checkbox" ng-model="match.Player1PassedChallenge" /> Jag klarade veckans challenge
+				  <input type="checkbox" ng-model="match.Player1PassedChallenge" /> {{auth.authlevel > 1 ? 'Spelare 1 klarade veckans challenge' : 'Jag klarade veckans challenge'}}
 				</label>
 			</div>
 			
 			<div class="checkbox">
 				<label>
-				  <input type="checkbox" ng-model="match.Player2PassedChallenge" /> Min motståndare klarade veckans challenge
+				  <input type="checkbox" ng-model="match.Player2PassedChallenge" /> {{auth.authlevel > 1 ? 'Spelare 2 klarade veckans challenge' : 'Min motståndare klarade veckans challenge'}} 
 				</label>
 			</div>		
 		</div>
 		
-		<input type="submit" class="btn btn-primary" value="Rapportera match" ng-disabled="matchform.$invalid || !selectedOpponent"/>
+		<input type="submit" class="btn btn-primary" value="Rapportera match" ng-disabled="matchform.$invalid || !selectedPlayer2"/>
 	</form>
 </div>
 
