@@ -1,14 +1,27 @@
 <div class="centerbox" style="margin-top:20px;margin-bottom:20px;" ng-show="auth">
 	<div class="jumbotron">
-		<h2>Välkommen {{auth.user}}, hur gick matchen?</h2>
+		<h2 ng-if="auth.authlevel == 1">Välkommen {{auth.user}}, hur gick matchen?</h2>
+		<h2 ng-if="auth.authlevel > 1">Välkommen {{auth.user}}, du har uber rights. Du kan välja bägge spelare/h2>
 	</div>
 	
 	<form name="matchform" novalidate role="form" ng-submit="reportMatch()" ng-hide="saving">
-		<div class="form-group">
-			<label>Vem mötte du (användarnamn)</label>
-			<angucomplete-alt id="opponent"
+		<div class="form-group" ng-if="auth.authlevel > 1">
+			<label>Spelare 1</label>
+			<angucomplete-alt id="player1"
               pause="400"
-              selected-object="selectedOpponent"
+              selected-object="selectedPlayer1"
+			  minlength = "2"
+			  input-class="form-control"
+              remote-url="http://kibdev.crabdance.com/modend/api/authinfo/completeusername/"
+              title-field="username"/>
+		</div>
+		
+		<div class="form-group">
+			<label ng-if="auth.authlevel == 1">Vem mötte du (användarnamn)</label>
+			<label ng-if="auth.authlevel > 1">Spelare 2</label>
+			<angucomplete-alt id="player2"
+              pause="400"
+              selected-object="selectedPlayer2"
 			  minlength = "2"
 			  input-class="form-control"
               remote-url="http://kibdev.crabdance.com/modend/api/authinfo/completeusername/"
@@ -18,12 +31,6 @@
 		</div>
 		<div class="form-group">
 			<label>Vilket datum spelades matchen</label>
-			<!--<div datetimepicker disable-time-pick="true" class="input-group date">
-				<span class="input-group-addon">
-					<span class="glyphicon glyphicon-calendar"></span>
-				</span>
-				<input type="text" class="form-control" ng-model="match.MatchDate" required>
-			</div>-->
 
 			<div class="input-group">
 				<span class="input-group-addon">

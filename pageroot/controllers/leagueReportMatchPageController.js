@@ -14,14 +14,24 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 	$scope.challenge = kibservice.GetCurrentChallenge($scope.leagueId);
 	
 	$scope.reportMatch = function(){
-		if(!angular.isDefined($scope.selectedOpponent)){
+		if(!angular.isDefined($scope.selectedPlayer2)){
 			//form not filled in properly
 			return;
 		}
 		
-		$scope.match.Player1 = $scope.auth.userId;
+		if($scope.auth.authlevel > 1){
+			if(!angular.isDefined($scope.selectedPlayer1)){
+				//form not filled in properly
+				return;
+			}
+			
+			$scope.match.Player1 = $scope.selectedPlayer1.originalObject.user_id;
+		}else{
+			$scope.match.Player1 = $scope.auth.userId;
+		}
+		
 		//Extract selected opponent user_id and add it to the match object
-		$scope.match.Player2 = $scope.selectedOpponent.originalObject.user_id;
+		$scope.match.Player2 = $scope.selectedPlayer2.originalObject.user_id;
 		
 		$scope.saving = 1;
 		adminservice.ReportMatch($routeParams.leagueId, $scope.match)
