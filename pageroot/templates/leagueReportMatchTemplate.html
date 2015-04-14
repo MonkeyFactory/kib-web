@@ -29,20 +29,15 @@
 			  field-required="true"
 			  required/>
 		</div>
-		<div class="form-group">
+		<div class="form-group" >
 			<label>Vilket datum spelades matchen</label>
 
-			<div class="input-group">
+			<div class="input-group" date-time-picker locale="sv" format="YYYY-MM-DD" ng-model="match.MatchDate">
 				<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 				</span>
 				<input type="text"
-					   class="form-control"
-					   ng-model="match.MatchDate"
-					   data-date-time-picker
-					   data-format="YYYY-MM-DD"
-					   data-locale="{{sv}}"
-					   data-pick12HourFormat="false" />
+					   class="form-control" />
 			</div>
 		</div>
 		

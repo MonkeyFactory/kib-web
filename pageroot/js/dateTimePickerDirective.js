@@ -1,44 +1,38 @@
-kibApp.directive("dateTimePicker", function ($rootScope) {
-	return {
-		require: 'ngModel',
-		restrict: 'AE',
-		scope: {
-			pick12HourFormat: '@',
-			locale: '@',
-			location: '@',
-			format: '@'
-		},
-	    link: function (scope, elem, attrs, ngModel) {
-			elem.datetimepicker({
-				pick12HourFormat: scope.pick12HourFormat,
-				locale: scope.locale,
-				format: scope.format,
-				sideBySide: true
-			})
+﻿'use strict';
+angular.module('WebClient').directive('dateTimePicker', function() {
+    return {
+        require: 'ngModel',
+        restrict: 'AE',
+        scope: {
+            locale: '@',
+            format: '@',
+            options: '=?'
+        },
+        link: function (scope, elem, attrs, ngModel) {
+            if (!angular.isDefined(scope.options)) {
+                scope.options = {
+                    locale: scope.locale,
+                    format: scope.format
+                };
+            }
 
-		scope.instance = elem.data("DateTimePicker");;
-		
-			//Local event change
-			elem.on('blur', function () {
+            elem.datetimepicker(scope.options);
 
-				/*console.info('this', this);
-				console.info('scope', scope);
-				console.info('attrs', attrs); */
+            scope.instance = elem.data('DateTimePicker');
 
+            var inputfield = elem.find('input');
+            //Local event change
+            inputfield.on('blur', function () {
+                scope.$apply(function () {
+                    if (scope.instance.date() !== null) {
+                        ngModel.$setViewValue(scope.instance.date().format(scope.format));
+                    }
+                });
+            });
 
-				/*// returns moments.js format object
-				scope.dateTime = new Date(elem.data("DateTimePicker").getDate().format());
-				// Global change propagation 
-
-				$rootScope.$broadcast("emit:dateTimePicker", {
-					action: 'changed',
-					dateTime: scope.dateTime
-					}); */
-			    
-			    scope.$apply(function(){
-				ngModel.$setViewValue(scope.instance.date().format('YYYY-MM-DD HH:mm:ss'));
-			    });
-			})
-		}
-	};
- });
+            ngModel.$render = function () {
+                inputfield.val(ngModel.$viewValue);
+            };
+        }
+    };
+});
