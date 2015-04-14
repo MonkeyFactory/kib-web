@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('WebClient').directive('dateTimePicker', function() {
+angular.module('kibApp').directive('dateTimePicker', function() {
     return {
         require: 'ngModel',
         restrict: 'AE',
