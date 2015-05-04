@@ -4,6 +4,7 @@ kibAdmin.factory('adminservice', function($resource, $http){
 	var Page = $resource(BaseURL + "/page/:pageName");
 	var Event = $resource(BaseURL + "/events/:eventId");
 	var League = $resource(BaseURL + "/league/:leagueId");
+	var Matches = $resource(BaseURL + "/league/matches/:matchId");
 	
 	return {
 		//PAGES
@@ -52,6 +53,12 @@ kibAdmin.factory('adminservice', function($resource, $http){
 		
 		GetNewLeague: function(){
 			return new League();
+		},
+		
+		//MATCHES
+		
+		GetMatches: function(){
+			return Matches.query();
 		}
 	};
 });

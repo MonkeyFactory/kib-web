@@ -30,38 +30,43 @@ var kibAdmin = angular.module('kibAdmin', ['ngRoute', 'angularFileUpload', 'cked
 			controller: 'AdminLeagueController'
 		})
 		
+		.when('/admin/matches', {
+			templateUrl: 'admin/templates/adminMatchesPageTemplate.html',
+			controller: 'AdminMatchesController'
+		})
+		
 		.when('/admin', {
 			templateUrl: 'admin/templates/adminIndex.html',
 			controller: 'AdminIndexController'
 		})
 	});
 
-kibAdmin.directive('datetimepicker', function($timeout){
-	return {
-		restrict: 'A',
-		scope: {
-			disableTimePick: "@"
-		},
-		link: function ($scope, elm, attr) {
-			$timeout(function(){
-			console.log($scope.disableTimePick);
-				if($scope.disableTimePick){
-					options = { format: 'YYYY-MM-DD',
-								locale: "sv",
-								sideBySide: true
-						};
-				}else{
-					options ={ format: 'YYYY-MM-DD HH:mm',
-							locale: "sv",
-							sideBySide: true
-					};	
-				}
+// kibAdmin.directive('datetimepicker', function($timeout){
+	// return {
+		// restrict: 'A',
+		// scope: {
+			// disableTimePick: "@"
+		// },
+		// link: function ($scope, elm, attr) {
+			// $timeout(function(){
+			// console.log($scope.disableTimePick);
+				// if($scope.disableTimePick){
+					// options = { format: 'YYYY-MM-DD',
+								// locale: "sv",
+								// sideBySide: true
+						// };
+				// }else{
+					// options ={ format: 'YYYY-MM-DD HH:mm',
+							// locale: "sv",
+							// sideBySide: true
+					// };	
+				// }
 			
-				elm.datetimepicker(options);
-			},0);
-		}
-	}
-});
+				// elm.datetimepicker(options);
+			// },0);
+		// }
+	// }
+// });
 
 kibAdmin.filter("authlevelname", function(){
 	return function(level){
