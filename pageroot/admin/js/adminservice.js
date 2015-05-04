@@ -4,7 +4,7 @@ kibAdmin.factory('adminservice', function($resource, $http){
 	var Page = $resource(BaseURL + "/page/:pageName");
 	var Event = $resource(BaseURL + "/events/:eventId");
 	var League = $resource(BaseURL + "/league/:leagueId");
-	var Matches = $resource(BaseURL + "/league/matches/:matchId", { stripTrailingSlashes: false });
+	var Matches = $resource(BaseURL + "/league/matches/:matchId",null,null,{ stripTrailingSlashes: false });
 	
 	return {
 		//PAGES
