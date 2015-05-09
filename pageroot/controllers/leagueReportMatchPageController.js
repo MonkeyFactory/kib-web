@@ -19,7 +19,7 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 			return;
 		}
 		
-		if($scope.auth.authlevel > 1){
+		if(false && $scope.auth.authlevel > 1){
 			if(!angular.isDefined($scope.selectedPlayer1)){
 				//form not filled in properly
 				return;

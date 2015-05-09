@@ -1,11 +1,11 @@
 <div class="centerbox" style="margin-top:20px;margin-bottom:20px;" ng-show="auth">
 	<div class="jumbotron">
-		<h2 ng-if="auth.authlevel == 1">Välkommen {{auth.user}}, hur gick matchen?</h2>
-		<h2 ng-if="auth.authlevel > 1">Välkommen {{auth.user}}, du har uber rights. Du kan välja bägge spelarna i matchen</h2>
+		<h2>Välkommen {{auth.user}}, hur gick matchen?</h2>
+		<!--<h2 ng-if="auth.authlevel > 1">Välkommen {{auth.user}}, du har uber rights. Du kan välja bägge spelarna i matchen</h2> -->
 	</div>
 	
 	<form name="matchform" novalidate role="form" ng-submit="reportMatch()" ng-hide="saving">
-		<div class="form-group" ng-if="auth.authlevel > 1">
+		<!--<div class="form-group" ng-if="auth.authlevel > 1">
 			<label>Spelare 1</label>
 			<angucomplete-alt id="player1"
               pause="400"
@@ -14,7 +14,7 @@
 			  input-class="form-control"
               remote-url="http://kibdev.crabdance.com/modend/api/authinfo/completeusername/"
               title-field="username"/>
-		</div>
+		</div> -->
 		
 		<div class="form-group">
 			<label ng-if="auth.authlevel == 1">Vem mötte du (användarnamn)</label>
