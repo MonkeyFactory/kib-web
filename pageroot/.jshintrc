@@ -19,6 +19,7 @@
   "white": true,
   "validthis": true,
   "globals": {
+	"moment": false,
     "angular": false,
     // Angular Mocks
     "inject": false,

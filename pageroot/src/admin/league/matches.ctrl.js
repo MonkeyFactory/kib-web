@@ -1,19 +1,23 @@
+'use strict';
+
+/* global alert, confirm */
+
 angular.module('kibAdmin').controller('AdminMatchesController', function($scope, $location, $timeout, kibservice, adminservice){
 	//Get matches and set state variables
 	$scope.matches = adminservice.GetMatches();
 	$scope.matches.$promise.then(function(){
-		for(i=0;i < $scope.matches.length;i++){
+		for(var i=0;i < $scope.matches.length;i++){
 			$scope.matches[i].edit = false;
 			$scope.matches[i].isNew = false;
 		}
 	});
 
 	var onError = function(errMsg){
-		alert("Error ocurred when communicating with server!\n" + errMsg);
-	}
+		alert('Error ocurred when communicating with server!\n' + errMsg);
+	};
 	
 	var checkDataState = function(){
-		for(i=0;i < $scope.matches.length;i++){
+		for(var i=0;i < $scope.matches.length;i++){
 			if($scope.matches[i].edit){
 				if($scope.matches[i].isNew){
 					$scope.matches[i].$save();
@@ -30,7 +34,7 @@ angular.module('kibAdmin').controller('AdminMatchesController', function($scope,
 				}
 			}
 		}
-	}
+	};
 	
 	$scope.doAdd = function(){
 		checkDataState();
@@ -40,22 +44,22 @@ angular.module('kibAdmin').controller('AdminMatchesController', function($scope,
 		newmatch.edit = true;
 		
 		$scope.matches.push(newmatch);
-	}
+	};
 	
 	$scope.doEdit = function(match){
 		checkDataState();
 	
 		match.edit = true;
-	}
+	};
 	
-	$scope.saveEdit = function(match){
+	$scope.saveEdit = function(){
 		checkDataState();
-	}
+	};
 	
 	$scope.doDelete = function(match) {
 		checkDataState();
 		
-		if(confirm("Really delete match? :(")){
+		if(confirm('Really delete match? :(')){
 			match.$delete({matchId: match.matchId});
 			match.$promise.then(function(){
 				var index = $scope.matches.indexOf(match);
@@ -68,5 +72,5 @@ angular.module('kibAdmin').controller('AdminMatchesController', function($scope,
 				});
 			}, onError);
 		}
-	}
+	};
 });

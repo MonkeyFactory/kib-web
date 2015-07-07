@@ -1,3 +1,6 @@
+'use strict';
+
+/* global confirm */
 
 angular.module('kibAdmin').controller('ListEventController', function($scope, $location, kibservice, adminservice){
 	kibservice.GetEvents(function(events){
@@ -5,13 +8,13 @@ angular.module('kibAdmin').controller('ListEventController', function($scope, $l
 	});
 	
 	$scope.doEdit = function(event){		
-		$location.path("/admin/adminevent/" + event.eventId);
-	}
+		$location.path('/admin/adminevent/' + event.eventId);
+	};
 	
 	$scope.doDelete = function(event){
-		if(confirm("Really remove "+event.Title+" from the database?")){
+		if(confirm('Really remove '+event.Title+' from the database?')){
 			var i = $scope.events.indexOf(event);
-			if(i != -1) {
+			if(i !== -1) {
 				adminservice.DeleteEvent($scope.events[i].eventId);
 			}
 			
@@ -20,5 +23,5 @@ angular.module('kibAdmin').controller('ListEventController', function($scope, $l
 				$scope.$apply();
 			});			
 		}
-	}
+	};
 });

@@ -1,4 +1,4 @@
-/* use strict; */
+'use strict';
 
 angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor'])
 	.config(function($stateProvider){
@@ -54,19 +54,19 @@ angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor'])
 	// return {
 		// restrict: 'A',
 		// scope: {
-			// disableTimePick: "@"
+			// disableTimePick: '@'
 		// },
 		// link: function ($scope, elm, attr) {
 			// $timeout(function(){
 			// console.log($scope.disableTimePick);
 				// if($scope.disableTimePick){
 					// options = { format: 'YYYY-MM-DD',
-								// locale: "sv",
+								// locale: 'sv',
 								// sideBySide: true
 						// };
 				// }else{
 					// options ={ format: 'YYYY-MM-DD HH:mm',
-							// locale: "sv",
+							// locale: 'sv',
 							// sideBySide: true
 					// };	
 				// }
@@ -77,19 +77,19 @@ angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor'])
 	// }
 // });
 
-angular.module('kibAdmin').filter("authlevelname", function(){
+angular.module('kibAdmin').filter('authlevelname', function(){
 	return function(level){
 		switch(level){
 			case 0:
-				return "NOT_LOGGED_IN";
+				return 'NOT_LOGGED_IN';
 			case 1:
-				return "AUTHENTICATED_USER";
+				return 'AUTHENTICATED_USER';
 			case 2:
-				return "MODERATOR";
+				return 'MODERATOR';
 			case 3:
-				return "ADMINISTRATOR";
+				return 'ADMINISTRATOR';
 			default:
-				return "UNKNOWN";
+				return 'UNKNOWN';
 		}
-	}
+	};
 });

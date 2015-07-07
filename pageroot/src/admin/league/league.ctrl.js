@@ -1,19 +1,23 @@
+'use strict';
+
+/* global alert, confirm */
+
 angular.module('kibAdmin').controller('AdminLeagueController', function($scope, $location, $timeout, kibservice, adminservice){
 	//Get leagues and set state variables
 	$scope.leagues = kibservice.GetLeagues();
 	$scope.leagues.$promise.then(function(){
-		for(i=0;i < $scope.leagues.length;i++){
+		for(var i=0;i < $scope.leagues.length;i++){
 			$scope.leagues[i].edit = false;
 			$scope.leagues[i].isNew = false;
 		}
 	});
 
 	var onError = function(errMsg){
-		alert("Error ocurred when communicating with server!\n" + errMsg);
-	}
+		alert('Error ocurred when communicating with server!\n' + errMsg);
+	};
 	
 	var checkDataState = function(){
-		for(i=0;i < $scope.leagues.length;i++){
+		for(var i=0;i < $scope.leagues.length;i++){
 			if($scope.leagues[i].edit){
 				if($scope.leagues[i].isNew){
 					$scope.leagues[i].$save();
@@ -30,7 +34,7 @@ angular.module('kibAdmin').controller('AdminLeagueController', function($scope, 
 				}
 			}
 		}
-	}
+	};
 	
 	$scope.doAdd = function(){
 		checkDataState();
@@ -40,22 +44,22 @@ angular.module('kibAdmin').controller('AdminLeagueController', function($scope, 
 		newLeague.edit = true;
 		
 		$scope.leagues.push(newLeague);
-	}
+	};
 	
 	$scope.doEdit = function(league){
 		checkDataState();
 	
 		league.edit = true;
-	}
+	};
 	
-	$scope.saveEdit = function(league){
+	$scope.saveEdit = function(){
 		checkDataState();
-	}
+	};
 	
 	$scope.doDelete = function(league) {
 		checkDataState();
 		
-		if(confirm("Really delete league? :(")){
+		if(confirm('Really delete league? :(')){
 			league.$delete({leagueId: league.leagueId});
 			league.$promise.then(function(){
 				var index = $scope.leagues.indexOf(league);
@@ -68,5 +72,5 @@ angular.module('kibAdmin').controller('AdminLeagueController', function($scope, 
 				});
 			}, onError);
 		}
-	}
+	};
 });

@@ -1,6 +1,10 @@
-kibApp.controller('LeagueReportMatchController', function($scope, $stateParams, $window, $timeout, $http, $location, kibservice, adminservice){
+'use strict';
+
+/* jshint camelcase: false */
+
+angular.module('kibApp').controller('LeagueReportMatchController', function($scope, $stateParams, $window, $timeout, $http, $location, kibservice, adminservice){
 	adminservice.GetAuthInfo(function(auth){
-		if(auth.authlevel == 0){
+		if(auth.authlevel === 0){
 			//not logged in
 			//$window.location.href = "/forum/ucp.php?mode=login&redirect=%23%2Fleagues%2F" + $stateParams.leagueId + "%2Freportmatch";
 			$scope.auth = {authlevel: 3, userId: 2};
@@ -33,7 +37,7 @@ kibApp.controller('LeagueReportMatchController', function($scope, $stateParams, 
 				return;
 			}
 			
-			$scope.match.Player1 = $scope.selectedPlayer1.originalObject.user_id;
+			$scope.match.Player1 = $scope.selectedPlayer1.originalObject.user_id; 
 		}else{
 			$scope.match.Player1 = $scope.auth.userId;
 		}
@@ -47,17 +51,17 @@ kibApp.controller('LeagueReportMatchController', function($scope, $stateParams, 
 			$scope.saving = 2;
 			
 			$timeout(function(){
-				$location.path("/leagues/" + $stateParams.leagueId);
+				$location.path('/leagues/' + $stateParams.leagueId);
 			}, 2000);
 		})
-		.error(function(data, status){
-			var errorMsg = "Ett fel uppstod när matchen skulle sparas! Försök igen senare!";
+		.error(function(data){
+			var errorMsg = 'Ett fel uppstod när matchen skulle sparas! Försök igen senare!';
 			if(angular.isDefined(data.message)){
-				errorMsg += "\n" + data.message;
+				errorMsg += 'n' + data.message;
 			}
 		
 			$window.alert(errorMsg);
 			delete $scope.saving;
 		});
-	}
+	};
 });

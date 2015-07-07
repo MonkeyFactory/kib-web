@@ -1,3 +1,7 @@
+'use strict';
+
+/* global console, FileReader, Image */
+
 angular.module('kibAdmin').controller('ImageUploadPageController', function($scope, FileUploader) {
         var uploader = $scope.uploader = new FileUploader({
             url: 'upload.php'
@@ -7,7 +11,7 @@ angular.module('kibAdmin').controller('ImageUploadPageController', function($sco
 
         uploader.filters.push({
             name: 'imageFilter',
-            fn: function(item /*{File|FileLikeObject}*/, options) {
+            fn: function(item /*{File|FileLikeObject}*/) {
                 var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
                 return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
             }
@@ -68,24 +72,15 @@ angular.module('kibAdmin').directive('ngThumb', ['$window', function($window) {
             restrict: 'A',
             template: '<canvas/>',
             link: function(scope, element, attributes) {
-                if (!helper.support) return;
+                if (!helper.support){ return; }
 
                 var params = scope.$eval(attributes.ngThumb);
 
-                if (!helper.isFile(params.file)) return;
-                if (!helper.isImage(params.file)) return;
+                if (!helper.isFile(params.file)){ return; }
+                if (!helper.isImage(params.file)){ return; }
 
                 var canvas = element.find('canvas');
                 var reader = new FileReader();
-
-                reader.onload = onLoadFile;
-                reader.readAsDataURL(params.file);
-
-                function onLoadFile(event) {
-                    var img = new Image();
-                    img.onload = onLoadImage;
-                    img.src = event.target.result;
-                }
 
                 function onLoadImage() {
                     var width = params.width || this.width / this.height * params.height;
@@ -93,6 +88,15 @@ angular.module('kibAdmin').directive('ngThumb', ['$window', function($window) {
                     canvas.attr({ width: width, height: height });
                     canvas[0].getContext('2d').drawImage(this, 0, 0, width, height);
                 }
+				
+				function onLoadFile(event) {
+                    var img = new Image();
+                    img.onload = onLoadImage;
+                    img.src = event.target.result;
+                }
+				
+				reader.onload = onLoadFile;
+                reader.readAsDataURL(params.file);
             }
         };
     }]);

@@ -1,4 +1,8 @@
-angular.module('kibApp').directive('loading', function($document){
+'use strict';
+
+/*jshint multistr: true */
+
+angular.module('kibApp').directive('loading', function(){
 		return {
 			restrict: 'E',
 			transclude: true,
@@ -14,5 +18,5 @@ angular.module('kibApp').directive('loading', function($document){
 							</div>\
 						</div>\
 					</div>'
-		}
+		};
 	});

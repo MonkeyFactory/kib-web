@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('kibAdmin').controller('AdminPageController', function($scope, $routeParams, $location, kibservice, adminservice){	
 	// Editor options.
 	  $scope.options = {
@@ -7,14 +9,15 @@ angular.module('kibAdmin').controller('AdminPageController', function($scope, $r
 	  };
 
 	
+	var newPage;
 	if($routeParams.pageName){
 		$scope.page = kibservice.GetPage($routeParams.pageName, true);
-		var newPage = false;
-		$scope.buttonText = "Save Changes";
+		newPage = false;
+		$scope.buttonText = 'Save Changes';
 	}else{
 		$scope.page = {};
-		var newPage = true;
-		$scope.buttonText = "Add Page";
+		newPage = true;
+		$scope.buttonText = 'Add Page';
 	}
 	
 	$scope.savePage = function(){
@@ -24,6 +27,6 @@ angular.module('kibAdmin').controller('AdminPageController', function($scope, $r
 			adminservice.SavePage($routeParams.pageName, $scope.page);
 		}
 		
-		$location.path("/admin/listpages");
-	}
+		$location.path('/admin/listpages');
+	};
 });
