@@ -1,4 +1,6 @@
-var kibAdmin = angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor'])
+/* use strict; */
+
+angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor'])
 	.config(function($stateProvider){
 		$stateProvider
 			.state('admin', {
@@ -75,7 +77,7 @@ var kibAdmin = angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ck
 	// }
 // });
 
-kibAdmin.filter("authlevelname", function(){
+angular.module('kibAdmin').filter("authlevelname", function(){
 	return function(level){
 		switch(level){
 			case 0:

@@ -1,6 +1,6 @@
 var BaseURL = "http://kibdev.crabdance.com/modend/api";
 
-kibAdmin.factory('adminservice', function($resource, $http){
+angular.module('kibAdmin').factory('adminservice', function($resource, $http){
 	var Page = $resource(BaseURL + "/page/:pageName");
 	var Event = $resource(BaseURL + "/events/:eventId");
 	var League = $resource(BaseURL + "/league/:leagueId");

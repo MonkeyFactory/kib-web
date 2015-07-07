@@ -1,4 +1,4 @@
-kibAdmin.controller('AdminMatchesController', function($scope, $location, $timeout, kibservice, adminservice){
+angular.module('kibAdmin').controller('AdminMatchesController', function($scope, $location, $timeout, kibservice, adminservice){
 	//Get matches and set state variables
 	$scope.matches = adminservice.GetMatches();
 	$scope.matches.$promise.then(function(){

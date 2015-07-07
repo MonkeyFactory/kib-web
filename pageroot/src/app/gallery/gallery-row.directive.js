@@ -6,7 +6,7 @@ angular.module('kibGalleryModule', [])
 				name: '@'
 			},
 			restrict: 'E',
-			templateUrl: 'templates/galleryRowTemplate.html',
+			templateUrl: 'app/gallery/gallery-row.template.html',
 			link : function(scope, element, attr) {
 				$timeout(function(){
 					$timeout(function(){

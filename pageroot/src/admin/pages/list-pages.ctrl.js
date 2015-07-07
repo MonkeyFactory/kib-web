@@ -1,5 +1,5 @@
 
-kibAdmin.controller('ListPageController', function($scope, $location, kibservice, adminservice){
+angular.module('kibAdmin').controller('ListPageController', function($scope, $location, kibservice, adminservice){
 	$scope.pages = kibservice.GetPages();
 	
 	$scope.doEdit = function(page){		

@@ -1,4 +1,4 @@
-kibAdmin.controller('AdminLeagueController', function($scope, $location, $timeout, kibservice, adminservice){
+angular.module('kibAdmin').controller('AdminLeagueController', function($scope, $location, $timeout, kibservice, adminservice){
 	//Get leagues and set state variables
 	$scope.leagues = kibservice.GetLeagues();
 	$scope.leagues.$promise.then(function(){

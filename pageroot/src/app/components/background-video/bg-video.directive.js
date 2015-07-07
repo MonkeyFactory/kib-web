@@ -1,10 +1,10 @@
-kibApp.directive('bgVideo', function($document){
+angular.module('kibApp').directive('bgVideo', function($document){
 		return {
 			scope: {
 				videos: '=',
 			},
 			restrict: 'E',
-			template: '<video id="bgvideo" muted poster="media/video-poster.png"/>',
+			template: '<video id="bgvideo" muted poster="assets/images/video-poster.png"/>',
 			link: function(scope, element, attr) {
 				var nextVideo = function(){
 					if(scope.currentVideo != undefined){
@@ -19,7 +19,7 @@ kibApp.directive('bgVideo', function($document){
 					console.log("Playing video " + scope.currentVideo + " = " + scope.videos[scope.currentVideo]);
 				
 					video = element.find("video");
-					videofile = "media/video/" + scope.videos[scope.currentVideo];
+					videofile = "assets/video/" + scope.videos[scope.currentVideo];
 					video.html(angular.element('<source src="' + videofile + '.ogv" type="video/ogg"/>'));
 					video.append(angular.element('<source src="' + videofile + '.mp4" type="video/mp4"/>'));
 					video.append(angular.element('<source src="' + videofile + '.webm" type="video/webm"/>'));

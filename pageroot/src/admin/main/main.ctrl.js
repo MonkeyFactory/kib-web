@@ -1,4 +1,4 @@
-kibAdmin.controller('MainAdminCtrl', function($scope, $location, kibservice, adminservice){		
+angular.module('kibAdmin').controller('MainAdminCtrl', function($scope, $location, kibservice, adminservice){		
 	adminservice.GetAuthInfo(function(auth){
 		if(auth.authlevel == 0){
 			//not logged in

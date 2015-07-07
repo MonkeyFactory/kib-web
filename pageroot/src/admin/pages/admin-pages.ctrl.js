@@ -1,4 +1,4 @@
-kibAdmin.controller('AdminPageController', function($scope, $routeParams, $location, kibservice, adminservice){	
+angular.module('kibAdmin').controller('AdminPageController', function($scope, $routeParams, $location, kibservice, adminservice){	
 	// Editor options.
 	  $scope.options = {
 		language: 'en',

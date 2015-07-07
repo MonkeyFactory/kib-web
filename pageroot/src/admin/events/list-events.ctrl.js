@@ -1,5 +1,5 @@
 
-kibAdmin.controller('ListEventController', function($scope, $location, kibservice, adminservice){
+angular.module('kibAdmin').controller('ListEventController', function($scope, $location, kibservice, adminservice){
 	kibservice.GetEvents(function(events){
 		$scope.events = events;
 	});

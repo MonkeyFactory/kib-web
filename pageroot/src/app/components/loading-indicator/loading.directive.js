@@ -1,4 +1,4 @@
-kibApp.directive('loading', function($document){
+angular.module('kibApp').directive('loading', function($document){
 		return {
 			restrict: 'E',
 			transclude: true,

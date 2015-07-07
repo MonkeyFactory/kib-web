@@ -1,9 +1,42 @@
 <div class="page-wrap">
 			<div class="centerbox" id="header">
-				<a href="#/"><img src="media/new-logo.jpg" style="height:148px;"/></a>
+				<a href="#/"><img src="assets/images/new-logo.jpg" style="height:148px;"/></a>
 			</div>
 			
-			<div ng-include="app/components/navbar/navbar.html"></div>
+			<div class="widebox" id="menubarcontainer">
+				<div class="centerbox" id="menubar">
+					<ul>
+						<li>
+							<a href="#/gallery">Bildgalleri</a>
+						</li>
+						<li>
+							<a href="#/events">Eventkalender</a>
+						</li>
+						<li>
+							<a href="#/leagues">Ligor</a>
+						</li>
+						<li>
+							<a href="/forum">Forum</a>
+						</li>
+					</ul>
+				</div>
+				<div id="menubar-narrow">
+					<ul>
+						<li>
+							<a href="#/gallery"><img src="assets/images/menu-gallery.png"/></a>
+						</li>
+						<li>
+							<a href="#/events"><img src="assets/images/menu-calendar.png"/></a>
+						</li>
+						<li>
+							<a href="#/leagues"><img src="assets/images/menu-league.png"/></a>
+						</li>
+						<li>
+							<a href="/forum"><img src="assets/images/menu-forum.png"/></a>
+						</li>
+					</ul>
+				</div>
+			</div>
 			
 			<div ng-show="unauthorized" ng-cloak class="centerbox alert alert-danger" role="alert" >
 				Du har inte tillåtelse att utföra begärd åtgärd!
@@ -17,7 +50,7 @@
 				<p>Bridgens hus, Borlänge. (Ekorrstigen 5)</p>
 				
 				<a href="https://www.facebook.com/groups/416509568397594/" target="_blank">
-					<img class="socialmediaimage" src="media/facebook.png"></img>
+					<img class="socialmediaimage" src="assets/images/facebook.png"></img>
 				</a>
 					
 				<div class="clear"></div>

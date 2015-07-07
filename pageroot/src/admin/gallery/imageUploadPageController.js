@@ -1,4 +1,4 @@
-kibAdmin.controller('ImageUploadPageController', function($scope, FileUploader) {
+angular.module('kibAdmin').controller('ImageUploadPageController', function($scope, FileUploader) {
         var uploader = $scope.uploader = new FileUploader({
             url: 'upload.php'
         });
@@ -52,7 +52,7 @@ kibAdmin.controller('ImageUploadPageController', function($scope, FileUploader) 
         console.info('uploader', uploader);
     });
 	
-kibAdmin.directive('ngThumb', ['$window', function($window) {
+angular.module('kibAdmin').directive('ngThumb', ['$window', function($window) {
         var helper = {
             support: !!($window.FileReader && $window.CanvasRenderingContext2D),
             isFile: function(item) {

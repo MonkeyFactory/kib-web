@@ -1,4 +1,4 @@
-kibAdmin.controller('AdminEventController', function($scope, $routeParams, $location, kibservice, adminservice){		
+angular.module('kibAdmin').controller('AdminEventController', function($scope, $routeParams, $location, kibservice, adminservice){		
 	if($routeParams.eventId){
 		$scope.event = kibservice.GetEvent($routeParams.eventId);
 		var newEvent = false;
