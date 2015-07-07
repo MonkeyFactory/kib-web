@@ -1,4 +1,4 @@
-kibApp.controller('LeagueDetailsPageController', function($scope, $window, $routeParams, kibservice){
+kibApp.controller('LeagueDetailsPageController', function($scope, $window, $stateParams, kibservice){
 	$scope.minimized = false;
 	$scope.tab = "leaderboard";
 
@@ -7,16 +7,16 @@ kibApp.controller('LeagueDetailsPageController', function($scope, $window, $rout
 	   $scope.$apply();
 	});
 	
-	$scope.league = kibservice.GetLeague($routeParams.leagueId);
+	$scope.league = kibservice.GetLeague($stateParams.leagueId);
 	$scope.league.$promise.then(function(){
 		//Determine if the legue is active
 		$scope.leagueActive = (moment() >= moment($scope.league.StartDate) 
 								&& (!$scope.league.EndDate || moment() < moment($scope.league.EndDate).add(1, 'd') ));
 	});
 	
-	$scope.leaderboard = kibservice.GetLeaderboard($routeParams.leagueId);
+	$scope.leaderboard = kibservice.GetLeaderboard($stateParams.leagueId);
 	
-	$scope.scorehistory = kibservice.GetScoreHistory($routeParams.leagueId);
+	$scope.scorehistory = kibservice.GetScoreHistory($stateParams.leagueId);
 	$scope.scorehistory.$promise.then(function(){
 		if($scope.scorehistory.length == 0)
 			return;

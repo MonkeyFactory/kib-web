@@ -1,3 +1,3 @@
-kibApp.controller('PagePageController', function($scope, $routeParams, kibservice){
-	$scope.page = kibservice.GetPage($routeParams.pageName);
+kibApp.controller('PagePageController', function($scope, $stateParams, kibservice){
+	$scope.page = kibservice.GetPage($stateParams.pageName);
 });
