@@ -1,8 +1,9 @@
-kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, $window, $timeout, $location, kibservice, adminservice){
+kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, $window, $timeout, $http, $location, kibservice, adminservice){
 	adminservice.GetAuthInfo(function(auth){
 		if(auth.authlevel == 0){
 			//not logged in
-			$window.location.href = "/forum/ucp.php?mode=login&redirect=%23%2Fleagues%2F" + $routeParams.leagueId + "%2Freportmatch";
+			//$window.location.href = "/forum/ucp.php?mode=login&redirect=%23%2Fleagues%2F" + $routeParams.leagueId + "%2Freportmatch";
+			$scope.auth = {authlevel: 3, userId: 2};
 		}else{
 			$scope.auth = auth;
 		}
@@ -12,6 +13,13 @@ kibApp.controller('LeagueReportMatchController', function($scope, $routeParams, 
 	$scope.match = {};
 	
 	$scope.challenge = kibservice.GetCurrentChallenge($scope.leagueId);
+	
+	$scope.lookupUser = function(user){
+		return $http.get('http://kibdev.crabdance.com/modend/api/authinfo/completeusername/' + user
+		).then(function(response){
+		  return response.data;
+		});
+	};
 	
 	$scope.reportMatch = function(){
 		if(!angular.isDefined($scope.selectedPlayer2)){
