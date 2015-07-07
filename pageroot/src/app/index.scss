@@ -1,0 +1,115 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+
+* {
+  margin: 0;
+}
+
+/* Force display of vertical scrollbar! */
+html {
+	overflow-y: scroll;
+	overflow: -moz-scrollbars-vertical;
+}
+
+html, body {
+  height: 100%;
+  padding:10px 0 0 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+}
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Bebas Neue'), url('..assets/fonts/BebasNeue.woff') format('woff');
+}
+
+img {
+	border:0;
+}
+
+.clear {
+	clear:both;
+}
+
+.centerbox {
+	width:1024px;
+	margin:0 auto 0 auto;
+}
+
+.widebox {
+	width:100%;
+	margin:0;
+}
+
+#header {
+	height:150px;
+	line-height:150px;
+	text-align:center;
+}
+
+#imagegrid {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.imagebox {
+	padding:5px;
+	text-align:center;
+}
+
+.imagebox > img {
+	width:90%;
+}
+
+.jumbotron {
+	background-color:#a6af9e;
+	color:white;
+	border-radius:1px;
+	padding-left:30px;
+}
+
+@media (max-width: 992px) {
+	.centerbox {
+		width:100%;
+		padding-left:10px;
+		padding-right:10px;
+	}
+}
+
+@media (max-width: 370px) {
+	#menubar{
+		display:none;
+	}
+	
+	#menubar-narrow {
+		display:block;
+	}
+}
+
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
+// injector
+// endinjector

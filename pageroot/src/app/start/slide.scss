@@ -1,0 +1,38 @@
+#slidecontainer{
+	margin-top:20px;
+	width:100%;
+	height:480px;
+	background-color: #707969;
+}
+
+#slidecenter {
+	height:100%;
+	width:1024px;
+	font-family:'Bebas Neue';
+	text-transform: uppercase;
+}
+
+#slidecenter ul {
+	height:100%;
+	z-index:2;
+	position:relative;
+	top:-480px;
+	border:2px solid #707969;
+}
+
+#slidecenter ul li {
+	height:100%;
+	color:white;
+	padding:30px;
+
+	font-size:18pt;
+}
+
+#slidecenter ul li div h1 {
+    font-size:40pt;
+}
+
+#slidecenter ul li div p {
+    max-width:550px;
+    padding-left:1px;
+}

@@ -1,0 +1,25 @@
+<div class="page-wrap">
+			<div class="centerbox" id="header">
+				<a href="#/"><img src="media/new-logo.jpg" style="height:148px;"/></a>
+			</div>
+			
+			<div ng-include="app/components/navbar/navbar.html"></div>
+			
+			<div ng-show="unauthorized" ng-cloak class="centerbox alert alert-danger" role="alert" >
+				Du har inte tillåtelse att utföra begärd åtgärd!
+			</div>
+		
+			<div ui-view></div>
+		</div>
+		
+		<div class="widebox" id="footercontainer">
+			<div class="centerbox" id="footercontent">
+				<p>Bridgens hus, Borlänge. (Ekorrstigen 5)</p>
+				
+				<a href="https://www.facebook.com/groups/416509568397594/" target="_blank">
+					<img class="socialmediaimage" src="media/facebook.png"></img>
+				</a>
+					
+				<div class="clear"></div>
+			</div>
+		</div>

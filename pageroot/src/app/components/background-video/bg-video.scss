@@ -1,0 +1,16 @@
+bg-video {
+	margin:0 auto 0 auto;
+	padding:0;
+	background-color:#707969;
+	z-index:1;
+	display:block;
+	height:480px;
+	width:1024px;
+}
+
+bg-video video {
+	object-fit:fill;
+	margin:0 auto 0 auto;
+	padding:0;
+	background-color:#707969;
+}
