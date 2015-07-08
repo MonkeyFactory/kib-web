@@ -1,6 +1,7 @@
 'use strict';
 
 /* global alert, confirm */
+/*jshint -W083 */
 
 angular.module('kibAdmin').controller('AdminMatchesController', function($scope, $location, $timeout, kibservice, adminservice){
 	//Get matches and set state variables

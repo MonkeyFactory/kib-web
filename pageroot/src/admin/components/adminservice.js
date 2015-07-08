@@ -49,7 +49,7 @@ angular.module('kibAdmin').factory('adminservice', function($resource, $http){
 		
 		//LEAGUE
 		
-		ReportMatch: function(leagueId, matchObj, callback){
+		ReportMatch: function(leagueId, matchObj){
 			return $http.post(BaseURL + '/league/' + leagueId + '/reportmatch', matchObj);
 		},
 		

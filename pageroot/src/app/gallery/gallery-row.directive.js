@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('kibGalleryModule', [])
 	.directive('galleryRow', function($timeout, $document, $window){
 		return {
@@ -7,24 +9,24 @@ angular.module('kibGalleryModule', [])
 			},
 			restrict: 'E',
 			templateUrl: 'app/gallery/gallery-row.template.html',
-			link : function(scope, element, attr) {
+			link : function(scope, element) {
 				$timeout(function(){
 					$timeout(function(){
 						var selectImage = function(img){
-							angular.element(".galleryImage").each(function(index){
-								angular.element(this).removeClass("selectedImage").addClass("unselectedImage");
+							angular.element('.galleryImage').each(function(){
+								angular.element(this).removeClass('selectedImage').addClass('unselectedImage');
 							});
 					
-							img.removeClass("unselectedImage").addClass("selectedImage");
+							img.removeClass('unselectedImage').addClass('selectedImage');
 							resizeContainer();
 							alignContainer();
-						}
+						};
 					
 						var alignContainer = function(){
-							var container = element.find(".galleryrowinner");
-							var selectedImage = element.find(".selectedImage");
-							if(!selectedImage.prop("tagName")){
-								container.css("left", "0");
+							var container = element.find('.galleryrowinner');
+							var selectedImage = element.find('.selectedImage');
+							if(!selectedImage.prop('tagName')){
+								container.css('left', '0');
 								return;
 							}
 								
@@ -33,59 +35,61 @@ angular.module('kibGalleryModule', [])
 							imagePos.left += container.position().left;
 
 							if(imagePos.left  > $window.innerWidth - selectedImage.width()){
-								container.css("left", (container.position().left - selectedImage.width()) + "px");
+								container.css('left', (container.position().left - selectedImage.width()) + 'px');
 							}else if(imagePos.left < 0){
-								container.css("left", (container.position().left + selectedImage.width()) + "px");
+								container.css('left', (container.position().left + selectedImage.width()) + 'px');
 							}
-						}
+						};
 
 						var resizeContainer = function(){
 							var totWidth = 0;
-							element.find("img").each(function(index){			
+							element.find('img').each(function(){			
 								totWidth += angular.element(this).outerWidth(true) + 10;
 							});	
 							
-							element.find(".galleryrowinner").width(totWidth);	
-						}
+							element.find('.galleryrowinner').width(totWidth);	
+						};
 					
 						//Set all images as unselected
-						element.find("img").each(function(index){			
-							angular.element(this).addClass("unselectedImage");
+						element.find('img').each(function(){			
+							angular.element(this).addClass('unselectedImage');
 						});					
 									
 						resizeContainer();
 
 						//Setup click handler
-						element.find("img").on("click", function(){
-							img = angular.element(this);
+						element.find('img').on('click', function(){
+							var img = angular.element(this);
 							selectImage(img);
 						});
 
-						$document.on("keydown", function(event){
-							var selectedImage = element.find(".selectedImage");
-							if(!selectedImage.prop("tagName"))
+						$document.on('keydown', function(event){
+							var selectedImage = element.find('.selectedImage');
+							if(!selectedImage.prop('tagName')){
 								return;
+							}
 								
 							var currentLI = selectedImage.parent();
+							var newLI;
 							switch(event.which){
 								case 27:
 									//exit
-									selectedImage.removeClass("selectedImage").addClass("unselectedImage");
+									selectedImage.removeClass('selectedImage').addClass('unselectedImage');
 									return;
 								case 37:
 									//go left
-									var newLI = currentLI.prev();
+									newLI = currentLI.prev();
 									break;
 								case 39:
 									//go right
-									var newLI = currentLI.next();
+									newLI = currentLI.next();
 									break;
 							}
 							
-							selectImage(newLI.find("img"));
+							selectImage(newLI.find('img'));
 						});
 					}, 0);
 				}, 0);
 			}
-		}
+		};
 	});

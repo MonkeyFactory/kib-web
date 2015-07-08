@@ -1,6 +1,7 @@
 'use strict';
 
 /* global alert, confirm */
+/*jshint -W083 */
 
 angular.module('kibAdmin').controller('AdminLeagueController', function($scope, $location, $timeout, kibservice, adminservice){
 	//Get leagues and set state variables

@@ -1,6 +1,6 @@
 'use strict';
 
-var kibApp = angular.module('kibApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'angular-carousel', 'ui.calendar', 'googlechart', 'angucomplete-alt', 'kibAdmin', 'kibGalleryModule'])
+angular.module('kibApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'angular-carousel', 'ui.calendar', 'googlechart', 'angucomplete-alt', 'kibAdmin', 'kibGalleryModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('main', {
@@ -56,10 +56,10 @@ var kibApp = angular.module('kibApp', ['ngResource', 'ui.router', 'ui.bootstrap'
 					},
 					
 					'responseError': function(rejection) {
-						if(rejection.status == 401){
-							$window.location.href = "/forum/ucp.php?mode=login&redirect=%2F%23%2Fadmin%2F";
+						if(rejection.status === 401){
+							$window.location.href = '/forum/ucp.php?mode=login&redirect=%2F%23%2Fadmin%2F';
 						}
-						else if(rejection.status == 403){
+						else if(rejection.status === 403){
 							$rootScope.unauthorized = true;
 						}
 
