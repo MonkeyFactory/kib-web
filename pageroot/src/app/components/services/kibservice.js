@@ -1,11 +1,9 @@
 'use strict';
 
-var BaseURL = 'http://kibdev.crabdance.com/modend/api';
-
-angular.module('kibApp').factory('kibservice', function($resource){
-	var Page = $resource(BaseURL + '/page/:pageName?:query', {query: ''});
-	var Event = $resource(BaseURL + '/events/:eventId');
-	var League = $resource(BaseURL + '/league/:leagueId');
+angular.module('kibApp').factory('kibservice', function($resource, constants){
+	var Page = $resource(constants.apiPath + '/page/:pageName?:query', {query: ''});
+	var Event = $resource(constants.apiPath + '/events/:eventId');
+	var League = $resource(constants.apiPath + '/league/:leagueId');
 	
 	return {
 		GetPage: function(pageName, noLinking){
@@ -52,15 +50,15 @@ angular.module('kibApp').factory('kibservice', function($resource){
 		},
 		
 		GetLeaderboard: function(leagueId) {
-			return $resource(BaseURL + '/league/:leagueId/leaderboard').query({leagueId: leagueId});
+			return $resource(constants.apiPath + '/league/:leagueId/leaderboard').query({leagueId: leagueId});
 		},
 		
 		GetScoreHistory: function(leagueId) {
-			return $resource(BaseURL + '/league/:leagueId/scorehistory').query({leagueId: leagueId});			
+			return $resource(constants.apiPath + '/league/:leagueId/scorehistory').query({leagueId: leagueId});			
 		},
 		
 		GetCurrentChallenge: function(leagueId) {
-			return $resource(BaseURL + '/league/:leagueId/currentchallenge').get({leagueId: leagueId});	
+			return $resource(constants.apiPath + '/league/:leagueId/currentchallenge').get({leagueId: leagueId});	
 		}
 	};
 });

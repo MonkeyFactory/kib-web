@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor'])
+angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor', 'kibConstants'])
 	.config(function($stateProvider){
 		$stateProvider
 			.state('admin', {

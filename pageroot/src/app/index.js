@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('kibApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'angular-carousel', 'ui.calendar', 'googlechart', 'angucomplete-alt', 'kibAdmin', 'kibGalleryModule'])
+angular.module('kibApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'angular-carousel', 'ui.calendar', 'googlechart', 'angucomplete-alt', 'kibAdmin', 'kibGalleryModule', 'kibConstants'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('main', {

@@ -1,12 +1,10 @@
 'use strict';
 
-var BaseURL = 'http://kibdev.crabdance.com/modend/api';
-
-angular.module('kibAdmin').factory('adminservice', function($resource, $http){
-	var Page = $resource(BaseURL + '/page/:pageName');
-	var Event = $resource(BaseURL + '/events/:eventId');
-	var League = $resource(BaseURL + '/league/:leagueId');
-	var Matches = $resource(BaseURL + '/league/matches/:matchId',null,null,{ stripTrailingSlashes: false });
+angular.module('kibAdmin').factory('adminservice', function($resource, $http, constants){
+	var Page = $resource(constants.apiPath + '/page/:pageName');
+	var Event = $resource(constants.apiPath + '/events/:eventId');
+	var League = $resource(constants.apiPath + '/league/:leagueId');
+	var Matches = $resource(constants.apiPath + '/league/matches/:matchId',null,null,{ stripTrailingSlashes: false });
 	
 	return {
 		//PAGES
@@ -42,7 +40,7 @@ angular.module('kibAdmin').factory('adminservice', function($resource, $http){
 		//AUTH
 		
 		GetAuthInfo: function(callback) {
-			$resource(BaseURL + '/authinfo/').get({}, function(value){
+			$resource(constants.apiPath + '/authinfo/').get({}, function(value){
 				callback(value);
 			});
 		},
@@ -50,7 +48,7 @@ angular.module('kibAdmin').factory('adminservice', function($resource, $http){
 		//LEAGUE
 		
 		ReportMatch: function(leagueId, matchObj){
-			return $http.post(BaseURL + '/league/' + leagueId + '/reportmatch', matchObj);
+			return $http.post(constants.apiPath + '/league/' + leagueId + '/reportmatch', matchObj);
 		},
 		
 		GetNewLeague: function(){
