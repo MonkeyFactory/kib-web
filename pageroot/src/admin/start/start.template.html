@@ -1,73 +1,16 @@
-<div class="centerbox" ng-show="auth">
+<div ng-show="auth">
 	<div class="page-header">
-		<h1>Admin Index</h1>
+		<h1>You are almost welcome</h1>
 	</div>
 	
-	<div class="well">
-		Logged in as {{auth.user}} at authentication level {{auth.authlevel | authlevelname}}
-		<span ng-show="auth.authlevel == 1"><br />You do not have right to change any content!</span>
-	</div>
+	<p>
+		Welcome to the admin page! If you are seeing this you are logged in!
+	</p>
 	
-	<div class="container-fluid">
-		<div class="row" ng-hide="auth.authlevel == 1">
-			<div class="col-md-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Pages
-					</div>
-					<div class="panel-body">
-						<div class="list-group" style="text-align:center;">
-							<a href="#/admin/adminpage" class="list-group-item">Add New Page</a>
-							<a href="#/admin/listpages" class="list-group-item">Administer pages</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Events
-					</div>
-					<div class="panel-body">
-						<div class="list-group" style="text-align:center;">
-							<a href="#/admin/adminevent" class="list-group-item">Add New Event</a>
-							<a href="#/admin/listevents" class="list-group-item">Administer Events</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Image Gallery
-					</div>
-					<div class="panel-body">
-						<div class="list-group" style="text-align:center;">
-							<a href="#/admin" class="list-group-item">Add New Gallery</a>
-							<a href="#/admin" class="list-group-item">Administer Galleries</a>
-							<a href="#/admin/uploadpage" class="list-group-item">Upload Images</a>
-							<a href="#/admin" class="list-group-item">Administer Images</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row" ng-hide="auth.authlevel == 1">
-			<div class="col-md-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Leagues
-					</div>
-					<div class="panel-body">
-						<div class="list-group" style="text-align:center;">
-							<a href="#/admin/leagues" class="list-group-item">Add / Administer leagues</a>
-							<a href="#/admin/matches" class="list-group-item">Administer matches</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<p>
+		Select an item in the menu to start doing your administrative deeds!
+	</p>
+	
 </div>
 
 <div class="centerbox" ng-hide="auth">

@@ -1,3 +1,56 @@
-<h1>Admin</h1>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="#/admin">
+			 KiB - Admin
+		  </a>
+		</div>
+		
+		<p class="navbar-text">
+			Logged in as {{auth.user}} at authentication level {{auth.authlevel | authlevelname}}
+			<span ng-show="auth.authlevel == 1">
+				- You do not have right to change any content!
+			</span>
+		</p>
+  </div>
+</nav>
 
-<div ui-view></div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-2">
+			<!-- Menu -->
+			<accordion close-others="false">
+				<accordion-group heading="Pages">
+					<div class="list-group" style="text-align:center;">
+						<a href="#/admin/adminpage" class="list-group-item">Add New Page</a>
+						<a href="#/admin/listpages" class="list-group-item">Administer pages</a>
+					</div>
+				</accordion-group>
+				<accordion-group heading="Events">
+					<div class="list-group" style="text-align:center;">
+						<a href="#/admin/adminevent" class="list-group-item">Add New Event</a>
+						<a href="#/admin/listevents" class="list-group-item">Administer Events</a>
+					</div>
+				</accordion-group>
+				<accordion-group heading="Image Gallery">
+					<div class="list-group" style="text-align:center;">
+						<a href="#/admin" class="list-group-item">Add New Gallery</a>
+						<a href="#/admin" class="list-group-item">Administer Galleries</a>
+						<a href="#/admin/uploadpage" class="list-group-item">Upload Images</a>
+						<a href="#/admin" class="list-group-item">Administer Images</a>
+					</div>	
+				</accordion-group>
+				<accordion-group heading="Leagues">
+					<div class="list-group" style="text-align:center;">
+						<a href="#/admin/leagues" class="list-group-item">Add / Administer leagues</a>
+						<a href="#/admin/matches" class="list-group-item">Administer matches</a>
+					</div>
+				</accordion-group>
+			</accordion>
+		</div>		
+		<div class="col-xs-10 admincontent">
+			<div ui-view></div>
+		</div>
+	</div>
+</div>

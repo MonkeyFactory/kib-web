@@ -6,7 +6,7 @@ angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor', 'kibCo
 			.state('admin', {
 				abstract:true,
 				templateUrl: 'admin/main/main.html',
-				controller: 'MainCtrl'
+				controller: 'MainAdminCtrl'
 			})
 			.state('admin.start', {
 				url: '/admin',
