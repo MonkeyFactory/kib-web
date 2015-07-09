@@ -14,7 +14,7 @@ angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor', 'kibCo
 				controller: 'AdminIndexController'
 			})
 			.state('admin.adminpage', {
-				url: '/admin/adminpage/:pageName?',
+				url: '/admin/adminpage/:pageName',
 				templateUrl: 'admin/pages/admin-pages.template.html',
 				controller: 'AdminPageController'
 			})
@@ -24,7 +24,7 @@ angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor', 'kibCo
 				controller: 'ListPageController'
 			})
 			.state('admin.adminevent', {
-				url: '/admin/adminevent/:eventId?',
+				url: '/admin/adminevent/:eventId',
 				templateUrl: 'admin/events/admin-events.template.html',
 				controller: 'AdminEventController'
 			})
