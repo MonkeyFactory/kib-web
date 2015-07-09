@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('kibAdmin').controller('AdminEventController', function($scope, $routeParams, $location, kibservice, adminservice){		
+angular.module('kibAdmin').controller('AdminEventController', function($scope, $stateParams, $location, kibservice, adminservice){		
 	var newEvent;
-	if($routeParams.eventId){
-		$scope.event = kibservice.GetEvent($routeParams.eventId);
+	if($stateParams.eventId){
+		$scope.event = kibservice.GetEvent($stateParams.eventId);
 		newEvent = false;
 		$scope.buttonText = 'Save Changes';
 	}else{
@@ -16,7 +16,7 @@ angular.module('kibAdmin').controller('AdminEventController', function($scope, $
 		if(newEvent){
 			adminservice.NewEvent($scope.event);
 		}else{
-			adminservice.SaveEvent($routeParams.eventId, $scope.event);
+			adminservice.SaveEvent($stateParams.eventId, $scope.event);
 		}
 		
 		$location.path('/admin/listevents');

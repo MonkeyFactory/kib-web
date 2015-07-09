@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('kibAdmin').controller('AdminPageController', function($scope, $routeParams, $location, kibservice, adminservice){	
+angular.module('kibAdmin').controller('AdminPageController', function($scope, $stateParams, $location, kibservice, adminservice){	
 	// Editor options.
 	  $scope.options = {
 		language: 'en',
@@ -10,8 +10,8 @@ angular.module('kibAdmin').controller('AdminPageController', function($scope, $r
 
 	
 	var newPage;
-	if($routeParams.pageName){
-		$scope.page = kibservice.GetPage($routeParams.pageName, true);
+	if($stateParams.pageName){
+		$scope.page = kibservice.GetPage($stateParams.pageName, true);
 		newPage = false;
 		$scope.buttonText = 'Save Changes';
 	}else{
@@ -24,7 +24,7 @@ angular.module('kibAdmin').controller('AdminPageController', function($scope, $r
 		if(newPage){
 			adminservice.NewPage($scope.page);
 		}else{
-			adminservice.SavePage($routeParams.pageName, $scope.page);
+			adminservice.SavePage($stateParams.pageName, $scope.page);
 		}
 		
 		$location.path('/admin/listpages');
