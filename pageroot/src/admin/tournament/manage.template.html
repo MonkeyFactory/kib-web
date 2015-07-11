@@ -1,0 +1,34 @@
+<div class="page-header clearfix">
+	<h1 class="pull-left">Existing tournaments</h1>
+	
+	<Button class="btn btn-primary pull-right">New tournament</Button> 
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Date</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+	</thead>
+	
+	<tr ng-repeat="tournament in tournaments" ng-click="openTournament(tournament.tournamentId)">
+		<td ng-click="doNew()">
+			{{tournament.name}}
+		</td>
+		<td>
+			{{tournament.date}}
+		</td>
+		<td>
+			{{tournament.status}}
+		</td>
+		<td>
+			<div class="btn btn-default btn-xs">
+				<span class="glyphicon glyphicon-edit" ng-click="doEdit(tournament)"></span>	
+			</div>
+		</td>
+	</tr>
+</table>
+
