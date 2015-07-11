@@ -42,8 +42,17 @@ angular.module('kibAdmin', ['ui.router', 'angularFileUpload', 'ckeditor', 'kibCo
 				url: '/admin/matches',
 				templateUrl: 'admin/league/matches.template.html',
 				controller: 'AdminMatchesController'
+			})
+			.state('admin.tournament-manage', {
+				url: '/admin/tournament',
+				templateUrl: 'admin/tournament/manage.template.html',
+				controller: 'AdminTournamentsList'
+			})
+			.state('admin.tournament-admin', {
+				url: '/admin/tournament/:tournamentId',
+				templateUrl: 'admin/tournament/admin.template.html',
+				controller: 'AdminTournament'
 			});
-
 		
 			/*	.when('/admin/uploadpage', {
 			templateUrl: 'admin/templates/imageUploadPageTemplate.html',
