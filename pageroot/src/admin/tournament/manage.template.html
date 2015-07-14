@@ -7,6 +7,7 @@
 <table class="table">
 	<thead>
 		<tr>
+			<th></th>
 			<th>Name</th>
 			<th>Date</th>
 			<th>Status</th>
@@ -14,8 +15,13 @@
 		</tr>
 	</thead>
 	
-	<tr ng-repeat="tournament in tournaments" ng-click="openTournament(tournament.tournamentId)">
-		<td ng-click="doNew()">
+	<tr ng-repeat="tournament in tournaments">
+		<td>
+			<div class="btn btn-default btn-xs">
+				<span class="glyphicon glyphicon-folder-open" ng-click="openTournament(tournament.tournamentId)"></span>	
+			</div>
+		</td>
+		<td>
 			{{tournament.name}}
 		</td>
 		<td>
