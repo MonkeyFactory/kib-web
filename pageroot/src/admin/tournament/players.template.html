@@ -1,1 +1,25 @@
 <h1>Players</h1>
+
+<hr>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Player name</th>
+			<th>Source</th>
+			<th></th>
+		</tr>
+	</thead>
+	
+	<tr ng-repeat="player in tournament.players" ng-class="{dropout: !player.active}">
+		<td>{{player.name}}</td>
+		<td>{{player.source | sourceName}}<td>
+		<td>
+			<div class="btn btn-danger btn-xs" ng-show="tournament.status == 0">
+				<span class="glyphicon glyphicon-trash" ng-click="doDelete(event)"></span>
+			</div>
+			
+			<button class="btn btn-danger" ng-click="dropout(player)" ng-show="tournament.status > 0 && player.active">Dropout</button>
+		</td>
+	</tr>
+</table>
