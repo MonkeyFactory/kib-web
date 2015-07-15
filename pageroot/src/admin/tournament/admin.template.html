@@ -1,6 +1,6 @@
 <tabset>
 	<tab heading="Players">
-		Add players
+		<div ng-include="'admin/tournament/players.template.html'" ng-controller="TournamentPlayersCtrl"></div>
 	</tab>
 	<tab ng-repeat="round in rounds" heading="{{round.name}}">
 		<div ng-repeat="matchup in round.matchups" class="panel panel-default">
@@ -33,5 +33,9 @@
       	</tab-heading>
 		
 		Creating matchups please wait...
+	</tab>
+	
+	<tab class="scoreboard-tab" heading="Scoreboard">
+		<div ng-include="'admin/tournament/scoreboard.template.html'" ng-controller="TournamentScoreboardCtrl"></div>
 	</tab>
 </tabset>
