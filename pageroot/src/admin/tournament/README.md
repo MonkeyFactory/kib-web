@@ -30,6 +30,7 @@ The data model is defined like this:
 {
 	source: 1, /* Same index order as the list above */
 	name: 'Olle Bolle',
+	active: true, /* If this is set to false the player has dropped */
 	originalObject: { /* Original data from the source */}
 }
 ```
