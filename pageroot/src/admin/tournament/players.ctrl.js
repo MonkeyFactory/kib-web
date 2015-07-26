@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('kibAdmin').controller('TournamentPlayersCtrl', function($scope, tournamentInstance){
+angular.module('kibAdmin').controller('TournamentPlayersCtrl', function($scope, tournamentInstance, $http){
 	tournamentInstance.ready.then(function(){
 		$scope.tournament = tournamentInstance;
 	});
@@ -8,6 +8,27 @@ angular.module('kibAdmin').controller('TournamentPlayersCtrl', function($scope, 
 	$scope.dropout = function(player){
 		player.active = false;	
 	};
+    
+    $scope.lookupUser = function(user){
+		return $http.get('http://konfliktspeliborlange.se/modend/api/authinfo/completeusername/' + user
+		).then(function(response){
+		  return response.data;
+		});
+	};
+    
+    $scope.addFromForum = function(){
+        //Value in $scope.forumUser  
+        $scope.tournament.addPlayer($scope.forumUser, 1,  $scope.forumUser);
+    };
+    
+    $scope.addFromSvenska40k = function(){
+        //Value in $scope.forumUser
+    };
+    
+    $scope.addFromDirectInput = function(){
+        //Value in $scope.directInputPlayerName  
+        $scope.tournament.addPlayer($scope.directInputPlayerName, 3,  null);
+    };
 });
 
 angular.module('kibAdmin').filter('sourceName', function(){

@@ -77,7 +77,16 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q){
 		players: players,
 		rounds: rounds,
 		init: init,
-		ready: readyDefer.promise
+		ready: readyDefer.promise,
+        addPlayer: function(name, source, originalObject){
+            this.players.push(
+                {
+                    name: name,
+                    active: true,
+                    source: source,
+                    originalObject: originalObject
+                });   
+        }
 	};
 });
 
