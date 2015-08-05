@@ -11,7 +11,7 @@
                     <form ng-submit="addFromForum()">
                         <div class="form-group" ng-if="auth.authlevel > 1">
                             <label>Forum username</label>
-                            <input type="text" ng-model="forumUser"  typeahead="user.username for user in lookupUser($viewValue)" class="form-control" required>
+                            <input type="text" ng-model="forumUser"  typeahead="user.username for user in lookupUser($viewValue)" class="form-control" required></input>
                         </div>
                         
                         <input type="submit" class="btn btn-primary" value="Add player" />
@@ -28,7 +28,7 @@
                     <form ng-submit="addFromSvenska40k()">
                         <div class="form-group" ng-if="auth.authlevel > 1">
                             <label>Player name on svenska-40k</label>
-                            <input type="text" ng-model="40kuser"  typeahead="user.username for user in lookupUser($viewValue)" class="form-control" required>
+                            <input type="text" ng-model="s40kuser"  typeahead="user.username for user in lookupUser($viewValue)" class="form-control" required></input>
                         </div>
                         
                         <input type="submit" class="btn btn-primary" value="Add player" />
@@ -45,7 +45,7 @@
                      <form ng-submit="addFromDirectInput()">
                         <div class="form-group" ng-if="auth.authlevel > 1">
                             <label>Player name</label>
-                            <input type="text" ng-model="directInputPlayerName" class="form-control" required>
+                            <input type="text" ng-model="directInputPlayerName" class="form-control" required></input>
                         </div>
                         
                         <input type="submit" class="btn btn-primary" value="Add player" />
@@ -75,6 +75,7 @@
 				<span class="glyphicon glyphicon-trash" ng-click="doDelete(event)"></span>
 			</div>
 			
+			<button class="btn btn-danger" ng-click="remove(player)" ng-hide="tournament.status > 0 && player.active">Remove</button>
 			<button class="btn btn-danger" ng-click="dropout(player)" ng-show="tournament.status > 0 && player.active">Dropout</button>
 		</td>
 	</tr>
