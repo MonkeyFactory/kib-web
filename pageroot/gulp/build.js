@@ -21,7 +21,14 @@ gulp.task('partials', function () {
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
       module: 'kibApp',
-      root: 'app'
+	  base: process.cwd(),
+	  transformUrl: function(url){
+		if(url.substring(0, conf.paths.src.length) === conf.paths.src){
+			return url.substring(conf.paths.src.length + 1);
+		}else{
+			return url;
+		}
+	  }
     }))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
