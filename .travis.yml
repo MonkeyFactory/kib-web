@@ -19,3 +19,8 @@ install:
 
 script:
    - gulp
+   
+after_success:
+   - cd ../ci
+   - ./deploy.sh
+   - ssh -i id_rsa kib@konfliktspeliborlange.se "./post-deploy.sh"
