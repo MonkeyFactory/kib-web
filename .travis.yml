@@ -11,6 +11,9 @@ language: node_js
 node_js:
    - "4.1"
 
+before_install:
+   - openssl aes-256-cbc -K $encrypted_b9fecb801bae_key -iv $encrypted_b9fecb801bae_iv -in ci/keys.tar.enc -out ci/keys.tar -d
+   
 install:
    - cd Page
    - npm install -g gulp bower
@@ -22,5 +25,6 @@ script:
    
 after_success:
    - cd ../ci
+   - chmod +x deploy.sh
    - ./deploy.sh
-   - ssh -i id_rsa kib@konfliktspeliborlange.se "./post-deploy.sh"
+   - ssh -i id_rsa kib@konfliktspeliborlange.se "/bin/sh post-deploy.sh"
