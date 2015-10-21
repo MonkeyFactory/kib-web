@@ -11,7 +11,7 @@ tar xzf ../deploy.tar.gz
 echo "[log] Patching started"
 
 #Update API path
-sed -i 's|kibdev.crabdance.com|konfliktspeliborlange.se|' pageroot/dist/scripts/app-*.js
+sed -i 's|kibdev.crabdance.com|konfliktspeliborlange.se|' pageroot/dist/scripts/*.js
 
 #Find name of current app CSS
 cssname=$(cd pageroot/dist; ls styles/app-*.css | head -n 1)
