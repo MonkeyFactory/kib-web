@@ -4,11 +4,11 @@ DISTDIR="../pageroot/dist"
 FORUMTHEMEDIR="../forum-theme"
 DISTARCHIVE="deploy.tar.gz"
 
-tar xzf $DISTARCHIVE $DISTDIR $FORUMTHEMEDIR/*
+tar czf $DISTARCHIVE $DISTDIR $FORUMTHEMEDIR/*
 
 #Unpack keys
 tar xf keys.tar
 
 #Copy dist archive and post-deploy script
-scp -i id_rsa $DISTARCHIVE kib@konfliktspeliborlange.se:
-scp -i id_rsa "post-deploy.sh" kib@konfliktspeliborlange.se:
+scp -i id_rsa -oStrictHostKeyChecking=no $DISTARCHIVE kib@konfliktspeliborlange.se:
+scp -i id_rsa -oStrictHostKeyChecking=no "post-deploy.sh" kib@konfliktspeliborlange.se:
