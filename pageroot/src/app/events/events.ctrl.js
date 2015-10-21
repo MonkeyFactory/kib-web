@@ -1,8 +1,6 @@
 'use strict';
 
-/* global window, $ */
-
-angular.module('kibApp').controller('EventPageController', function($scope, kibservice){
+angular.module('kibApp').controller('EventPageController', function($scope, kibservice, $window){
 	$scope.eventSources = [];
 
 	kibservice.GetEvents(function(events){
@@ -24,20 +22,19 @@ angular.module('kibApp').controller('EventPageController', function($scope, kibs
       calendar:{
 		lang: 'sv',
         editable: false,
-		height: (window.innerWidth > 768) ? 600 : 400,
+		height: ($window.innerWidth > 768) ? 600 : 400,
         header:{
           left: 'title',
           center: '',
           right: 'prev,next'
         },
-        eventClick: $scope.alertOnEventClick,
+        eventClick: $scope.alertOnEventClick
       }
     };
 	
-	//Todo: Change to something more angular like...
-	$(window).on('resize.doResize', function (){
+	angular.element($window).on('resize.doResize', function (){
         $scope.$apply(function(){
-           if(window.innerWidth < 768){
+           if($window.innerWidth < 768){
 				$scope.uiConfig.calendar.height = 400;
 		   }else{
 				$scope.uiConfig.calendar.height = 600;
@@ -46,6 +43,6 @@ angular.module('kibApp').controller('EventPageController', function($scope, kibs
     });
 
     $scope.$on('$destroy',function (){
-         $(window).off('resize.doResize'); //remove the handler added earlier
+         angular.element($window).off('resize.doResize'); //remove the handler added earlier
     });
 });

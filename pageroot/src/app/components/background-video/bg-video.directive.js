@@ -2,16 +2,16 @@
 
 /* global console */
 
-angular.module('kibApp').directive('bgVideo', function(){
+angular.module('kibApp').directive('bgVideo', function($log){
 		return {
 			scope: {
-				videos: '=',
+				videos: '='
 			},
 			restrict: 'E',
 			template: '<video id="bgvideo" muted poster="assets/images/video-poster.png"/>',
 			link: function(scope, element) {
 				var nextVideo = function(){
-					if(scope.currentVideo !== undefined){
+					if(angular.isDefined(scope.currentVideo)){
 						scope.currentVideo += 1;
 						if(scope.currentVideo > scope.videos.length - 1){
 							scope.currentVideo = 0;
@@ -20,7 +20,7 @@ angular.module('kibApp').directive('bgVideo', function(){
 						scope.currentVideo = 0;
 					}
 					
-					console.log('Playing video ' + scope.currentVideo + ' = ' + scope.videos[scope.currentVideo]);
+					$log.log('Playing video ' + scope.currentVideo + ' = ' + scope.videos[scope.currentVideo]);
 				
 					var video = element.find('video');
 					var videofile = 'assets/video/' + scope.videos[scope.currentVideo];
@@ -33,7 +33,7 @@ angular.module('kibApp').directive('bgVideo', function(){
 				};
 			
 				element.find('video').on('ended', function(){
-					console.log('Video ended');
+					$log.log('Video ended');
 					nextVideo();
 				});
 				
