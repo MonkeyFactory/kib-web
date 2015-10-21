@@ -28,3 +28,6 @@ cp -r WORKINGDIR/dist/* "$DSTDIR"
 echo "[log] Copying forum theme"
 [ ! -d "$DSTDIR/forum/styles/" ] && mkdir -p "$DSTDIR/forum/styles/"
 cp -r "$WORKINGDIR/kib" "$DSTDIR/forum/styles/"
+
+cd ../
+#rm -rf $WORKINGDIR
