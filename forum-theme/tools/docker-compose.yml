@@ -1,0 +1,12 @@
+phpbb:
+  build: .
+  ports:
+    - "8000:8000"
+  links:
+    - db
+  volumes:
+    - ./www:/www
+db:
+  image: orchardup/mysql
+  environment:
+    MYSQL_DATABASE: phpbb
