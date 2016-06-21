@@ -5,7 +5,7 @@
    	Original author:   Tom Beddard ( http://www.subblue.com/ )
    	Modified by:      Lacey Sutton ( http://www.dinosaurfact.net/ )
     --------------------------------------------------------------
-*/
+
 
 @font-face {
     font-family: 'beb';
@@ -18,7 +18,7 @@
     font-style: normal;
 
 }
-
+*/
 @import url("common.css");
 @import url("links.css");
 @import url("content.css");
@@ -34,3 +34,4 @@
 @import url("../../../pageroot/css/menu.css");
 @import url("../../../pageroot/css/footer.css");
 /* -- */
+@import url("kib-page.css");

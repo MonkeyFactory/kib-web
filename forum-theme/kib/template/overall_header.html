@@ -23,13 +23,6 @@
 	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{U_FEED}?f={S_FORUM_ID}&amp;t={S_TOPIC_ID}" /><!-- ENDIF -->
 <!-- ENDIF -->
 
-<!--
-	phpBB style name: prosilver
-	Based on style:   prosilver (this is the default phpBB3 style)
-	Original author:  Tom Beddard ( http://www.subBlue.com/ )
-	Modified by:     Lacey Sutton ( http://www.dinosaurfact.net/ )
-	Modified by:     nojan
--->
 
 <script type="text/javascript">
 // <![CDATA[
@@ -137,7 +130,7 @@
 	    <!-- IF S_USER_LOGGED_IN -->
 	    <li><a href="{U_SEARCH_ACTIVE_TOPICS}">Active Topics</a></li>
 					<li><a href="{U_SEARCH_UNREAD}">Unread Posts</a></li>
-                    <li><a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a></li>
+                    <li><a href="{U_PRIVATEMSGS}">{L_PRIVATE_MESSAGES}({PRIVATE_MESSAGE_COUNT})</a></li>
                     <li><a href="{U_PROFILE}">{L_READ_PROFILE}</a></li>
                     <li><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></li>
                 <!-- ELSE -->
