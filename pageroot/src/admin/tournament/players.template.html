@@ -45,12 +45,12 @@
                      <form ng-submit="addFromDirectInput()">
                         <div class="form-group" ng-if="auth.authlevel > 1">
                             <label>Player name</label>
-                            <input type="text" ng-model="directInputPlayerName" class="form-control" required></input>
+                            <input type="text" ng-model="directInput.name" class="form-control" required></input>
                         </div>
                         
                         <div class="form-group" ng-if="auth.authlevel > 1">
                             <label>Player affiliation</label>
-                            <input type="text" ng-model="directInputPlayerAffiliation" class="form-control" required></input>
+                            <input type="text" ng-model="directInput.affiliation" class="form-control" required></input>
                         </div>
                         
                         <input type="submit" class="btn btn-primary" value="Add player" />

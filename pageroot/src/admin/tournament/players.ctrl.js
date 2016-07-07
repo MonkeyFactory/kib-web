@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('kibAdmin').controller('TournamentPlayersCtrl', function($scope, tournamentInstance, $http){
-	$scope.directInputPlayerName = '';
+    $scope.directInput = {
+        name: '',
+        affiliation: ''
+    };
+    
 	$scope.s40kuser = '';
 	$scope.forumUser = '';
 	
@@ -26,7 +30,7 @@ angular.module('kibAdmin').controller('TournamentPlayersCtrl', function($scope, 
     
     $scope.addFromForum = function(){
         //Value in $scope.forumUser  
-        $scope.tournament.addPlayer($scope.forumUser, 1,  $scope.forumUser);
+        $scope.tournament.addPlayer($scope.forumUser, 'KIB', 1,  $scope.forumUser);
     };
     
     $scope.addFromSvenska40k = function(){
@@ -35,7 +39,7 @@ angular.module('kibAdmin').controller('TournamentPlayersCtrl', function($scope, 
     
     $scope.addFromDirectInput = function(){
         //Value in $scope.directInputPlayerName  
-        $scope.tournament.addPlayer($scope.directInputPlayerName, 3,  null);
+        $scope.tournament.addPlayer($scope.directInput.name, $scope.directInput.affiliation, 3,  null);
     };
 });
 

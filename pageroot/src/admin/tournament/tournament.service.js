@@ -117,14 +117,22 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 		rounds: rounds,
 		init: init,
 		ready: readyDefer.promise,
-        addPlayer: function(name, source, originalObject){
-            this.players.push(
+        addPlayer: function(name, affiliation, source, originalObject){
+            var promise = tournamentService.addPlayer(this.id, name, affiliation);
+            var localSelf = this;
+
+            promise.then(function(){
+                localSelf.players.push(
                 {
                     name: name,
+                    affiliation: affiliation,
                     active: true,
                     source: source,
                     originalObject: originalObject
                 });   
+            });
+            
+            return promise;
         }
 	};
 });
@@ -145,6 +153,11 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
         
         getPlayers: function(tournamentId){
             return Player.query({tournamentId: tournamentId});
+        },
+        
+        addPlayer: function(tournamentId, name, affiliation){
+            var player = new Player({name: name, affiliation: affiliation});
+            return player.$save({tournamentId: tournamentId});
         },
         
         getMatchups: function(tournamentId){
