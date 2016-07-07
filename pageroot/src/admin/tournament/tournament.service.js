@@ -6,6 +6,7 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 	var name = '';
 	var date = '';
 	var status = 1;
+    var id = -1;
 	
 	var readyDefer = $q.defer();
 	var tournamentId;
@@ -45,6 +46,7 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             var tournamentPromise = tournamentService.get(tournamentId).$promise.then(function(tournament){
                self.name = tournament.name;
                self.date = tournament.date; 
+               self.id = tournament.id;
             });
             
             var matchupPromise = $q.defer().promise;   
@@ -60,9 +62,10 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
                            name: 'Round ' + round.roundNumber,
                            matchups: round.matchups.map(function(matchup){
                                return {
-                                 table: 'Table ' + matchup.tableNumber,
-                                 player1: self.players.find(function(p){ return p.id == matchup.player1Id }),
-                                 player2: self.players.find(function(p){ return p.id == matchup.player2Id })  
+                                    id: matchup.id,
+                                    table: 'Table ' + matchup.tableNumber,
+                                    player1: self.players.find(function(p){ return p.id == matchup.player1Id }),
+                                    player2: self.players.find(function(p){ return p.id == matchup.player2Id })  
                                };
                            })
                         }); 
@@ -104,6 +107,7 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 	};
 	
 	return {
+        id: id,
 		status: status,
 		name: name,
 		date: date,
@@ -123,7 +127,7 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 	};
 });
 
-angular.module('kibAdmin').factory('tournamentService', function($resource, constants){
+angular.module('kibAdmin').factory('tournamentService', function($resource, constants, $http){
 	var Tournament = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId')
     var Player = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/player');
     var Matchup = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/matchups');
@@ -143,6 +147,14 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
         
         getMatchups: function(tournamentId){
             return Matchup.query({tournamentId: tournamentId});
+        },
+        
+        reportScore: function(tournamentId, matchupId, player1Score, player2Score){
+            return $http.post(constants.tournamentApiPath + '/api/tournament/' + tournamentId + '/score/' + matchupId, 
+                              {
+                                  player1Score: player1Score,
+                                  player2Score: player2Score
+                              });
         }
     };
 });

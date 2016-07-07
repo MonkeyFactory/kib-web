@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('kibAdmin').controller('AdminTournament', function($stateParams, $scope, tournamentInstance){
+angular.module('kibAdmin').controller('AdminTournament', function($stateParams, $scope, tournamentInstance, tournamentService){
 	tournamentInstance.init($stateParams.tournamentId).then(function(){
 		$scope.rounds = tournamentInstance.rounds;
 	}, function(){
@@ -8,7 +8,11 @@ angular.module('kibAdmin').controller('AdminTournament', function($stateParams, 
 	});
 	
 	$scope.saveScore = function(matchup){
-        
+        tournamentService.reportScore(tournamentInstance.id, matchup.id, matchup.player1Score, matchup.player2Score).success(function(){
+           alert('Saved'); 
+        }).error(function(data){
+          alert('Error: ' + data.message);
+        });
     }
     
 	$scope.createNewMatch = function(){
