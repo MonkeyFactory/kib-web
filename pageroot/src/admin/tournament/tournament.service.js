@@ -155,6 +155,10 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
                                   player1Score: player1Score,
                                   player2Score: player2Score
                               });
+        },
+        
+        generateNextRound: function(tournamentId){
+            return $http.post(constants.tournamentApiPath + '/api/tournament/' + tournamentId + '/matchups', {});
         }
     };
 });
