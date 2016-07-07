@@ -65,7 +65,9 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
                                     id: matchup.id,
                                     table: 'Table ' + matchup.tableNumber,
                                     player1: self.players.find(function(p){ return p.id == matchup.player1Id }),
-                                    player2: self.players.find(function(p){ return p.id == matchup.player2Id })  
+                                    player2: self.players.find(function(p){ return p.id == matchup.player2Id }),
+                                    player1Score: matchup.player1Score,
+                                    player2Score: matchup.player1Score  
                                };
                            })
                         }); 
