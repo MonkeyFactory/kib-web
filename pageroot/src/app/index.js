@@ -42,6 +42,11 @@ angular.module('kibApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'angular-ca
         url: '/leagues/:leagueId/reportmatch',
         templateUrl: 'app/league/reportmatch.template.html',
         controller: 'LeagueReportMatchController'
+      })
+      .state('main.tournament', {
+        url: '/tournament/:tournamentId',
+        templateUrl: 'app/tournament/tournamentround.template.html',
+        controller: 'TournamentRoundController'
       });
 
     $urlRouterProvider.otherwise('/');

@@ -1,0 +1,23 @@
+<div class="container">
+    
+    <h1>{{round.name}}</h1>
+    
+    <div ng-repeat="matchup in round.matchups" class="panel panel-default">
+        <div class="panel-heading">
+            {{matchup.table}}
+        </div>
+        <div class="panel-body" style="text-align:center">
+               <ul class="list-inline">
+                   <li>
+                       {{matchup.player1.name}}
+                   </li>
+                   <li>
+                       <b>V.S</b>
+                    </li>
+                    <li>
+                        {{matchup.player2.name}}
+                    </li>
+               </ul>
+        </div>
+    </div>
+</div>
