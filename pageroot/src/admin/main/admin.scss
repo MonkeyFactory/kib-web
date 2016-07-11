@@ -21,3 +21,9 @@ canvas {
 		}
 	}
 }
+
+@media print {
+    .admincontent {
+        width:100%;
+    }
+}
