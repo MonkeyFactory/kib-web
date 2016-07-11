@@ -3,6 +3,7 @@
 angular.module('kibAdmin').factory('tournamentInstance', function($q, tournamentService){
 	var players = [];
 	var rounds = [];
+    var scores = [];
 	var name = '';
 	var date = '';
 	var status = 1;
@@ -75,6 +76,10 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
                 });
             });
             
+            var scorePromise = tournamentService.getScoreboard(tournamentId).$promise.then(function(scores){
+               self.scores = scores; 
+            });
+            
 			// this.rounds = [
 			// 	{
 			// 		name: 'Round 1',
@@ -96,7 +101,9 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 			tournamentPromise.then(function(){
                 playerPromise.then(function(){
                     matchupPromise.then(function(){
-                       readyDefer.resolve(); 
+                        scorePromise.then(function(){
+                            readyDefer.resolve();
+                        });
                     });
                 });
             });
@@ -117,8 +124,8 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 		rounds: rounds,
 		init: init,
 		ready: readyDefer.promise,
-        addPlayer: function(name, affiliation, source, originalObject){
-            var promise = tournamentService.addPlayer(this.id, name, affiliation);
+        addPlayer: function(name, affiliation, compensationPoints, source, originalObject){
+            var promise = tournamentService.addPlayer(this.id, name, affiliation, compensationPoints);
             var localSelf = this;
 
             promise.then(function(){
@@ -133,14 +140,27 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             });
             
             return promise;
+        },
+        reportScore: function(matchupId, player1Score, player2Score){
+            var promise = tournamentService.reportScore(this.id, matchupId, player1Score, player2Score);
+            var localSelf = this;
+            
+            promise.then(function(){
+                tournamentService.getScoreboard(localSelf.id).$promise.then(function(scores){
+                   localSelf.scores = scores; 
+                });
+            });
+            
+            return promise;   
         }
 	};
 });
 
 angular.module('kibAdmin').factory('tournamentService', function($resource, constants, $http){
-	var Tournament = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId')
+	var Tournament = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId');
     var Player = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/player');
     var Matchup = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/matchups');
+    var Score = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/score/:matchupId');
     
 	return {
         list: function(){
@@ -155,8 +175,8 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
             return Player.query({tournamentId: tournamentId});
         },
         
-        addPlayer: function(tournamentId, name, affiliation){
-            var player = new Player({name: name, affiliation: affiliation});
+        addPlayer: function(tournamentId, name, affiliation, compensationPoints){
+            var player = new Player({name: name, affiliation: affiliation, compensationPoints: compensationPoints});
             return player.$save({tournamentId: tournamentId});
         },
         
@@ -164,12 +184,16 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
             return Matchup.query({tournamentId: tournamentId});
         },
         
+        getScoreboard: function(tournamentId){
+            return Score.query({tournamentId: tournamentId})
+        },
+        
         reportScore: function(tournamentId, matchupId, player1Score, player2Score){
-            return $http.post(constants.tournamentApiPath + '/api/tournament/' + tournamentId + '/score/' + matchupId, 
-                              {
+            var score = new Score({
                                   player1Score: player1Score,
                                   player2Score: player2Score
                               });
+            return score.$save({tournamentId: tournamentId, matchupId: matchupId});
         },
         
         generateNextRound: function(tournamentId){

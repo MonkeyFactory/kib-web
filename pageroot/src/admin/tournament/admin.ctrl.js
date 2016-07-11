@@ -8,9 +8,9 @@ angular.module('kibAdmin').controller('AdminTournament', function($stateParams, 
 	});
 	
 	$scope.saveScore = function(matchup){
-        tournamentService.reportScore(tournamentInstance.id, matchup.id, matchup.player1Score, matchup.player2Score).success(function(){
+        tournamentInstance.reportScore(matchup.id, matchup.player1Score, matchup.player2Score).then(function(){
            alert('Saved'); 
-        }).error(function(data){
+        }, function(data){
           alert('Error: ' + data.message);
         });
     }
@@ -34,7 +34,7 @@ angular.module('kibAdmin').controller('AdminTournament', function($stateParams, 
             if(!isReported)
                 return;
             
-           if(matchup.player1Score == undefined || matchup.player2Score == undefined){
+           if(matchup.player1Score == undefined || matchup.player2Score == undefined || (matchup.player1Score == 0 && matchup.player2Score == 0)){
                isReported = false;
            } 
         });
