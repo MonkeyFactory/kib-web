@@ -54,26 +54,7 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             var playerPromise = tournamentService.getPlayers(tournamentId).$promise.then(function(players){
                 self.players = players;
                 
-                matchupPromise = tournamentService.getMatchups(tournamentId).$promise.then(function(matchups){
-                     self.rounds = []
-                     
-                     matchups.sort(function(a,b){return a.roundNumber - b.roundNumber;});
-                     matchups.forEach(function(round){
-                        self.rounds.push({
-                           name: 'Round ' + round.roundNumber,
-                           matchups: round.matchups.map(function(matchup){
-                               return {
-                                    id: matchup.id,
-                                    table: 'Table ' + matchup.tableNumber,
-                                    player1: self.players.find(function(p){ return p.id == matchup.player1Id }),
-                                    player2: self.players.find(function(p){ return p.id == matchup.player2Id }),
-                                    player1Score: matchup.player1Score,
-                                    player2Score: matchup.player1Score  
-                               };
-                           })
-                        }); 
-                     });
-                });
+                matchupPromise = getRounds(self);
             });
             
             var scorePromise = tournamentService.getScoreboard(tournamentId).$promise.then(function(scores){
@@ -115,6 +96,29 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 		return readyDefer.promise;
 	};
 	
+    var getRounds = function(self){
+        return tournamentService.getMatchups(self.id).$promise.then(function(matchups){
+            self.rounds = []
+            
+            matchups.sort(function(a,b){return a.roundNumber - b.roundNumber;});
+            matchups.forEach(function(round){
+            self.rounds.push({
+                name: 'Round ' + round.roundNumber,
+                matchups: round.matchups.map(function(matchup){
+                    return {
+                        id: matchup.id,
+                        table: 'Table ' + matchup.tableNumber,
+                        player1: self.players.find(function(p){ return p.id == matchup.player1Id }),
+                        player2: self.players.find(function(p){ return p.id == matchup.player2Id }),
+                        player1Score: matchup.player1Score,
+                        player2Score: matchup.player1Score  
+                    };
+                })
+                }); 
+            });
+        });
+    };
+    
 	return {
         id: id,
 		status: status,
@@ -143,7 +147,7 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             return promise;
         },
         dropoutRemovePlayer: function(playerId){
-            var promise = tournamentService.dropoutRemovePlayer(this.id, playerId);
+            var promise = tournamentService.dropoutRemovePlayer(this.id, playerId).$promise;
             var localSelf = this;
             
             promise.then(function(){
@@ -162,6 +166,16 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
                 tournamentService.getScoreboard(localSelf.id).$promise.then(function(scores){
                    localSelf.scores = scores; 
                 });
+            });
+            
+            return promise;   
+        },
+        generateNextRound: function(){
+            var promise = tournamentService.generateNextRound(this.id);
+            var localSelf = this;
+            
+            promise.then(function(){
+               getRounds(localSelf);
             });
             
             return promise;   
@@ -222,7 +236,8 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
         },
         
         generateNextRound: function(tournamentId){
-            return $http.post(constants.tournamentApiPath + '/api/tournament/' + tournamentId + '/matchups', {});
+            var matchup = new Matchup();
+            return matchup.$save({tournamentId: tournamentId});
         }
     };
 });

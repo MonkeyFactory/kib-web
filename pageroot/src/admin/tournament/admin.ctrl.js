@@ -19,7 +19,7 @@ angular.module('kibAdmin').controller('AdminTournament', function($stateParams, 
         if(!$scope.allMatchesReported())
             return;
         
-        tournamentService.generateNextRound(tournamentInstance.id).$promise.then(function(round){
+        tournamentService.generateNextRound(tournamentInstance.id).then(function(round){
             console.log(round); 
         });
 	}
