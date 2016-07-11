@@ -6,13 +6,15 @@
             <th>#</th>
             <th>Name</th>
             <th>Affiliation</th>
+            <th ng-repeat="x in matchScoresCount">&nbsp;</th>
             <th>Score</th>
         </tr>
     </thead>
     <tr ng-repeat="score in tournament.scores">
-        <td></td>
+        <td>{{$index + 1}}</td>
         <td>{{score.name}}</td>
         <td>{{score.affiliation}}</td>
+        <td ng-repeat="matchScore in score.matchScores">{{matchScore}}</td>
         <td>{{score.score}}</td>    
     </tr>
 </table>

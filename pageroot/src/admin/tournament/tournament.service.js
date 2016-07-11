@@ -142,6 +142,18 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             
             return promise;
         },
+        dropoutRemovePlayer: function(playerId){
+            var promise = tournamentService.dropoutRemovePlayer(this.id, playerId);
+            var localSelf = this;
+            
+            promise.then(function(){
+                tournamentService.getPlayers(localSelf.id).$promise.then(function(players){
+                    localSelf.players = players;
+                });
+            });
+            
+            return promise;
+        },
         reportScore: function(matchupId, player1Score, player2Score){
             var promise = tournamentService.reportScore(this.id, matchupId, player1Score, player2Score);
             var localSelf = this;
@@ -159,7 +171,7 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 
 angular.module('kibAdmin').factory('tournamentService', function($resource, constants, $http){
 	var Tournament = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId');
-    var Player = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/player');
+    var Player = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/player/:playerId');
     var Matchup = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/matchups');
     var Score = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/score/:matchupId');
     
@@ -187,6 +199,10 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
         addPlayer: function(tournamentId, name, affiliation, compensationPoints){
             var player = new Player({name: name, affiliation: affiliation, compensationPoints: compensationPoints});
             return player.$save({tournamentId: tournamentId});
+        },
+        
+        dropoutRemovePlayer: function(tournamentId, playerId){
+            return Player.delete({tournamentId: tournamentId, playerId: playerId});  
         },
         
         getMatchups: function(tournamentId){

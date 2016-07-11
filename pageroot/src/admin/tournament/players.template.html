@@ -87,8 +87,8 @@
 				<span class="glyphicon glyphicon-trash" ng-click="doDelete(event)"></span>
 			</div>
 			
-			<button class="btn btn-danger" ng-click="remove(player)" ng-hide="tournament.status > 0 && player.active">Remove</button>
-			<button class="btn btn-danger" ng-click="dropout(player)" ng-show="tournament.status > 0 && player.active">Dropout</button>
+			<button class="btn btn-danger" ng-click="dropoutRemove(player)" ng-hide="tournamentStarted() && player.active">Remove</button>
+			<button class="btn btn-danger" ng-click="dropoutRemove(player)" ng-show="tournamentStarted() && player.active">Dropout</button>
 		</td>
 	</tr>
 </table>
