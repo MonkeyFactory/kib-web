@@ -18,7 +18,9 @@ angular.module('kibAdmin').controller('AdminTournamentsList', function($state, $
 			  return tournament;
 			}
 		  }
-    	});	
+    	}).result.then(function(){
+            $scope.tournaments = tournamentService.list();
+        });	
 	};
 	
 	$scope.doNew = function(){

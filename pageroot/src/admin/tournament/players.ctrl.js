@@ -40,7 +40,9 @@ angular.module('kibAdmin').controller('TournamentPlayersCtrl', function($scope, 
     
     $scope.addFromDirectInput = function(){
         //Value in $scope.directInputPlayerName  
-        $scope.tournament.addPlayer($scope.directInput.name, $scope.directInput.affiliation, $scope.directInput.compensationPoints, 3,  null);
+        $scope.tournament.addPlayer($scope.directInput.name, $scope.directInput.affiliation, $scope.directInput.compensationPoints, 3,  null).then(function(){
+            $scope.directInput = {};
+        });
     };
 });
 

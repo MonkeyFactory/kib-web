@@ -135,7 +135,8 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
                     affiliation: affiliation,
                     active: true,
                     source: source,
-                    originalObject: originalObject
+                    originalObject: originalObject,
+                    compensationPoints: compensationPoints
                 });   
             });
             
@@ -162,13 +163,21 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
     var Matchup = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/matchups');
     var Score = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/score/:matchupId');
     
-	return {
+	return {  
         list: function(){
             return Tournament.query();
         },
         
         get: function(tournamentId){
             return Tournament.get({tournamentId: tournamentId});  
+        },
+        
+        add: function(name, date){
+            var tournament = new Tournament();
+            tournament.name = name;
+            tournament.date = date;
+            
+            return tournament.$save();  
         },
         
         getPlayers: function(tournamentId){
