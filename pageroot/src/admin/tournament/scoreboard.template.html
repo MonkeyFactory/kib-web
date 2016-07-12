@@ -11,10 +11,10 @@
         </tr>
     </thead>
     <tr ng-repeat="score in tournament.scores">
-        <td>{{$index + 1}}</td>
-        <td>{{score.name}}</td>
-        <td>{{score.affiliation}}</td>
-        <td ng-repeat="matchScore in score.matchScores">{{matchScore}}</td>
+        <td class="td-fitcontents">{{$index + 1}}</td>
+        <td class="td-fitcontents" style="min-width:100px;">{{score.name}}</td>
+        <td class="td-fitcontents" style="min-width:100px;">{{score.affiliation}}</td>
+        <td ng-repeat="matchScore in score.matchScores">{{matchScore.score}}</td>
         <td>{{score.score}}</td>    
     </tr>
 </table>

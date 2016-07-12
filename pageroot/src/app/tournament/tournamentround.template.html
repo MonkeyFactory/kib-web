@@ -4,7 +4,17 @@
     
     <div ng-repeat="matchup in round.matchups" class="panel panel-default">
         <div class="panel-heading">
-            {{matchup.table}}
+            <h5 class="pull-left">{{matchup.table}}</h5>
+            
+            <button class="btn btn-sm btn-default pull-right" type="button" ng-click="openReportModal(matchup)" ng-if="!matchup.player1Score && !matchup.player2Score">
+                   Report score
+            </button>
+            
+            <span class="pull-right" ng-if="matchup.player1Score || matchup.player2Score" style="margin-top:8px;color:green;">
+                Reported    
+            </span>
+               
+            <div class="clearfix"></div>
         </div>
         <div class="panel-body" style="text-align:center">
                <ul class="list-inline">
