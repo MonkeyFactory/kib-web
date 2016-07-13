@@ -19,8 +19,10 @@ angular.module('kibAdmin').controller('AdminTournament', function($stateParams, 
         if(!$scope.allMatchesReported())
             return;
         
-        tournamentService.generateNextRound(tournamentInstance.id).then(function(round){
-            console.log(round); 
+        tournamentInstance.generateNextRound().then(function(rounds){
+            $scope.rounds = rounds;
+        }, function(){
+            alert('Error ocurred when generating matchups');
         });
 	}
 	

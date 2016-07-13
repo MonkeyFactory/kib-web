@@ -171,14 +171,18 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             return promise;   
         },
         generateNextRound: function(){
-            var promise = tournamentService.generateNextRound(this.id);
-            var localSelf = this;
+            var defer = $q.defer();
             
-            promise.then(function(){
-               getRounds(localSelf);
+            var localSelf = this;
+            tournamentService.generateNextRound(this.id).then(function(rawRound){
+               getRounds(localSelf).then(function(){
+                  defer.resolve(localSelf.rounds); 
+               });
+            }, function(){
+                defer.reject();
             });
             
-            return promise;   
+            return defer.promise;   
         }
 	};
 });
