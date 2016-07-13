@@ -1,9 +1,18 @@
 'use strict';
 
-angular.module('kibApp').controller('TournamentRoundController', function($scope, $stateParams, $modal, tournamentInstance){
+angular.module('kibApp').controller('TournamentRoundController', function($scope, $stateParams, $modal, tournamentInstance, kibservice){
+    $scope.infoPage = kibservice.GetPage("tournament-" + $stateParams.tournamentId);
+    
     tournamentInstance.init($stateParams.tournamentId).then(function(){
         if(tournamentInstance.rounds && tournamentInstance.rounds.length > 0){
 		    $scope.round = tournamentInstance.rounds[tournamentInstance.rounds.length - 1];
+            
+            var pseudoMatch = $scope.round.matchups.find(function(m){ return !m.player2; });
+            if(pseudoMatch){
+                $scope.round.matchup.remove(pseudoMatch);
+            }
+            
+            $scope.scores = tournamentInstance.scores;
         }
 	}, function(error){
 		alert('Load error!');
