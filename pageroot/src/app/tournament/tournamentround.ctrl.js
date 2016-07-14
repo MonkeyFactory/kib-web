@@ -9,7 +9,8 @@ angular.module('kibApp').controller('TournamentRoundController', function($scope
             
             var pseudoMatch = $scope.round.matchups.find(function(m){ return !m.player2; });
             if(pseudoMatch){
-                $scope.round.matchup.remove(pseudoMatch);
+                var index = $scope.round.matchups.indexOf(pseudoMatch);
+                $scope.round.matchups.splice(index, 1);
             }
             
             $scope.scores = tournamentInstance.scores;

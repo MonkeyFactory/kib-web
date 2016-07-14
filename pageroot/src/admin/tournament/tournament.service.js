@@ -12,37 +12,9 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 	var readyDefer = $q.defer();
 	var tournamentId;
 
-	var init = function(tournamentId){
+	var init = function(tournamentId){    
 		if(tournamentId){
             var self = this;
-            
-			//fetch data
-			// this.players = [
-			// 	{
-			// 		name: 'Nojan',
-			// 		active: true,
-			// 		source: 3,
-			// 		originalObject: {}
-			// 	},
-			// 	{
-			// 		name: 'Robin',
-			// 		active: true,
-			// 		source: 3,
-			// 		originalObject: {}
-			// 	},
-			// 	{
-			// 		name: 'Kim',
-			// 		active: true,
-			// 		source: 3,
-			// 		originalObject: {}
-			// 	},
-			// 	{
-			// 		name: 'Johan',
-			// 		active: true,
-			// 		source: 3,
-			// 		originalObject: {}
-			// 	}
-			// ];
 		
             var tournamentPromise = tournamentService.get(tournamentId).$promise.then(function(tournament){
                self.name = tournament.name;
@@ -60,25 +32,7 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             var scorePromise = tournamentService.getScoreboard(tournamentId).$promise.then(function(scores){
                self.scores = scores; 
             });
-            
-			// this.rounds = [
-			// 	{
-			// 		name: 'Round 1',
-			// 		matchups: [
-			// 			{
-			// 				table: 'Table 1',
-			// 				player1: this.players[0],
-			// 				player2:  this.players[1]
-			// 			},
-			// 			{
-			// 				table: 'Table 2',
-			// 				player1:  this.players[2],
-			// 				player2:  this.players[3]
-			// 			}
-			// 		]
-			// 	}
-			// ];
-			
+           
 			tournamentPromise.then(function(){
                 playerPromise.then(function(){
                     matchupPromise.then(function(){
@@ -176,7 +130,8 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             var localSelf = this;
             tournamentService.generateNextRound(this.id).then(function(rawRound){
                getRounds(localSelf).then(function(){
-                  defer.resolve(localSelf.rounds); 
+                  defer.resolve(localSelf.rounds);
+                  readyDefer.resolve();
                });
             }, function(){
                 defer.reject();
