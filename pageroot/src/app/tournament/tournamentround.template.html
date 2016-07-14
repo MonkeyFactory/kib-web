@@ -4,11 +4,11 @@
 		    <div ng-bind-html="infoPage.pageContent | unsafe" style="margin-top:5px;"></div>
 	    </tab>
         <tab heading="Pairings">
-            <h1>{{round.name}}</h1>
+            <h1>Runda {{round.roundNumber}}</h1>
     
             <div ng-repeat="matchup in round.matchups" class="panel panel-default">
                 <div class="panel-heading">
-                    <h5 class="pull-left">{{matchup.table}}</h5>
+                    <h5 class="pull-left">Bord {{matchup.tableNumber}}</h5>
                     
                     <button class="btn btn-sm btn-default pull-right" type="button" ng-click="openReportModal(matchup)" ng-if="!matchup.player1Score && !matchup.player2Score">
                         Rapportera poäng

@@ -57,11 +57,15 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
             matchups.sort(function(a,b){return a.roundNumber - b.roundNumber;});
             matchups.forEach(function(round){
             self.rounds.push({
+                id: round.roundId,
                 name: 'Round ' + round.roundNumber,
+                roundNumber: round.roundNumber,
+                public: round.public,
                 matchups: round.matchups.map(function(matchup){
                     return {
                         id: matchup.id,
                         table: 'Table ' + matchup.tableNumber,
+                        tableNumber: matchup.tableNumber,
                         player1: self.players.find(function(p){ return p.id == matchup.player1Id }),
                         player2: self.players.find(function(p){ return p.id == matchup.player2Id }),
                         player1Score: matchup.player1Score,
@@ -147,6 +151,7 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
     var Player = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/player/:playerId');
     var Matchup = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/matchups');
     var Score = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/score/:matchupId');
+    var RoundPublic = $resource(constants.tournamentApiPath + '/api/tournament/:tournamentId/round/:roundId/public');
     
 	return {  
         list: function(){
@@ -197,6 +202,11 @@ angular.module('kibAdmin').factory('tournamentService', function($resource, cons
         generateNextRound: function(tournamentId){
             var matchup = new Matchup();
             return matchup.$save({tournamentId: tournamentId});
+        },
+        
+        makeRoundPublic: function(tournamentId, roundId){
+            var roundPublic = new RoundPublic();
+            return roundPublic.$save({tournamentId: tournamentId, roundId: roundId});   
         }
     };
 });

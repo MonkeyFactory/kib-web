@@ -43,4 +43,12 @@ angular.module('kibAdmin').controller('AdminTournament', function($stateParams, 
         
 		return isReported;	
 	};
+    
+    $scope.makePublic = function(round){
+      tournamentService.makeRoundPublic($stateParams.tournamentId, round.id).then(function(){
+          round.public = true;
+      }, function(){
+          alert('Error when setting round public');
+      });
+    };
 });

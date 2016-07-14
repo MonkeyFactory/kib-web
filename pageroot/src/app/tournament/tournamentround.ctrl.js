@@ -5,8 +5,15 @@ angular.module('kibApp').controller('TournamentRoundController', function($scope
     
     tournamentInstance.init($stateParams.tournamentId).then(function(){
         if(tournamentInstance.rounds && tournamentInstance.rounds.length > 0){
-		    $scope.round = tournamentInstance.rounds[tournamentInstance.rounds.length - 1];
             
+            var i = 1;
+            while(!$scope.round || !$scope.round.public){
+		        $scope.round = tournamentInstance.rounds[tournamentInstance.rounds.length - i++];
+                
+                if(tournamentInstance.rounds.length - i < 0){
+                    return;
+                }
+            }
             var pseudoMatch = $scope.round.matchups.find(function(m){ return !m.player2; });
             if(pseudoMatch){
                 var index = $scope.round.matchups.indexOf(pseudoMatch);
