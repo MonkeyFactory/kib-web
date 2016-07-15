@@ -15,11 +15,11 @@ angular.module('kibAdmin').factory('tournamentInstance', function($q, tournament
 	var init = function(tournamentId){    
 		if(tournamentId){
             var self = this;
-		
+		    self.id = tournamentId;
+
             var tournamentPromise = tournamentService.get(tournamentId).$promise.then(function(tournament){
                self.name = tournament.name;
-               self.date = tournament.date; 
-               self.id = tournament.id;
+               self.date = tournament.date;
             });
             
             var matchupPromise = $q.defer().promise;   

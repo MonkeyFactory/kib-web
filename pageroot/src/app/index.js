@@ -6,7 +6,7 @@ angular.module('kibApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'angular-ca
       .state('main', {
         abstract:true,
         templateUrl: 'app/main/main.html',
-        controller: 'MainAdminCtrl'
+        controller: 'MainCtrl'
       })
 	  .state('main.start', {
         url: '/',
@@ -43,7 +43,12 @@ angular.module('kibApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'angular-ca
         templateUrl: 'app/league/reportmatch.template.html',
         controller: 'LeagueReportMatchController'
       })
-      .state('main.tournament', {
+       .state('bare', {
+        abstract:true,
+        templateUrl: 'app/bare/main.html',
+        controller: 'BareCtrl'
+      })
+      .state('bare.tournament', {
         url: '/tournament/:tournamentId',
         templateUrl: 'app/tournament/tournamentround.template.html',
         controller: 'TournamentRoundController'
