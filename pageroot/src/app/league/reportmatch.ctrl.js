@@ -1,8 +1,6 @@
 'use strict';
 
-/* jshint camelcase: false */
-
-angular.module('kibApp').controller('LeagueReportMatchController', function($scope, $stateParams, $window, $timeout, $http, $location, kibservice, adminservice){
+angular.module('kibApp').controller('LeagueReportMatchController', function($scope, $stateParams, $window, $timeout, $location, kibservice, adminservice, userservice){
 	adminservice.GetAuthInfo(function(auth){
 		if(auth.authlevel === 0){
 			//not logged in
@@ -18,21 +16,16 @@ angular.module('kibApp').controller('LeagueReportMatchController', function($sco
 	
 	$scope.challenge = kibservice.GetCurrentChallenge($scope.leagueId);
 	
-	$scope.lookupUser = function(user){
-		return $http.get('http://kibdev.crabdance.com/modend/api/authinfo/completeusername/' + user
-		).then(function(response){
-		  return response.data;
-		});
-	};
+	$scope.lookupUser = userservice.lookup;
 	
 	$scope.reportMatch = function(){
-		if(!angular.isDefined($scope.selectedPlayer2)){
+		if(angular.isUndefined($scope.selectedPlayer2)){
 			//form not filled in properly
 			return;
 		}
 		
 		if(false && $scope.auth.authlevel > 1){
-			if(!angular.isDefined($scope.selectedPlayer1)){
+			if(angular.isUndefined($scope.selectedPlayer1)){
 				//form not filled in properly
 				return;
 			}

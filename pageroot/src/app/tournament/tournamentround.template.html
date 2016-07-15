@@ -1,0 +1,57 @@
+<div class="container">
+    <tabset>
+        <tab heading="Info">
+		    <div ng-bind-html="infoPage.pageContent | unsafe" style="margin-top:5px;"></div>
+	    </tab>
+        <tab heading="Pairings">
+            <h1>Runda {{round.roundNumber}}</h1>
+    
+            <div ng-repeat="matchup in round.matchups" class="panel panel-default">
+                <div class="panel-heading">
+                    <h5 class="pull-left">Bord {{matchup.tableNumber}}</h5>
+                    
+                    <button class="btn btn-sm btn-default pull-right" type="button" ng-click="openReportModal(matchup)" ng-if="!matchup.player1Score && !matchup.player2Score">
+                        Rapportera poäng
+                    </button>
+                    
+                    <span class="pull-right" ng-if="matchup.player1Score || matchup.player2Score" style="margin-top:8px;color:green;">
+                        Rapporterad    
+                    </span>
+                    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body" style="text-align:center">
+                    <ul class="list-inline">
+                        <li>
+                            {{matchup.player1.name}}
+                        </li>
+                        <li>
+                        <b>V.S</b>
+                        </li>
+                        <li>
+                            {{matchup.player2.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </tab>
+        <tab heading="Scoreboard">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Namn</th>
+                            <th>Förening</th>
+                            <th>Poäng</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="score in scores">
+                        <td class="td-fitcontents">{{$index + 1}}</td>
+                        <td>{{score.name}}</td>
+                        <td>{{score.affiliation}}</td>
+                        <td>{{score.score}}</td>    
+                    </tr>
+                </table>
+        </tab>
+    </tabset>
+</div>

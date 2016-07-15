@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 angular.module('kibApp').directive('dateTimePicker', function() {
     return {
         require: 'ngModel',
@@ -9,7 +9,7 @@ angular.module('kibApp').directive('dateTimePicker', function() {
             options: '=?'
         },
         link: function (scope, elem, attrs, ngModel) {
-            if (!angular.isDefined(scope.options)) {
+            if (angular.isUndefined(scope.options)) {
                 scope.options = {
                     locale: scope.locale,
                     format: scope.format

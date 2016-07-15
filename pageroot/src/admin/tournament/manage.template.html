@@ -1,7 +1,7 @@
 <div class="page-header clearfix">
 	<h1 class="pull-left">Existing tournaments</h1>
 	
-	<Button class="btn btn-primary pull-right">New tournament</Button> 
+	<Button class="btn btn-primary pull-right" ng-click="doNew()">New tournament</Button> 
 </div>
 
 <table class="table">
@@ -18,7 +18,7 @@
 	<tr ng-repeat="tournament in tournaments">
 		<td>
 			<div class="btn btn-default btn-xs">
-				<span class="glyphicon glyphicon-folder-open" ng-click="openTournament(tournament.tournamentId)"></span>	
+				<span class="glyphicon glyphicon-folder-open" ng-click="openTournament(tournament.id)"></span>	
 			</div>
 		</td>
 		<td>

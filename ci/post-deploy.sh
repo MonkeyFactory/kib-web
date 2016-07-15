@@ -25,9 +25,9 @@ sed -i "s|/\* KiB-Styles \*/|@import url("../../../$cssname");|" stylesheet.css
 echo "[log] Copying main web page files"
 cp -r $WORKINGDIR/pageroot/dist/* "$DSTDIR"
 
-echo "[log] Copying forum theme"
-[ ! -d "$DSTDIR/forum/styles/" ] && mkdir -p "$DSTDIR/forum/styles/"
-cp -r "$WORKINGDIR/forum-theme/kib" "$DSTDIR/forum/styles/"
+#echo "[log] Copying forum theme"
+#[ ! -d "$DSTDIR/forum/styles/" ] && mkdir -p "$DSTDIR/forum/styles/"
+#cp -r "$WORKINGDIR/forum-theme/kib" "$DSTDIR/forum/styles/"
 
 cd ../
 #rm -rf $WORKINGDIR

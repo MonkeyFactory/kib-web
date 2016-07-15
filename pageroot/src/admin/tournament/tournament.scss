@@ -6,3 +6,8 @@
 	text-decoration: line-through;
 }
 
+@media print {
+    .nav-tabs {
+        display:none;
+    }
+}

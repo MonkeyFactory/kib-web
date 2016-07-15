@@ -1,8 +1,14 @@
-<tabset>
+<tabset ng-if="auth.authlevel > 1">
 	<tab heading="Players">
 		<div ng-include="'admin/tournament/players.template.html'" ng-controller="TournamentPlayersCtrl"></div>
 	</tab>
 	<tab ng-repeat="round in rounds" heading="{{round.name}}">
+        <div ng-if="!round.public" class="alert alert-info">
+            Round not public.
+            <button class="btn btn-primary pull-right" type="button" ng-click="makePublic(round)" style="margin-top:-5px;">
+                Make public
+            </button>
+        </div>   
 		<div class="matches-container">
 			<div ng-repeat="matchup in round.matchups" class="panel panel-default">
 				<div class="panel-heading">
@@ -10,20 +16,25 @@
 				</div>
 				<div class="panel-body">
 					<form>
-					<div class="container-fluid1">
-						<div class="col-xs-6">
-							<div class="form-group">
-								<label>{{matchup.player1.name}}</label>
-								<input type="number" ng-model="matchup.player1Score" class="form-control" />
-							</div>
-						</div>
-						<div class="col-xs-6">
-							<div class="form-group">
-								<label>{{matchup.player2.name}}</label>
-								<input type="number" ng-model="matchup.player2Score" class="form-control" />
-							</div>
-						</div>
-					</div>
+                        <div class="container-fluid1">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>{{matchup.player1.name}}</label>
+                                    <input type="number" ng-model="matchup.player1Score" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group" ng-if="matchup.player2">
+                                    <label>{{matchup.player2.name}}</label>
+                                    <input type="number" ng-model="matchup.player2Score" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-default pull-right" ng-click="saveScore(matchup)">
+                            Save
+                        </button>
+                        
+                        <div class="clearfix"></div>
 					</form>
 				</div>
 			</div>
